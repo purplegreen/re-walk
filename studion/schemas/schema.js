@@ -7,6 +7,7 @@ import mainImage from "./mainImage";
 import blockContent from "./blockContent";
 import post from "./post";
 import about from "./about";
+import more from "./more";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -18,6 +19,7 @@ export default createSchema({
     /* Your types here! */
     post,
     about,
+    more,
     mainImage,
     blockContent,
 

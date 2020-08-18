@@ -1,9 +1,10 @@
 <template>
   <div class="nav">
-    <nuxt-link to="/" class="brand">ADADA</nuxt-link>
+    <nuxt-link to="/" class="brand">Walk</nuxt-link>
     <nav>
       <nuxt-link to="/">List</nuxt-link>&nbsp;|
-      <nuxt-link to="/about">About</nuxt-link>
+      <nuxt-link to="/about">About</nuxt-link> |
+      <nuxt-link to="/more">More</nuxt-link>
     </nav>
   </div>
 </template>

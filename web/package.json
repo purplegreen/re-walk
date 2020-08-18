@@ -17,7 +17,9 @@
     "@sanity/client": "^1.149.18",
     "@sanity/image-url": "^0.140.19",
     "block-content-to-vue": "^0.1.0",
+    "groq": "^1.149.16",
     "gsap": "file:gsap-bonus.tgz",
+    "normalize.css": "^8.0.1",
     "nuxt": "^2.14.1",
     "sanity-blocks-vue-component": "^0.1.0",
     "vue-sanity": "^0.8.0"
