@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>baba</h1>
+    <h1>DADA</h1>
 
     <ul v-if="loading == false">
       <li v-for="post in posts" ref="post" :key="post._id" class="box">
@@ -19,7 +19,7 @@
     </ul>
 
     <h2 ref="message">
-      and if...
+      hello hello
     </h2>
   </section>
 </template>
@@ -31,12 +31,11 @@ import { gsap } from 'gsap'
 import { TextPlugin } from 'gsap/TextPlugin'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import sanity from '../sanity'
-
 if (process.client) {
   gsap.registerPlugin(TextPlugin, ScrollTrigger)
 }
-
 const imageBuilder = imageUrlBuilder(sanity)
+
 const query = `*[_type == "post" ] | order(releaseDate desc)
 {
   _id,
@@ -47,7 +46,6 @@ const query = `*[_type == "post" ] | order(releaseDate desc)
   releaseDate,
   body
 }[0...29]`
-
 export default {
   name: 'Posts',
   components: {
@@ -94,7 +92,7 @@ export default {
       if (!process.client) return
       ScrollTrigger.defaults({
         toggleActions: 'restart pause resume none',
-        markers: true,
+        // markers: true,
       })
       gsap.utils.toArray(this.$refs.post).forEach((el, i) => {
         gsap.to(el, {
@@ -104,7 +102,7 @@ export default {
             end: 'bottom 100px',
             scrub: i * 0.1,
           },
-          rotation: '+=360',
+          x: '70px',
           duration: 9,
         })
       })
@@ -127,7 +125,6 @@ export default {
   align-items: center;
   text-align: center;
 }
-
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -137,7 +134,6 @@ export default {
   color: #35495e;
   letter-spacing: 1px;
 }
-
 .subtitle {
   font-weight: 300;
   font-size: 42px;
@@ -145,7 +141,6 @@ export default {
   word-spacing: 5px;
   padding-bottom: 15px;
 }
-
 .links {
   padding-top: 15px;
 }
