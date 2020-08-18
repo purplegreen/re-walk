@@ -3,8 +3,14 @@
     <div v-if="loading" class="loading">Loading...</div>
     <div v-if="error" class="error">{{ error }}</div>
     <section>
-      <p class="block-content">
+      <p v-if="loading == false" class="block-content">
         <block-content :blocks="about.body" :serializers="{ serializers }" />
+
+        <img
+          v-if="about.mainImage"
+          class="mainImage"
+          :src="imageUrlFor(about.mainImage).ignoreImageParams()"
+        />
       </p>
     </section>
   </div>
@@ -67,8 +73,8 @@ export default {
       this.loading = true
       sanity.fetch(query).then(
         (about) => {
-          this.loading = false
           this.about = about
+          this.loading = false
         },
         (error) => {
           this.error = error

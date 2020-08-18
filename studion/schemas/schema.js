@@ -17,8 +17,9 @@ export default createSchema({
   types: schemaTypes.concat([
     /* Your types here! */
     post,
+    about,
     mainImage,
     blockContent,
-    about
+
   ]),
 });
