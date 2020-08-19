@@ -1,3 +1,5 @@
+/* eslint-disable vue/require-prop-types */ /* eslint-disable
+vue/require-prop-types */
 <template>
   <div class>
     <div class="wrap-title">
@@ -69,65 +71,72 @@
 import { mapState, mapActions } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
 import Duration from '@/components/duration.vue'
+
 export default {
   name: 'SnippetCard',
   components: {
     ProgressBar,
     Duration,
   },
-  async fetch({ store, error, params }) {
-    try {
-      await store.dispatch('snippet/fetchsnippet', params.id)
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch event #' + params.id,
-      })
-    }
-  },
-  computed: {
-    ...mapState({
-      snippets: (state) => state.snippet.snippets,
-      customWalkpath: (state) => state.walkpath.customWalkpath,
-    }),
-    isWalkpathReady() {
-      return this.customWalkpath.composition.length > 0
+  props: {
+    name: {
+      type: Object,
+      required: true,
     },
-  },
-  methods: {
-    ...mapActions([
-      'addToWalkpath',
-      'removeFromWalkpath',
-      'setWalkpathInProgress',
-    ]),
-    showModal(snippet) {
-      this.$modal.show('snippet-modal', { snippet })
+
+    // data() {
+    //   return {
+    //     loading: false,
+    //     blocks: [],
+    //     text: '',
+    //   }
+    // },
+    // eslint-disable-next-line vue/require-prop-types
+    computed: {
+      ...mapState({
+        snippets: (state) => state.snippet.snippets,
+        customWalkpath: (state) => state.walkpath.customWalkpath,
+      }),
+      isWalkpathReady() {
+        return this.customWalkpath.composition.length > 0
+      },
     },
-    beforeOpen({ params }) {
-      this.selectedsnippet = params.snippet
-    },
-    add() {
-      this.addToWalkpath(this.selectedsnippet)
-      this.$modal.hide('snippet-modal')
-    },
-    remove() {
-      this.removeFromWalkpath(this.selectedsnippet)
-      this.$modal.hide('snippet-modal')
-    },
-    start() {
-      this.setWalkpathInProgress(this.customWalkpath)
-      this.$router.push('walkpath')
-    },
-    issnippetSelected(snippet) {
-      const index = this.customWalkpath.composition.findIndex(
-        (e) => e.id === snippet.id
-      )
-      return index !== -1
-    },
-    issnippetSelectedColor(snippet) {
-      return {
-        backgroundColor: snippet.color,
-      }
+
+    methods: {
+      ...mapActions([
+        'addToWalkpath',
+        'removeFromWalkpath',
+        'setWalkpathInProgress',
+      ]),
+      showModal(snippet) {
+        this.$modal.show('snippet-modal', { snippet })
+      },
+      beforeOpen({ params }) {
+        this.selectedsnippet = params.snippet
+      },
+      add() {
+        this.addToWalkpath(this.selectedsnippet)
+        this.$modal.hide('snippet-modal')
+      },
+      remove() {
+        this.removeFromWalkpath(this.selectedsnippet)
+        this.$modal.hide('snippet-modal')
+      },
+      start() {
+        this.setWalkpathInProgress(this.customWalkpath)
+        this.$router.push('walkpath')
+      },
+      issnippetSelected(snippet) {
+        const index = this.customWalkpath.composition.findIndex(
+          (e) => e.id === snippet.id
+        )
+        return index !== -1
+      },
+      issnippetSelectedColor(snippet) {
+        return {
+          backgroundColor: snippet.color,
+        }
+      },
     },
   },
 }

@@ -6,20 +6,31 @@
   </div>
 </template>
 <script>
+import sanity from '@/sanity'
 import { mapState } from 'vuex'
+
+const query = `*[_type == "snippet"] {
+  _id,
+  title,
+  mainImage,
+  body,
+  imageUrl
+}[0]`
+
 export default {
-  async fetch({ store, error, params }) {
-    try {
-      await store.dispatch('snippet/fetchSnippet', params.id)
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: 'Unable to fetch snippet #' + params.id,
-      })
-    }
+  asyncData(context) {
+    return sanity
+      .fetch(query, context.params.id)
+      .then((data) => ({ snippet: data }))
   },
+  // catch(e) {
+  //   error({
+  //     statusCode: 503,
+  //     message: 'Unable to fetch snippet #' + params.id,
+  //   })
+  // },
   computed: mapState({
-    snippet: (state) => state.snippet.snippet,
+    snippet: (state) => state.snippet.snippets,
   }),
   head() {
     return {

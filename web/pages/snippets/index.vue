@@ -4,22 +4,23 @@
       <h1>Snippets</h1>
       hey
       <ul>
-        <li
+        <SnippetCard
           v-for="snippet in snippets"
           ref="snippet"
           :key="snippet._id"
+          :snippet="snippet"
           class="box"
         >
           <h3 class="">{{ snippet.title }}</h3>
           <block-content :blocks="snippet.body" />
-        </li>
+        </SnippetCard>
       </ul>
     </div>
   </client-only>
 </template>
 <script>
-// import snippetCard from '@/components/snippetCard.vue'
-// import { mapState } from 'vuex'
+import SnippetCard from '@/components/SnippetCard.vue'
+import { mapState } from 'vuex'
 // import imageUrlBuilder from '@sanity/image-url'
 import BlockContent from 'sanity-blocks-vue-component'
 import sanity from '@/sanity'
@@ -37,8 +38,13 @@ const query = `*[_type == "snippet"] {
 export default {
   name: 'Snippet',
   components: {
-    // snippetCard,
+    SnippetCard,
     BlockContent,
+  },
+  props: {
+    id: {
+      type: String,
+    },
   },
   asyncData(context) {
     return sanity
@@ -51,9 +57,9 @@ export default {
   //     message: 'Unable to fetch snippets.',
   //   })
   // }
-  // computed: mapState({
-  //   snippets: (state) => state.snippets.snippets,
-  // }),
+  computed: mapState({
+    snippets: (state) => state.snippet.snippets,
+  }),
   head() {
     return {
       title: 'snippet Listing',
