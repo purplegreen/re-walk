@@ -1,19 +1,16 @@
 import sanity from '../sanity'
 
-const apiClient = sanity.create({
+const sanityClient = sanity.create({
   baseURL: `http://localhost:3000/`,
   withCredential: false,
-  headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
+  headers: {},
 })
 
 export default {
   getWalkpaths() {
-    return apiClient.get('/walkpaths')
+    return sanityClient.get('/walkpaths')
   },
   getWalkpath(id) {
-    return apiClient.get('/walkpath/' + id)
+    return sanityClient.get('/walkpaths/' + id)
   },
 }

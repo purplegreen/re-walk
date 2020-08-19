@@ -1,10 +1,10 @@
 // eslint-disable-next-line prettier/prettier
 const {
-  slots
-} = require('../services/SlotService.js')
+  snippet
+} = require('../sanity.js')
 
 const state = {
-  slots,
+  snippet,
   error: false,
   errorMessage: '',
   success: false,

@@ -5,58 +5,58 @@
         Create your Custom Walk by adding Meditations to your Composition
       </h1>
     </div>
-    <progress-bar :slots="customWalkpath.composition"></progress-bar>
+    <progress-bar :snippets="customWalkpath.composition"></progress-bar>
     <duration :total="customWalkpath.duration"></duration>
     <div>
       <button :disabled="!isWalkpathReady" @click="start">
         <BaseIcon alt="Start Walk" name="next" />
       </button>
     </div>
-    <div class="slots">
+    <div class="snippets">
       <button
-        v-for="slot of slots"
-        :key="slot.id"
-        class="slot"
-        :class="{ selected: isSlotSelected(slot) }"
-        :style="isSlotSelectedColor(slot)"
-        @click="showModal(slot)"
+        v-for="snippet of snippets"
+        :key="snippet.id"
+        class="snippet"
+        :class="{ selected: issnippetSelected(snippet) }"
+        :style="issnippetSelectedColor(snippet)"
+        @click="showModal(snippet)"
       >
-        <h6 class="centered">{{ slot.name }}</h6>
+        <h6 class="centered">{{ snippet.name }}</h6>
       </button>
       <modal
-        name="slot-modal"
+        name="snippet-modal"
         transition="nice-modal-fade"
         :adaptive="true"
         @before-open="beforeOpen"
       >
-        <div class="slot-modal-content">
+        <div class="snippet-modal-content">
           <div class="side-el">
-            <button @click="$modal.hide('slot-modal')">
-              <BaseIcon alt="Close Slot" name="close" />
+            <button @click="$modal.hide('snippet-modal')">
+              <BaseIcon alt="Close snippet" name="close" />
             </button>
           </div>
           <ul>
             <li>
-              <h2 class="with-padding">{{ selectedSlot.name }}</h2>
+              <h2 class="with-padding">{{ selectedsnippet.name }}</h2>
             </li>
             <li>
-              <h3>{{ selectedSlot.category }}</h3>
+              <h3>{{ selectedsnippet.category }}</h3>
             </li>
             <li>
               <h3 class="with-padding-10">
-                {{ selectedSlot.duration | secondsToMinutes }} min
+                {{ selectedsnippet.duration | secondsToMinutes }} min
               </h3>
             </li>
             <li>
-              <h4 class="with-padding">{{ selectedSlot.shortText }}</h4>
+              <h4 class="with-padding">{{ selectedsnippet.shortText }}</h4>
             </li>
           </ul>
           <div class="wrap-buttons">
-            <button v-if="isSlotSelected(selectedSlot)" @click="remove">
-              <BaseIcon alt="Remove Slot" name="remove" />
+            <button v-if="issnippetSelected(selectedsnippet)" @click="remove">
+              <BaseIcon alt="Remove snippet" name="remove" />
             </button>
             <button v-else @click="add">
-              <BaseIcon alt="Insert Slot" name="insert" />
+              <BaseIcon alt="Insert snippet" name="insert" />
             </button>
           </div>
         </div>
@@ -70,14 +70,14 @@ import { mapState, mapActions } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
 import Duration from '@/components/duration.vue'
 export default {
-  name: 'SlotCard',
+  name: 'SnippetCard',
   components: {
     ProgressBar,
     Duration,
   },
   async fetch({ store, error, params }) {
     try {
-      await store.dispatch('slot/fetchSlot', params.id)
+      await store.dispatch('snippet/fetchsnippet', params.id)
     } catch (e) {
       error({
         statusCode: 503,
@@ -87,7 +87,7 @@ export default {
   },
   computed: {
     ...mapState({
-      slots: (state) => state.slot.slots,
+      snippets: (state) => state.snippet.snippets,
       customWalkpath: (state) => state.walkpath.customWalkpath,
     }),
     isWalkpathReady() {
@@ -100,33 +100,33 @@ export default {
       'removeFromWalkpath',
       'setWalkpathInProgress',
     ]),
-    showModal(slot) {
-      this.$modal.show('slot-modal', { slot })
+    showModal(snippet) {
+      this.$modal.show('snippet-modal', { snippet })
     },
     beforeOpen({ params }) {
-      this.selectedSlot = params.slot
+      this.selectedsnippet = params.snippet
     },
     add() {
-      this.addToWalkpath(this.selectedSlot)
-      this.$modal.hide('slot-modal')
+      this.addToWalkpath(this.selectedsnippet)
+      this.$modal.hide('snippet-modal')
     },
     remove() {
-      this.removeFromWalkpath(this.selectedSlot)
-      this.$modal.hide('slot-modal')
+      this.removeFromWalkpath(this.selectedsnippet)
+      this.$modal.hide('snippet-modal')
     },
     start() {
       this.setWalkpathInProgress(this.customWalkpath)
       this.$router.push('walkpath')
     },
-    isSlotSelected(slot) {
+    issnippetSelected(snippet) {
       const index = this.customWalkpath.composition.findIndex(
-        (e) => e.id === slot.id
+        (e) => e.id === snippet.id
       )
       return index !== -1
     },
-    isSlotSelectedColor(slot) {
+    issnippetSelectedColor(snippet) {
       return {
-        backgroundColor: slot.color,
+        backgroundColor: snippet.color,
       }
     },
   },
@@ -134,11 +134,11 @@ export default {
 </script>
 
 <style scoped>
-.slots {
+.snippets {
   padding-top: 12px;
   padding-bottom: 40px;
 }
-.slot {
+.snippet {
   width: 22%;
   color: white;
   border-radius: var(--border-radius);
@@ -148,10 +148,10 @@ export default {
   padding: 19px 0px;
   margin: 3px;
 }
-.slot.selected {
+.snippet.selected {
   background: #add8e6;
 }
-.slot-modal-content {
+.snippet-modal-content {
   padding: 10px;
 }
 .wrap-title {

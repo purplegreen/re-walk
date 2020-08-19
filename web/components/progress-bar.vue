@@ -2,33 +2,33 @@
 export default {
   name: 'ProgressBar',
   props: {
-    slots: {
+    snippets: {
       type: Array,
       default: () => [],
     },
   },
   computed: {
     max() {
-      return this.slots.reduce((total, slot) => {
-        return total + slot.duration
+      return this.snippets.reduce((total, snippet) => {
+        return total + snippet.duration
       }, 0)
     },
   },
   methods: {
-    getProgressBarStyle(slot) {
+    getProgressBarStyle(snippet) {
       return {
-        backgroundColor: slot.color,
-        width: `${(slot.duration * 100) / this.max}%`,
+        backgroundColor: snippet.color,
+        width: `${(snippet.duration * 100) / this.max}%`,
       }
     },
-    getProgressOverlayStyle(slot) {
-      if (slot.isHighlighted) return { width: '100%' }
+    getProgressOverlayStyle(snippet) {
+      if (snippet.isHighlighted) return { width: '100%' }
       return {
-        width: `${(slot.alreadyPlayedInSeconds * 100) / slot.duration}%`,
+        width: `${(snippet.alreadyPlayedInSeconds * 100) / snippet.duration}%`,
       }
     },
-    onClick(slot, index, $event) {
-      this.$emit('onBarClicked', slot, index, $event)
+    onClick(snippet, index, $event) {
+      this.$emit('onBarClicked', snippet, index, $event)
     },
   },
 }
@@ -36,21 +36,21 @@ export default {
 <template>
   <div class="progress">
     <span
-      v-for="(slot, index) in slots"
-      :key="slot.id"
+      v-for="(snippet, index) in snippets"
+      :key="snippet.id"
       class="progress-bar"
-      :class="{ highlight: slot.isHighlighted }"
-      :style="getProgressBarStyle(slot)"
-      @click.self="onClick(slot, index, $event)"
+      :class="{ highlight: snippet.isHighlighted }"
+      :style="getProgressBarStyle(snippet)"
+      @click.self="onClick(snippet, index, $event)"
     >
       <div class="cont-wrap">
-        <span class="num">{{ slot.duration | secondsToMinutes }}</span>
+        <span class="num">{{ snippet.duration | secondsToMinutes }}</span>
         <span class="min">min</span>
-        <span class="rotate-text">{{ slot.name }}</span>
+        <span class="rotate-text">{{ snippet.name }}</span>
       </div>
       <span
         class="progress-overlay"
-        :style="getProgressOverlayStyle(slot)"
+        :style="getProgressOverlayStyle(snippet)"
       ></span>
     </span>
   </div>

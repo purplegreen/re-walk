@@ -7,10 +7,10 @@ const sanityClient = sanity.create({
 })
 
 export default {
-  getSlots() {
-    return sanityClient.get('/slots')
+  getSnippet() {
+    return sanityClient.get('/snippet')
   },
-  getSlot(id) {
-    return sanityClient.get('/slot/' + id)
+  getSnippet(id) {
+    return sanityClient.get('/snippet/' + id)
   },
 }

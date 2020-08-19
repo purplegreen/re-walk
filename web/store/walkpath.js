@@ -1,7 +1,7 @@
 // eslint-disable-next-line prettier/prettier
 const {
   walkpaths
-} = require('../services/WalkpathService.js')
+} = require('../sanity.js')
 
 const ADD_TO_WALKPATH = 'ADD_TO_WALKPATH'
 const REMOVE_FROM_WALKPATH = 'REMOVE_FROM_WALKPATH'
@@ -55,7 +55,7 @@ const mutations = {
     }
   },
   [CALCULATE_SLOT_AUDIO_PROGRESS](state, index) {
-    // reset progresses on slots
+    // reset progresses on snippet
     // if the user wants to skip to 3rd slot i.e. index parameter is 2,
     // we assume that the first two are already played. If the index is 0,
     // it simply means that the user is starting from the beginning.
