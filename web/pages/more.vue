@@ -1,17 +1,19 @@
 <template>
   <div>
-    <div v-if="loading" class="loading">Loading...</div>
+    <!-- <div v-if="loading" class="loading">Loading...</div> -->
     <!-- <div v-if="error" class="error">{{ error }}</div> -->
     <section>
-      <p class="block-content">
-        <block-content :blocks="more.body" />
+      <client-only>
+        <p class="block-content">
+          <block-content :blocks="more.body" />
 
-        <img
-          v-if="more.mainImage"
-          class="mainImage"
-          :src="imageUrlFor(more.mainImage).ignoreImageParams()"
-        />
-      </p>
+          <img
+            v-if="more.mainImage"
+            class="mainImage"
+            :src="imageUrlFor(more.mainImage).ignoreImageParams()"
+          />
+        </p>
+      </client-only>
     </section>
   </div>
 </template>
@@ -37,9 +39,7 @@ export default {
     BlockContent,
   },
   asyncData(context) {
-    return sanity
-      .fetch(query, context.route.params)
-      .then((data) => ({ more: data }))
+    return sanity.fetch(query, context.params).then((data) => ({ more: data }))
   },
   methods: {
     imageUrlFor(source) {
