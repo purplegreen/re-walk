@@ -21,11 +21,13 @@
     "eslint-plugin-vue": "^6.2.2",
     "groq": "^1.149.16",
     "gsap": "file:gsap-bonus.tgz",
+    "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.14.1",
     "nuxt-babel": "^1.0.1",
     "sanity-blocks-vue-component": "^0.1.0",
+    "vue-js-modal": "^2.0.0-rc.6",
     "vue-sanity": "^0.8.0",
     "vuex-persistedstate": "^3.1.0"
   },

@@ -6,7 +6,6 @@
       <client-only>
         <p class="block-content">
           <block-content :blocks="more.body" />
-
           <img
             v-if="more.mainImage"
             class="mainImage"

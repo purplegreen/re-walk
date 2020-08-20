@@ -19,10 +19,11 @@ export default {
 </script>
 <template>
   <div class="duration">
-    <template v-if="withRemaining"
+    <!-- <template v-if="withRemaining"
       >{{ passed | secondsToMinutes }}min of</template
-    >
-    {{ total | secondsToMinutes }}min
+    > -->
+    <!-- {{ total | secondsToMinutes }}min -->
+    here seconds to minuts
   </div>
 </template>
 
