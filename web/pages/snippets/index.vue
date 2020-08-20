@@ -42,6 +42,7 @@ export default {
     BlockContent,
   },
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     id: {
       type: String,
     },

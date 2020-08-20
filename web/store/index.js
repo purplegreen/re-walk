@@ -1,12 +1,12 @@
 import snippet from './snippet'
 import walkpath from './walkpath'
 
-export const store = {
+export const state = () => ({
   modules: {
     snippet,
     walkpath,
   },
-}
+})
 
 // export const state = () => ({
 //   counter: 0,

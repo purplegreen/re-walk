@@ -83,14 +83,15 @@ export default {
       type: Object,
       required: true,
     },
+    /* eslint-disable */
 
-    // data() {
-    //   return {
-    //     loading: false,
-    //     blocks: [],
-    //     text: '',
-    //   }
-    // },
+    data() {
+      return {
+        loading: false,
+        blocks: [],
+        text: '',
+      }
+    },
     // eslint-disable-next-line vue/require-prop-types
     computed: {
       ...mapState({

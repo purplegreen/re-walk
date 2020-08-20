@@ -3,18 +3,17 @@ const {
   snippet
 } = require('../sanity.js')
 
-const state = {
-  snippet,
-  error: false,
-  errorMessage: '',
-  success: false,
-}
+export const state = () => ({
+  snippets: [],
+  snippet: {},
+})
 
 const mutations = {}
 
 const actions = {}
 
 export default {
+  snippet,
   state,
   mutations,
   actions,
