@@ -34,6 +34,11 @@ export default {
       href: '/favicon.ico',
     }, ],
   },
+
+  sanity: {
+    projectId: '0hyezyzt',
+    dataset: 'production',
+  },
   /*
    ** Global CSS
    */
