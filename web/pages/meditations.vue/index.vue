@@ -1,38 +1,37 @@
 <template>
-  <client-only>
-    <div class>
-      <div class="wrap-title">
-        <h1 class="with-padding">
-          Create your Custom Walk by adding Meditations
-        </h1>
-      </div>
-
-      <div>
-        <BaseIcon alt="Start Walk" name="next" />
-      </div>
-      <div class="snippets">
-        <ul>
-          <li
-            v-for="snippet in snippets"
-            ref="snippet"
-            :key="snippet._id"
-            class=""
-          >
-            <h6 class="centered">{{ snippet.title }}</h6>
-          </li>
-        </ul>
-      </div>
+  <div class>
+    <div class="wrap-title">
+      <h1 class="with-padding">
+        Create your Custom Walk by adding Meditations
+      </h1>
     </div>
-  </client-only>
+
+    <div>
+      <BaseIcon alt="Start Walk" name="next" />
+    </div>
+    <div class="snippets">
+      <ul>
+        <li
+          v-for="snippet in snippets"
+          ref="snippet"
+          :key="snippet._id"
+          class=""
+        >
+          <h6 class="centered">{{ snippet.title }}</h6>
+        </li>
+      </ul>
+    </div>
+  </div>
 </template>
 
 <script>
 // import { mapState, mapActions } from 'vuex'
-
 import { groq } from '@nuxtjs/sanity'
-const query = groq`*[_type == "snippet"][0].title`
+const query = groq`*[_type == "snippet"][0...29].title`
 
 export default {
+  name: 'Snippets',
+  components: {},
   async fetch() {
     const result = await this.$sanity.fetch(query)
     this.title = result
