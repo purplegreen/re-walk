@@ -5,28 +5,65 @@
         Create your Custom Walk by adding Meditations
       </h1>
     </div>
+    <progress-bar :snippets="customWalkpath.composition"></progress-bar>
+    <duration :total="customWalkpath.duration"></duration>
 
     <div>
-      <BaseIcon alt="Start Walk" name="next" />
+      <button :disabled="!isWalkpathReady" @click="start">
+        <BaseIcon alt="Start Walk" name="next" />
+      </button>
     </div>
+
     <div class="snippets">
-      <ul>
-        <li
-          v-for="snippet in snippets"
-          ref="snippet"
-          :key="snippet._id"
-          class=""
-        >
-          <h3>{{ snippet.title }}</h3>
-        </li>
-      </ul>
+      <button
+        v-for="snippet in snippets"
+        ref="snippet"
+        :key="snippet._id"
+        class="snippet"
+        :class="{ selected: isSnippetSelected(snippet) }"
+        :style="isSnippetSelectedColor(snippet)"
+        @click="showModal(snipper)"
+      >
+        <h3>{{ snippet.title }}</h3>
+      </button>
+      <!-- MODAL OPENING -->
+      <modal
+        name="snippet-modal"
+        transition="nice-modal-fade"
+        :adaptive="true"
+        @before-open="beforeOpen"
+      >
+        <div class="snippet-modal-content">
+          <div class="side-el">
+            <button @click="$modal.hide('snippet-modal')">
+              <BaseIcon alt="Close snippet" name="close" />
+            </button>
+          </div>
+          <ul>
+            <li>
+              <h2 class="with-padding">{{ selectedSnippet.title }}</h2>
+            </li>
+          </ul>
+          <div class="wrap-buttons">
+            <button v-if="isSnippetSelected(selectedSnippet)" @click="remove">
+              <BaseIcon alt="Remove snippet" name="remove" />
+            </button>
+            <button v-else @click="add">
+              <BaseIcon alt="Insert snippet" name="insert" />
+            </button>
+          </div>
+        </div>
+      </modal>
+      <!-- MODAL CLOSING -->
     </div>
   </div>
 </template>
 
 <script>
-// import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import { groq } from '@nuxtjs/sanity'
+import ProgressBar from '@/components/progress-bar.vue'
+import Duration from '@/components/duration.vue'
 const query = groq`*[_type == "snippet"]{
   _id,
   title,
@@ -39,10 +76,60 @@ const query = groq`*[_type == "snippet"]{
 
 export default {
   name: 'Snippets',
+  components: {
+    ProgressBar,
+    Duration,
+  },
   async fetch() {
     this.snippets = await this.$sanity.fetch(query)
   },
   data: () => ({ snippets: [] }),
+  computed: {
+    ...mapState({
+      // snippets: (state) => state.snippet.snippets,
+      customWalkpath: (state) => state.walkpath.customWalkpath,
+    }),
+    isWalkpathReady() {
+      return this.customWalkpath.composition.length > 0
+    },
+  },
+
+  methods: {
+    ...mapActions([
+      'addToWalkpath',
+      'removeFromWalkpath',
+      'setWalkpathInProgress',
+    ]),
+    showModal(snippet) {
+      this.$modal.show('snippet-modal', { snippet })
+    },
+    beforeOpen({ params }) {
+      this.selectedSnippet = params.snippet
+    },
+    add() {
+      this.addToWalkpath(this.selectedSnippet)
+      this.$modal.hide('snippet-modal')
+    },
+    remove() {
+      this.removeFromWalkpath(this.selectedSnippet)
+      this.$modal.hide('snippet-modal')
+    },
+    start() {
+      this.setWalkpathInProgress(this.customWalkpath)
+      this.$router.push('walkpath')
+    },
+    isSnippetSelected(snippet) {
+      const index = this.customWalkpath.composition.findIndex(
+        (e) => e.id === snippet.id
+      )
+      return index !== -1
+    },
+    isSnippetSelectedColor(snippet) {
+      return {
+        backgroundColor: snippet.color,
+      }
+    },
+  },
 }
 </script>
 
