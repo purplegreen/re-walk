@@ -30,27 +30,14 @@
 // import { mapState, mapActions } from 'vuex'
 
 import { groq } from '@nuxtjs/sanity'
-const query = groq`*[_type == "snippet"] {
-  _id,
-  title,
-  mainImage,
-  body,
-  imageUrl
-}[0]`
+const query = groq`*[_type == "snippet"][0].title`
 
 export default {
-  name: 'Snippets',
-  components: {},
-  data() {
-    return {
-      snippets: [],
-    }
-   async fetch() {
+  async fetch() {
     const result = await this.$sanity.fetch(query)
-    this.snippet = result
+    this.title = result
   },
-  data: () => ({ snippet: '' }),
-}
+  data: () => ({ title: '' }),
 }
 </script>
 
