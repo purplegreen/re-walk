@@ -17,7 +17,7 @@
           :key="snippet._id"
           class=""
         >
-          <h6 class="centered">{{ snippet.title }}</h6>
+          <h3>{{ snippet.title }}</h3>
         </li>
       </ul>
     </div>
@@ -27,16 +27,22 @@
 <script>
 // import { mapState, mapActions } from 'vuex'
 import { groq } from '@nuxtjs/sanity'
-const query = groq`*[_type == "snippet"][0...29].title`
+const query = groq`*[_type == "snippet"]{
+  _id,
+  title,
+  mainImage,
+  imageUrl,
+  createdAt,
+  releaseDate,
+  body
+}[0...29]`
 
 export default {
   name: 'Snippets',
-  components: {},
   async fetch() {
-    const result = await this.$sanity.fetch(query)
-    this.title = result
+    this.snippets = await this.$sanity.fetch(query)
   },
-  data: () => ({ title: '' }),
+  data: () => ({ snippets: [] }),
 }
 </script>
 
