@@ -48,6 +48,7 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
+    '~plugins/vue-js-modal.js',
     '@plugins/global.js',
     {
       src: '~/plugins/localStorage.js',

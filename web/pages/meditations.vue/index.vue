@@ -1,62 +1,64 @@
 <template>
-  <div class>
-    <div class="wrap-title">
-      <h1 class="with-padding">
-        Create your Custom Walk by adding Meditations
-      </h1>
-    </div>
-    <progress-bar :snippets="customWalkpath.composition"></progress-bar>
-    <duration :total="customWalkpath.duration"></duration>
+  <client-only placeholder="Loading...">
+    <div class>
+      <div class="wrap-title">
+        <h1 class="with-padding">
+          Create your Custom Walk by adding Meditations
+        </h1>
+      </div>
+      <progress-bar :snippets="customWalkpath.composition"></progress-bar>
+      <duration :total="customWalkpath.duration"></duration>
 
-    <div>
-      <button :disabled="!isWalkpathReady" @click="start">
-        <BaseIcon alt="Start Walk" name="next" />
-      </button>
-    </div>
+      <div>
+        <button :disabled="!isWalkpathReady" @click="start">
+          <BaseIcon alt="Start Walk" name="next" />
+        </button>
+      </div>
 
-    <div class="snippets">
-      <button
-        v-for="snippet in snippets"
-        ref="snippet"
-        :key="snippet._id"
-        class="snippet"
-        :class="{ selected: isSnippetSelected(snippet) }"
-        :style="isSnippetSelectedColor(snippet)"
-        @click="showModal(snipper)"
-      >
-        <h3>{{ snippet.title }}</h3>
-      </button>
-      <!-- MODAL OPENING -->
-      <modal
-        name="snippet-modal"
-        transition="nice-modal-fade"
-        :adaptive="true"
-        @before-open="beforeOpen"
-      >
-        <div class="snippet-modal-content">
-          <div class="side-el">
-            <button @click="$modal.hide('snippet-modal')">
-              <BaseIcon alt="Close snippet" name="close" />
-            </button>
+      <div class="snippets">
+        <button
+          v-for="snippet in snippets"
+          ref="snippet"
+          :key="snippet._id"
+          class="snippet"
+          :class="{ selected: isSnippetSelected(snippet) }"
+          :style="isSnippetSelectedColor(snippet)"
+          @click="showModal(snipper)"
+        >
+          <h3>{{ snippet.title }}</h3>
+        </button>
+        <!-- MODAL OPENING -->
+        <modal
+          name="snippet-modal"
+          transition="nice-modal-fade"
+          :adaptive="true"
+          @before-open="beforeOpen"
+        >
+          <div class="snippet-modal-content">
+            <div class="side-el">
+              <button @click="$modal.hide('snippet-modal')">
+                <BaseIcon alt="Close snippet" name="close" />
+              </button>
+            </div>
+            <ul>
+              <li>
+                <h2 class="with-padding">{{ selectedSnippet.title }}</h2>
+              </li>
+            </ul>
+            <div class="wrap-buttons">
+              <button v-if="isSnippetSelected(selectedSnippet)" @click="remove">
+                <BaseIcon alt="Remove snippet" name="remove" />
+              </button>
+              <button v-else @click="add">
+                <BaseIcon alt="Insert snippet" name="insert" />
+              </button>
+            </div>
           </div>
-          <ul>
-            <li>
-              <h2 class="with-padding">{{ selectedSnippet.title }}</h2>
-            </li>
-          </ul>
-          <div class="wrap-buttons">
-            <button v-if="isSnippetSelected(selectedSnippet)" @click="remove">
-              <BaseIcon alt="Remove snippet" name="remove" />
-            </button>
-            <button v-else @click="add">
-              <BaseIcon alt="Insert snippet" name="insert" />
-            </button>
-          </div>
-        </div>
-      </modal>
-      <!-- MODAL CLOSING -->
+        </modal>
+        <!-- MODAL CLOSING -->
+      </div>
     </div>
-  </div>
+  </client-only>
 </template>
 
 <script>
@@ -97,6 +99,7 @@ export default {
       'addToWalkpath',
       'removeFromWalkpath',
       'setWalkpathInProgress',
+      'selectedSnippet',
     ]),
     showModal(snippet) {
       this.$modal.show('snippet-modal', { snippet })
