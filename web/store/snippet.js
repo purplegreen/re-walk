@@ -1,20 +1,8 @@
-// eslint-disable-next-line prettier/prettier
-const {
-  snippet
-} = require('../sanity.js')
-
 export const state = () => ({
   snippets: [],
   snippet: {},
 })
 
-const mutations = {}
+export const mutations = {}
 
-const actions = {}
-
-export default {
-  snippet,
-  state,
-  mutations,
-  actions,
-}
+export const actions = {}

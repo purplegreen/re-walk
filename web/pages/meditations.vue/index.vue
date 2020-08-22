@@ -86,14 +86,12 @@ export default {
   data: () => ({ snippets: [] }),
   computed: {
     ...mapState({
-      // snippets: (state) => state.snippet.snippets,
       customWalkpath: (state) => state.walkpath.customWalkpath,
     }),
     isWalkpathReady() {
       return this.customWalkpath.composition.length > 0
     },
   },
-
   methods: {
     ...mapActions([
       'addToWalkpath',
