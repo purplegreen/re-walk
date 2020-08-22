@@ -23,7 +23,7 @@
           class="snippet"
           :class="{ selected: isSnippetSelected(snippet) }"
           :style="isSnippetSelectedColor(snippet)"
-          @click="showModal(snipper)"
+          @click="showModal(snippet)"
         >
           <h3>{{ snippet.title }}</h3>
         </button>
@@ -43,6 +43,11 @@
             <ul>
               <li>
                 <h2 class="with-padding">{{ selectedSnippet.title }}</h2>
+              </li>
+              <li>
+                <h3 class="with-padding-10">
+                  {{ selectedSnippet.file | secondsToMinutes }} min
+                </h3>
               </li>
             </ul>
             <div class="wrap-buttons">
@@ -73,7 +78,8 @@ const query = groq`*[_type == "snippet"]{
   imageUrl,
   createdAt,
   releaseDate,
-  body
+  body,
+  file
 }[0...29]`
 
 export default {

@@ -1,3 +1,12 @@
+<template>
+  <div class="duration">
+    <template v-if="withRemaining">
+      {{ passed | secondsToMinutes }}min of
+    </template>
+    {{ total | secondsToMinutes }}min
+  </div>
+</template>
+
 <script>
 export default {
   name: 'Duration',
@@ -17,15 +26,6 @@ export default {
   },
 }
 </script>
-<template>
-  <div class="duration">
-    <!-- <template v-if="withRemaining"
-      >{{ passed | secondsToMinutes }}min of</template
-    > -->
-    <!-- {{ total | secondsToMinutes }}min -->
-    here seconds to minuts
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .duration {

@@ -28,7 +28,13 @@ export default {
             name: "body",
             title: "Body",
             type: "block-content"
-        }
+        },
+        {
+            name: 'file',
+            title: 'Audio media file',
+            description: 'meditation Audio Version',
+            type: 'file'
+        },
     ],
 
     preview: {
