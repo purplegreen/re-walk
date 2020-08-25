@@ -10,19 +10,23 @@
       <duration :total="customWalkpath.duration"></duration>
 
       <div>
-        <button :disabled="!isWalkpathReady" @click="start">
+        <button
+          :disabled="!isWalkpathReady"
+          class="modal-button"
+          @click="start"
+        >
           <BaseIcon alt="Start Walk" name="next" />
         </button>
       </div>
 
-      <div class="snippets">
+      <div class="snippet">
         <button
-          v-for="snippet in snippets"
+          v-for="snippet of snippets"
           ref="snippet"
           :key="snippet._id"
+          :style="isSnippetSelectedColor(snippet)"
           class="snippet"
           :class="{ selected: isSnippetSelected(snippet) }"
-          :style="isSnippetSelectedColor(snippet)"
           @click="showModal(snippet)"
         >
           <h3>{{ snippet.title }}</h3>
@@ -36,25 +40,30 @@
         >
           <div class="snippet-modal-content">
             <div class="side-el">
-              <button @click="$modal.hide('snippet-modal')">
+              <button
+                class="modal-button"
+                @click="$modal.hide('snippet-modal')"
+              >
                 <BaseIcon alt="Close snippet" name="close" />
               </button>
             </div>
             <ul>
               <li>
-                <h2 class="with-padding">{{ selectedSnippet.title }}</h2>
+                <h3 class="with-padding">{{ selectedSnippet.title }}</h3>
               </li>
               <li>
-                <h3 class="with-padding-10">
-                  {{ selectedSnippet.file | secondsToMinutes }} min
-                </h3>
+                <h3 class="with-padding-10">{{ selectedSnippet.audio }} min</h3>
               </li>
             </ul>
             <div class="wrap-buttons">
-              <button v-if="isSnippetSelected(selectedSnippet)" @click="remove">
+              <button
+                v-if="isSnippetSelected(selectedSnippet)"
+                class="modal-button"
+                @click="remove"
+              >
                 <BaseIcon alt="Remove snippet" name="remove" />
               </button>
-              <button v-else @click="add">
+              <button v-else class="modal-button" @click="add">
                 <BaseIcon alt="Insert snippet" name="insert" />
               </button>
             </div>
@@ -74,12 +83,13 @@ import Duration from '@/components/duration.vue'
 const query = groq`*[_type == "snippet"]{
   _id,
   title,
+  audio,
+  duration,
   mainImage,
-  imageUrl,
-  createdAt,
-  releaseDate,
   body,
-  file
+  location,
+  alreadyPlayedInSeconds,
+  isHighlighted
 }[0...29]`
 
 export default {
@@ -92,9 +102,11 @@ export default {
     this.snippets = await this.$sanity.fetch(query)
   },
   data: () => ({ snippets: [] }),
+
   computed: {
     ...mapState({
       customWalkpath: (state) => state.walkpath.customWalkpath,
+      snippet: (state) => state.snippets.snippet,
     }),
     isWalkpathReady() {
       return this.customWalkpath.composition.length > 0
@@ -146,13 +158,12 @@ export default {
   padding-bottom: 40px;
 }
 .snippet {
-  width: 22%;
-  color: white;
-  border-radius: var(--border-radius);
+  color: darkgrey;
+  border-radius: 12px;
+  border: 1px solid transparent;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  padding: 19px 0px;
   margin: 3px;
 }
 .snippet.selected {
@@ -165,10 +176,15 @@ export default {
   width: 90%;
   margin: auto;
 }
+
+.modal-button {
+  border: 0;
+  background-color: transparent;
+}
 </style>
 
 <style lang="scss">
-.centered {
+.center {
   text-align: center;
   margin: auto;
 }

@@ -13,8 +13,19 @@ export default {
             type: "slug",
             options: {
                 source: "title",
-                maxLength: 96
             }
+        },
+        {
+            name: 'audio',
+            title: 'Audio',
+            description: 'Meditation Audio',
+            type: 'file'
+        },
+        {
+            name: "duration",
+            title: "Duration",
+            description: 'In Number',
+            type: 'number'
         },
         {
             name: "mainImage",
@@ -30,11 +41,24 @@ export default {
             type: "block-content"
         },
         {
-            name: 'file',
-            title: 'Audio media file',
-            description: 'meditation Audio Version',
-            type: 'file'
+            name: "location",
+            title: "Location",
+            description: 'example -> lat: 52.523737, lng: 13.402282',
+            type: 'slug'
         },
+        {
+            name: "alreadyPlayedInSeconds",
+            title: "Played",
+            description: 'Leave it off',
+            type: 'boolean'
+        },
+        {
+            name: "isHighlighted",
+            title: "Highlighted",
+            description: 'Leave it off',
+            type: 'boolean'
+        },
+
     ],
 
     preview: {

@@ -4,10 +4,16 @@ const emptyWalkpath = {
   duration: 0,
 }
 
+const selectedSnippet = {
+
+}
+
+
 export const state = () => ({
   walkpaths: [],
   customWalkpath: emptyWalkpath,
   walkpathInProgress: emptyWalkpath,
+  isSnippetSelected: selectedSnippet,
   snippetInProgress: {},
   error: false,
   errorMessage: '',
@@ -15,9 +21,17 @@ export const state = () => ({
 })
 
 export const mutations = {
+  SELECTED_SNIPPET(state, snippet) {
+    const index = this.customWalkpath.composition.findIndex(
+      (e) => e.id === snippet.id
+    )
+    if (index !== -1) return
+    state.isSnippetSelected.push(snippet)
+  },
+
   ADD_TO_WALKPATH(state, snippet) {
     const index = state.customWalkpath.composition.findIndex(
-      (e) => e.id === snippet.id
+      (e) => e._id === snippet._id
     )
     if (index !== -1) return
     state.customWalkpath.composition.push(snippet)
@@ -25,7 +39,7 @@ export const mutations = {
   },
   REMOVE_FROM_WALKPATH(state, snippet) {
     const index = state.customWalkpath.composition.findIndex(
-      (e) => e.id === snippet.id
+      (e) => e._id === snippet._id
     )
     if (index === -1) return
 
@@ -63,6 +77,11 @@ export const mutations = {
 }
 
 export const actions = {
+  SelectedSnippet({
+    commit
+  }, snippet) {
+    commit('SELECTED_SNIPPET', snippet)
+  },
   addToWalkpath({
     commit
   }, snippet) {
