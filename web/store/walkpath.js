@@ -1,15 +1,16 @@
 /* eslint-disable prettier/prettier */
-const emptyWalkpath = {
-  composition: [],
-  duration: 0,
-}
-
 
 
 export const state = () => ({
   walkpaths: [],
-  customWalkpath: emptyWalkpath,
-  walkpathInProgress: emptyWalkpath,
+  customWalkpath: {
+    composition: [],
+    duration: 0,
+  },
+  walkpathInProgress: {
+    composition: [],
+    duration: 0,
+  },
   snippetInProgress: {},
   error: false,
   errorMessage: '',
@@ -26,14 +27,13 @@ export const mutations = {
   },
 
   ADD_TO_WALKPATH(state, snippet) {
-    const index = state.customWalkpath.composition.findIndex(
-      (e) => e._id === snippet._id
-    )
-    if (index !== -1) return
+    // const index = state.customWalkpath.composition.findIndex(
+    //   (e) => e._id === snippet._id
+    // )
+    // if (index !== -1) return
     state.customWalkpath.composition.push(snippet)
-    state.customWalkpath.duration += snippet.duration
+    // state.customWalkpath.duration += snippet.duration
   },
-
 }
 
 export const actions = {
@@ -47,5 +47,4 @@ export const actions = {
   }, snippet) {
     await commit('ADD_TO_WALKPATH', snippet)
   },
-
 }

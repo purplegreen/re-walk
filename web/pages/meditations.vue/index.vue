@@ -52,7 +52,7 @@
                 <h3 class="with-padding">{{ selectedSnippet.title }}</h3>
               </li>
               <li>
-                <h3 class="with-padding-10">{{ selectedSnippet.audio }} min</h3>
+                <!-- <h3 class="with-padding-10">{{ selectedSnippet.audio }} min</h3> -->
               </li>
             </ul>
             <div class="wrap-buttons">
@@ -76,21 +76,9 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
-import { groq } from '@nuxtjs/sanity'
+import { mapState } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
 import Duration from '@/components/duration.vue'
-const query = groq`*[_type == "snippet"]{
-  _id,
-  title,
-  audio,
-  duration,
-  mainImage,
-  body,
-  location,
-  alreadyPlayedInSeconds,
-  isHighlighted
-}[0...29]`
 
 export default {
   name: 'Snippets',
@@ -98,35 +86,35 @@ export default {
     ProgressBar,
     Duration,
   },
-  async fetch() {
-    this.snippets = await this.$sanity.fetch(query)
+  async fetch({ store }) {
+    await store.dispatch('snippets/fetchSnippets')
   },
-  data: () => ({ snippets: [] }),
-
   computed: {
     ...mapState({
       customWalkpath: (state) => state.walkpath.customWalkpath,
-      snippet: (state) => state.snippets.snippet,
+      snippets: (state) => state.snippets.all,
+      selectedSnippet: (state) => state.snippets.selectedSnippet,
     }),
     isWalkpathReady() {
       return this.customWalkpath.composition.length > 0
     },
   },
   methods: {
-    ...mapActions([
-      'addToWalkpath',
-      'removeFromWalkpath',
-      'setWalkpathInProgress',
-      'selectedSnippet',
-    ]),
+    // ...mapActions([
+    //   'addToWalkpath',
+    //   'removeFromWalkpath',
+    //   'setWalkpathInProgress',
+    // ]),
     showModal(snippet) {
+      this.$store.dispatch('snippets/setSelectedSnippet', snippet)
       this.$modal.show('snippet-modal', { snippet })
     },
     beforeOpen({ params }) {
       this.selectedSnippet = params.snippet
     },
     add() {
-      this.addToWalkpath(this.selectedSnippet)
+      // this.addToWalkpath(this.selectedSnippet)
+      this.$store.dispatch('walkpath/addToWalkpath', this.selectedSnippet)
       this.$modal.hide('snippet-modal')
     },
     remove() {
