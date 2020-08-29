@@ -49,7 +49,9 @@
             </div>
             <ul>
               <li>
-                <h3 class="with-padding">{{ selectedSnippet.title }}</h3>
+                <h3 class="with-padding">
+                  {{ selectedSnippet.title }}
+                </h3>
               </li>
               <li>
                 <!-- <h3 class="with-padding-10">{{ selectedSnippet.audio }} min</h3> -->
@@ -118,7 +120,7 @@ export default {
       this.$modal.hide('snippet-modal')
     },
     remove() {
-      this.removeFromWalkpath(this.selectedSnippet)
+      this.$store.dispatch('walkpath/removeFromWalkpath', this.selectedSnippet)
       this.$modal.hide('snippet-modal')
     },
     start() {

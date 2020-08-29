@@ -7,16 +7,16 @@ import {
 
 export const state = () => ({
   all: [],
-  selectedSnippet: {}
+  selectedSnippet: {},
 })
 
 export const mutations = {
   SET_SNIPPETS(state, snippets) {
     state.all = snippets
   },
-  SET_SELECTED_SNIPPET(state, snippet) {
-    state.selectedSnippet = snippet
-  },
+  // SET_SELECTED_SNIPPET(state, snippet) {
+  //   state.selectedSnippet = snippet
+  // },
 }
 
 export const actions = {
@@ -38,9 +38,7 @@ export const actions = {
     const result = await this.$sanity.fetch(query)
     commit('SET_SNIPPETS', result)
   },
-  setSelectedSnippet({
-    commit
-  }, snippet) {
-    commit('SET_SELECTED_SNIPPET', snippet)
-  }
+  // setSelectedSnippet({ commit }, snippet) {
+  //   commit('SET_SELECTED_SNIPPET', snippet)
+  // },
 }
