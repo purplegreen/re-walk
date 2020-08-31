@@ -54,7 +54,9 @@
                 </h3>
               </li>
               <li>
-                <!-- <h3 class="with-padding-10">{{ selectedSnippet.audio }} min</h3> -->
+                <h3 class="with-padding-10">
+                  {{ selectedSnippet.duration }} min
+                </h3>
               </li>
             </ul>
             <div class="wrap-buttons">
@@ -91,11 +93,16 @@ export default {
   async fetch({ store }) {
     await store.dispatch('snippets/fetchSnippets')
   },
+  data() {
+    return {
+      selectedSnippet: {},
+    }
+  },
   computed: {
     ...mapState({
-      customWalkpath: (state) => state.walkpath.customWalkpath,
       snippets: (state) => state.snippets.all,
-      selectedSnippet: (state) => state.snippets.selectedSnippet,
+      customWalkpath: (state) => state.walkpath.customWalkpath,
+      // selectedSnippet: (state) => state.snippets.selectedSnippet,
     }),
     isWalkpathReady() {
       return this.customWalkpath.composition.length > 0
@@ -108,7 +115,7 @@ export default {
     //   'setWalkpathInProgress',
     // ]),
     showModal(snippet) {
-      this.$store.dispatch('snippets/setSelectedSnippet', snippet)
+      // this.$store.dispatch('walkpath/setSelectedSnippet', snippet)
       this.$modal.show('snippet-modal', { snippet })
     },
     beforeOpen({ params }) {
@@ -129,7 +136,7 @@ export default {
     },
     isSnippetSelected(snippet) {
       const index = this.customWalkpath.composition.findIndex(
-        (e) => e.id === snippet.id
+        (e) => e._id === snippet._id
       )
       return index !== -1
     },

@@ -49,8 +49,8 @@ export default {
         {
             name: "alreadyPlayedInSeconds",
             title: "Played",
-            description: 'Leave it off',
-            type: 'boolean'
+            description: 'should be 0',
+            type: 'number'
         },
         {
             name: "isHighlighted",

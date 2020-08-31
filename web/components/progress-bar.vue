@@ -1,3 +1,26 @@
+<template>
+  <div class="progress">
+    <span
+      v-for="(snippet, index) in snippets"
+      :key="snippet.id"
+      class="progress-bar"
+      :class="{ highlight: snippet.isHighlighted }"
+      :style="getProgressBarStyle(snippet)"
+      @click.self="onClick(snippet, index, $event)"
+    >
+      <div class="cont-wrap">
+        <span class="num">{{ snippet.duration }}</span>
+        <span class="min">min</span>
+        <span class="rotate-text">{{ snippet.name }}</span>
+      </div>
+      <span
+        class="progress-overlay"
+        :style="getProgressOverlayStyle(snippet)"
+      ></span>
+    </span>
+  </div>
+</template>
+
 <script>
 export default {
   name: 'ProgressBar',
@@ -33,28 +56,6 @@ export default {
   },
 }
 </script>
-<template>
-  <div class="progress">
-    <span
-      v-for="(snippet, index) in snippets"
-      :key="snippet.id"
-      class="progress-bar"
-      :class="{ highlight: snippet.isHighlighted }"
-      :style="getProgressBarStyle(snippet)"
-      @click.self="onClick(snippet, index, $event)"
-    >
-      <div class="cont-wrap">
-        <span class="num">{{ snippet.duration | secondsToMinutes }}</span>
-        <span class="min">min</span>
-        <span class="rotate-text">{{ snippet.name }}</span>
-      </div>
-      <span
-        class="progress-overlay"
-        :style="getProgressOverlayStyle(snippet)"
-      ></span>
-    </span>
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .cont-wrap {

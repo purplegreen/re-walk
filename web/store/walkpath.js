@@ -1,6 +1,5 @@
 /* eslint-disable prettier/prettier */
 
-
 export const state = () => ({
   walkpaths: [],
   customWalkpath: {
@@ -18,6 +17,7 @@ export const state = () => ({
 })
 
 export const mutations = {
+
   SELECTED_SNIPPET(state, snippet) {
     const index = this.customWalkpath.composition.findIndex(
       (e) => e._id === snippet._id
@@ -36,16 +36,45 @@ export const mutations = {
   },
   REMOVE_FROM_WALKPATH(state, snippet) {
     const index = state.customWalkpath.composition.findIndex(
-      e => e.id === snippet._id
-    );
-    if (index === -1) return;
+      (e) => e._id === snippet._id
+    )
+    if (index === -1) return
 
-    state.customWalkpath.composition.splice(index, 1);
-    state.customWalkpath.duration -= snippet.duration;
+    state.customWalkpath.composition.splice(index, 1)
+    state.customWalkpath.duration -= snippet.duration
   },
+  SET_WALKPATH_IN_PROGRESS(state, walkpath) {
+    state.walkpathInProgress = walkpath;
+    if (!state.walkpathInProgress.duration) {
+      state.walkpathInProgress.duration = walkpath.composition.reduce(
+        (total, snippet) => {
+          return total + snippet.duration;
+        },
+        0
+      );
+    }
+  },
+  CALCULATE_SNIPPET_AUDIO_PROGRESS(state, index) {
+    // reset progresses on snippets
+    // if the user wants to skip to 3rd snippet i.e. index parameter is 2,
+    // we assume that the first two are already played. If the index is 0,
+    // it simply means that the user is starting from the beginning.
+    state.walkpathInProgress.composition.forEach((element, i) => {
+      element.alreadyPlayedInSeconds = index > i ? element.duration : 0;
+    });
+  },
+  HIGHLIGHT_SNIPPET(state, index) {
+    state.walkpathInProgress.composition.forEach((element, i) => {
+      element.isHighlighted = index === i;
+    });
+  },
+  SET_SNIPPET_IN_PROGRESS(state, snippet) {
+    state.snippetInProgress = snippet;
+  }
 }
 
 export const actions = {
+
   async selectedSnippet({
     commit
   }, snippet) {
@@ -61,4 +90,30 @@ export const actions = {
   }, isSelectedSnippet) {
     await commit('REMOVE_FROM_WALKPATH', isSelectedSnippet)
   },
+  async setWalkpathInProgress({
+    commit
+  }, walkpath) {
+    await commit('SET_WALKPATH_IN_PROGRESS', walkpath)
+  },
+  async calculateSnippetAudioProgress({
+    commit
+  }, index = 0) {
+    await commit('CALCULATE_SNIPPET_AUDIO_PROGRESS', index)
+  },
+  async highlightSnippetAt({
+    commit
+  }, index) {
+    await commit('HIGHLIGHT_SNIPPET', index)
+  },
+  async setSnippetInProgress({
+    commit
+  }, snippet) {
+    await commit('SET_SNIPPET_IN_PROGRESS', snippet);
+  },
+  async resetWalkpath({
+    commit
+  }) {
+    await commit('CALCULATE_SNIPPET_AUDIO_PROGRESS', 0);
+    await commit('HIGHLIGHT_SNIPPET', -1);
+  }
 }
