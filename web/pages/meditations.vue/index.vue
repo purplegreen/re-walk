@@ -131,7 +131,10 @@ export default {
       this.$modal.hide('snippet-modal')
     },
     start() {
-      this.setWalkpathInProgress(this.customWalkpath)
+      this.$store.dispatch(
+        'walkpath/setWalkpathInProgress',
+        this.customWalkpath
+      )
       this.$router.push('walkpath')
     },
     isSnippetSelected(snippet) {

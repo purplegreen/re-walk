@@ -2,7 +2,7 @@
   <div class="progress">
     <span
       v-for="(snippet, index) in snippets"
-      :key="snippet.id"
+      :key="snippet._id"
       class="progress-bar"
       :class="{ highlight: snippet.isHighlighted }"
       :style="getProgressBarStyle(snippet)"
@@ -11,7 +11,7 @@
       <div class="cont-wrap">
         <span class="num">{{ snippet.duration }}</span>
         <span class="min">min</span>
-        <span class="rotate-text">{{ snippet.name }}</span>
+        <span class="rotate-text">{{ snippet.title }}</span>
       </div>
       <span
         class="progress-overlay"
