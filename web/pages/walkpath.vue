@@ -13,9 +13,10 @@
 
     <div class="audio-text-sw">
       <div class="audio-text-btns">
+        <!-- audio mode  ------>
         <a
           class="audio-btn"
-          :class="{ selected: mode == 'audio' }"
+          :class="{ selected: mode === 'audio' }"
           @click="
             selectMode('audio')
             showModal1()
@@ -38,10 +39,10 @@
             <BaseIcon class="play-open" alt="Play" name="play" />
           </button>
         </modal>
-
+        <!-- text mode ------------>
         <a
           class="text-btn"
-          :class="{ selected: mode == 'text' }"
+          :class="{ selected: mode === 'text' }"
           @click="
             selectMode('text')
             showModal2()
