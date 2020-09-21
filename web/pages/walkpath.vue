@@ -13,7 +13,7 @@
 
     <div class="audio-text-sw">
       <div class="audio-text-btns">
-        <!-- audio mode  ------>
+        <!-- audio mode  -->
         <a
           class="audio-btn"
           :class="{ selected: mode === 'audio' }"
@@ -39,7 +39,7 @@
             <BaseIcon class="play-open" alt="Play" name="play" />
           </button>
         </modal>
-        <!-- text mode ------------>
+        <!-- text mode -->
         <a
           class="text-btn"
           :class="{ selected: mode === 'text' }"
