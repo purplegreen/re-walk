@@ -13,7 +13,7 @@
 
     <div class="audio-text-sw">
       <div class="audio-text-btns">
-        <!-- audio mode  -->
+        <!-- select audio mode  -->
         <a
           class="audio-btn"
           :class="{ selected: mode === 'audio' }"
@@ -24,6 +24,7 @@
         >
           <BaseIcon alt="Sound" name="sound" />
         </a>
+        <!-- audio modal  -->
 
         <modal name="audioModal" transition="nice-modal-fade" :adaptive="true">
           <div class="side-el">
@@ -39,7 +40,8 @@
             <BaseIcon class="play-open" alt="Play" name="play" />
           </button>
         </modal>
-        <!-- text mode -->
+        <!-- close audio modal  -->
+        <!-- select text mode -->
         <a
           class="text-btn"
           :class="{ selected: mode === 'text' }"
@@ -50,7 +52,7 @@
         >
           <BaseIcon alt="Text" name="text" />
         </a>
-
+        <!-- text modal  -->
         <modal name="textModal" transition="nice-modal-fade" :adaptive="true">
           <div class="side-el">
             <button @click="$modal.hide('textModal')">
@@ -82,6 +84,7 @@
             </div>
           </div>
         </modal>
+        <!-- close text modal  -->
       </div>
     </div>
     <div class="map">
@@ -124,7 +127,7 @@ export default {
       mode: 'audio',
       isWalkpathRunning: false,
       indexOfLastPlayedSnippet: 0,
-      //   audio: new Audio(''),
+      audio: new Audio(''),
       locationAcquired: false,
     }
   },

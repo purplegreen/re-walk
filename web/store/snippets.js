@@ -27,6 +27,7 @@ export const actions = {
       _id,
       title,
       audio,
+      "audioURL": audio.asset->url,
       duration,
       mainImage,
       body,
