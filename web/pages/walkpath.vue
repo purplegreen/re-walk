@@ -196,7 +196,7 @@ export default {
       // check if it is different file. If not, no need to load again
       if (!this.audio.src.includes(snippet.audio)) {
         this.pause()
-        this.audio.src = `${audioURL}?dl=`
+        this.audio.src = `${snippet.audioURL}?dl=`
         this.audio.load()
 
         this.audio.onloadedmetadata = () => {
