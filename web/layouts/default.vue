@@ -141,6 +141,8 @@ textarea {
   font-size: 100%;
   line-height: 1.15;
   margin: 0;
+  border: transparent;
+  background: transparent;
 }
 button,
 input {
