@@ -57,9 +57,6 @@
                 <h3 class="with-padding-10">
                   {{ selectedSnippet.duration }} min
                 </h3>
-                <button>
-                  {{ selectedSnippet.audio }}
-                </button>
               </li>
             </ul>
             <div class="wrap-buttons">
