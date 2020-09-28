@@ -112,8 +112,8 @@ export const actions = {
   },
   async resetWalkpath({
     commit
-  }, snippet) {
-    await commit('CALCULATE_SNIPPET_AUDIO_PROGRESS', 0, snippet);
-    await commit('HIGHLIGHT_SNIPPET', -1, snippet);
+  }, ) {
+    await commit('CALCULATE_SNIPPET_AUDIO_PROGRESS', 0);
+    await commit('HIGHLIGHT_SNIPPET', -1);
   }
 }

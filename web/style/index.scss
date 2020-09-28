@@ -1,0 +1,15 @@
+@import "reset";
+@import "typography";
+@import "colors";
+@import "variables";
+@import "buttons";
+
+.card {
+  border: 1px solid var(--border-color);
+  background-color: whitesmoke;
+  border-radius: var(--border-radius);
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  padding: 30px;
+}

@@ -1,14 +1,34 @@
 <template>
   <div class="nav">
-    <nuxt-link to="/" class="brand">Walk</nuxt-link>
-    <nav>
-      <nuxt-link to="/">List</nuxt-link>&nbsp;|
-      <nuxt-link to="/meditations">Meditations</nuxt-link> |
-      <nuxt-link to="/about">About</nuxt-link> |
-      <nuxt-link to="/more">More</nuxt-link>
-    </nav>
+    <nuxt-link to="/" class="brand"
+      ><img
+        alt="Guided Meditation Walk"
+        class="logo"
+        src="..//assets/guidedWalklogo.svg"
+    /></nuxt-link>
+
+    <button @click="showModal">X</button>
+
+    <modal :adaptive="true" name="navModal">
+      <nav>
+        <nuxt-link to="/">List</nuxt-link>&nbsp;|
+        <nuxt-link to="/meditations">Meditations</nuxt-link> |
+        <nuxt-link to="/about">About</nuxt-link> |
+        <nuxt-link to="/more">More</nuxt-link>
+      </nav>
+    </modal>
   </div>
 </template>
+<script>
+export default {
+  name: 'NavModal',
+  methods: {
+    showModal(navModal) {
+      this.$modal.show('navModal')
+    },
+  },
+}
+</script>
 
 <style scoped>
 .brand {
