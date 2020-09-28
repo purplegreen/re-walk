@@ -7,9 +7,11 @@
         src="..//assets/guidedWalklogo.svg"
     /></nuxt-link>
 
-    <button @click="showModal">X</button>
+    <button class="lateral-nav-ico" @click="showModal">
+      <BaseIcon alt="lateral nav" name="lat-nav" />
+    </button>
 
-    <modal :adaptive="true" name="navModal">
+    <modal :adaptive="true" class="nav-modal" name="navModal">
       <nav>
         <nuxt-link to="/">List</nuxt-link>&nbsp;|
         <nuxt-link to="/meditations">Meditations</nuxt-link> |
@@ -38,6 +40,11 @@ export default {
   color: #39b982;
   text-decoration: none;
 }
+
+.nav-modal {
+  width: 90vw;
+}
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -56,5 +63,11 @@ export default {
 }
 .nav a {
   display: inline-block;
+}
+
+.lateral-nav-ico {
+  width: 30px;
+  height: auto;
+  margin-right: 20px;
 }
 </style>
