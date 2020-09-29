@@ -47,33 +47,33 @@ export default {
 }
 
 #nav-modal {
-  background-color: lightgray;
+  background-color: lightgrey;
+}
 
-  div.v--modal-box {
-    position: relative;
-    border-radius: var(--border-radius);
-    max-width: 414px;
-    width: 10vw;
-    height: 96vh;
-    padding: 20px;
-    background-color: indianred;
-  }
+.v--modal-box {
+  position: relative;
+  border-radius: var(--border-radius);
+  max-width: 414px;
+  width: 10vw;
+  height: 96vh;
+  padding: 20px;
+  background-color: indianred;
+}
 
-  div.vm--modal {
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    background-color: yellow;
-    border-radius: var(--border-radius);
-    box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
-  }
+.vm--modal {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: yellow;
+  border-radius: var(--border-radius);
+  box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
+}
 
-  div.v--modal-overlay .v--modal-box {
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-    background-color: hotpink;
-  }
+.v--modal-overlay .v--modal-box {
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: hotpink;
 }
 
 .nav {
@@ -83,6 +83,7 @@ export default {
   height: 50px;
   border: 1px solid var(--border-color);
   background-color: whitesmoke;
+
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
 .nav .nav-item {
