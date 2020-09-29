@@ -80,16 +80,16 @@ h6 {
   font-family: 'Montserrat', sans-serif;
 }
 h1 {
-  font-size: 50px;
-  font-weight: 700;
+  font-size: 33px;
+  font-weight: 200;
 }
 h2 {
-  font-size: 38px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 200;
 }
 h3 {
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 26px;
+  font-weight: 200;
 }
 h4 {
   font-size: 21px;
@@ -275,6 +275,7 @@ select::ms-expand {
 .errorMessage {
   color: red;
 }
+
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   #app {
     max-width: 90vw;

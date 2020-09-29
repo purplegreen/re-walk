@@ -159,7 +159,7 @@ export default {
 }
 .snippet {
   color: darkgrey;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   border: 1px solid transparent;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
@@ -167,7 +167,7 @@ export default {
   margin: 3px;
 }
 .snippet.selected {
-  background: #add8e6;
+  background: #dfe6d6;
 }
 .snippet-modal-content {
   padding: 10px;

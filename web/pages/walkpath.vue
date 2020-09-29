@@ -388,7 +388,6 @@ export default {
   bottom: 3px;
   left: 3px;
   right: 3px;
-  background-color: pink;
 }
 
 .text-content {
@@ -401,27 +400,28 @@ export default {
   margin: 20px;
 }
 .v--modal {
-  border: 2px solid var(--border-color);
-  border-radius: var(--border-radius);
-  background-color: white;
-  border-radius: 3px;
-  box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
-  padding: 0;
+  // border: 2px solid var(--border-color);
+  // border-radius: var(--border-radius);
+  // background-color: white;
+  // box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
+  // padding: 0;
+  background-color: khaki;
 }
 
 .v--modal-box {
-  position: relative;
-  border-radius: var(--border-radius);
-  max-width: 414px;
-  width: 96vw;
-  height: 96vh;
-  padding: 20px;
+  // position: relative;
+  // border-radius: var(--border-radius);
+  // max-width: 414px;
+  // width: 96vw;
+  // height: 96vh;
+  // padding: 20px;
+  background-color: red;
 }
 
 .v--modal-overlay .v--modal-box {
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
+  // position: relative;
+  // overflow: hidden;
+  // box-sizing: border-box;
 }
 
 .play-open,
