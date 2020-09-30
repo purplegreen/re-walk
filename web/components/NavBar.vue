@@ -38,6 +38,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.logo {
+  padding-left: 20px;
+  padding-top: 40px;
+  width: 70px;
+  height: auto;
+}
+
 .brand {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
