@@ -3,7 +3,7 @@
     <div class>
       <div class="wrap-title">
         <h1 class="with-padding">
-          Create your Custom Walk by adding Meditations
+          Wählen unter Meditationen: Gestalten die Spaziergang individuell
         </h1>
       </div>
       <progress-bar :snippets="customWalkpath.composition"></progress-bar>

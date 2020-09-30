@@ -11,7 +11,7 @@ export default {
     NavBar,
   },
   head: {
-    titleTemplate: '%s - WALK', // <-- title template
+    titleTemplate: '%s - Guided Walk', // <-- title template
     meta: [
       {
         hid: 'description',
@@ -61,10 +61,12 @@ hr {
   overflow: visible;
 }
 a {
-  color: #9370db;
+  color: black;
   font-weight: 600;
+  text-decoration: none;
   background-color: transparent;
 }
+
 img {
   border-style: none;
   width: 100%;
@@ -80,19 +82,19 @@ h6 {
   font-family: 'Montserrat', sans-serif;
 }
 h1 {
-  font-size: 33px;
+  font-size: 28px;
   font-weight: 200;
 }
 h2 {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 200;
 }
 h3 {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 200;
 }
 h4 {
-  font-size: 21px;
+  font-size: 19px;
   font-weight: 700;
 }
 h5 {
@@ -100,7 +102,7 @@ h5 {
   font-weight: 700;
 }
 h6 {
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 700;
 }
 b,

@@ -18,10 +18,10 @@
       :adaptive="true"
     >
       <nav>
-        <nuxt-link to="/">List</nuxt-link>&nbsp;|
-        <nuxt-link to="/meditations">Meditations</nuxt-link> |
-        <nuxt-link to="/about">About</nuxt-link> |
-        <nuxt-link to="/more">More</nuxt-link>
+        <nuxt-link to="/"><h4>eingeben</h4></nuxt-link>
+        <nuxt-link to="/meditations"><h4>meditationen</h4></nuxt-link>
+        <nuxt-link to="/about"><h4>über</h4></nuxt-link>
+        <nuxt-link to="/more"><h4>mehr</h4></nuxt-link>
       </nav>
     </modal>
   </div>
@@ -49,38 +49,28 @@ export default {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1.5em;
-  color: #39b982;
   text-decoration: none;
 }
 
-#nav-modal {
-  background-color: lightgrey;
-}
-
-.v--modal-box {
-  position: relative;
+nav {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 260px;
   border-radius: var(--border-radius);
-  max-width: 414px;
-  width: 10vw;
-  height: 96vh;
+  border: 2px solid black;
   padding: 20px;
-  background-color: indianred;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.vm--modal {
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-  background-color: yellow;
-  border-radius: var(--border-radius);
-  box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
-}
-
-.v--modal-overlay .v--modal-box {
-  position: relative;
-  overflow: hidden;
-  box-sizing: border-box;
-  background-color: hotpink;
+nav a:hover {
+  color: black;
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  cursor: pointer;
 }
 
 .nav {
@@ -90,9 +80,9 @@ export default {
   height: 50px;
   border: 1px solid var(--border-color);
   background-color: whitesmoke;
-
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+
 .nav .nav-item {
   box-sizing: border-box;
   margin: 0 5px;
@@ -100,8 +90,8 @@ export default {
   text-decoration: none;
 }
 .nav .nav-item.router-link-exact-active {
-  color: #39b982;
-  border-bottom: solid 2px #39b982;
+  color: goldenrod;
+  border-bottom: solid 2px goldenrod;
 }
 .nav a {
   display: inline-block;
