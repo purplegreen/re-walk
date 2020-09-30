@@ -2,7 +2,7 @@
 export default {
   name: 'Home',
   created() {
-    setTimeout(() => this.$router.push({ path: '/enter' }), 3500)
+    setTimeout(() => this.$router.push({ path: '/enter' }), 860)
   },
 }
 </script>
