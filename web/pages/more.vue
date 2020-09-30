@@ -120,6 +120,7 @@ export default {
 .container {
   margin: 0 auto;
   min-height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -140,6 +141,10 @@ export default {
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
+}
+.mainImage {
+  width: 80vw;
+  height: auto;
 }
 .links {
   padding-top: 15px;

@@ -3,11 +3,12 @@ import {
   groq
 } from '@nuxtjs/sanity'
 
+
 // import sanity from '../sanity'
 
 export const state = () => ({
   all: [],
-  selectedSnippet: {},
+  selectedSnippet: {}
 })
 
 export const mutations = {
@@ -39,6 +40,7 @@ export const actions = {
     const result = await this.$sanity.fetch(query)
     commit('SET_SNIPPETS', result)
   },
+
   setSelectedSnippet({
     commit
   }, snippet) {

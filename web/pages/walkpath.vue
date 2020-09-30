@@ -61,7 +61,9 @@
           </div>
 
           <div class="text-card">
-            <div class="text-content">{{ snippetInProgress }}</div>
+            <div class="text-content">
+              {{ snippetInProgress.title }}
+            </div>
             <div v-if="walkpathInProgress.composition.length > 1">
               <div class="low-btn">
                 <button
@@ -415,7 +417,6 @@ export default {
   // width: 96vw;
   // height: 96vh;
   // padding: 20px;
-  background-color: red;
 }
 
 .v--modal-overlay .v--modal-box {
@@ -467,7 +468,6 @@ export default {
 }
 
 .low-btn {
-  border: 1px solid red;
   margin: auto;
   text-align: center;
 }

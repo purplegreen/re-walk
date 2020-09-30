@@ -26,7 +26,10 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper {
-  padding: 1em;
+  padding-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .button-card {
