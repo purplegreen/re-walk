@@ -63,6 +63,7 @@
           <div class="text-card">
             <div class="text-content">
               {{ snippetInProgress.title }}
+              <SanityContent :blocks="snippetInProgress.body" />
             </div>
             <div v-if="walkpathInProgress.composition.length > 1">
               <div class="low-btn">

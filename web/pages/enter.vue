@@ -44,4 +44,8 @@ export default {
   margin-bottom: 20px;
   text-align: center;
 }
+
+.button-card:hover {
+  background-color: #5552ff;
+}
 </style>

@@ -172,6 +172,10 @@ export default {
     rgba(184, 217, 190, 0.7717507102272727) 100%
   ); */
 }
+
+.snippet:hover {
+  background-color: #c7b9ff;
+}
 .snippet.selected {
   background: #5552ff;
 }

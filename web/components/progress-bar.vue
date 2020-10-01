@@ -132,7 +132,7 @@ export default {
   color: white;
   // text-align: center;
   white-space: wrap;
-  background-color: #c7b9ff;
+  background-color: #5552ff;
   transition: all 0.6s ease;
   &.highlight {
     font-weight: bold;
