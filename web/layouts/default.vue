@@ -82,15 +82,16 @@ h6 {
   font-family: 'Montserrat', sans-serif;
 }
 h1 {
-  font-size: 28px;
+  font-size: 26px;
+  line-height: 28px;
   font-weight: 200;
 }
 h2 {
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 200;
 }
 h3 {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 200;
 }
 h4 {
@@ -99,7 +100,7 @@ h4 {
 }
 h5 {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 200;
 }
 h6 {
   font-size: 12px;

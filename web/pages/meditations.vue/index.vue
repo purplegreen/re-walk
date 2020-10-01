@@ -3,7 +3,7 @@
     <div class>
       <div class="wrap-title">
         <h1 class="with-padding">
-          Wählen unter Meditationen: Gestalten die Spaziergang individuell
+          Wähle die Meditationen für den Weg aus
         </h1>
       </div>
       <progress-bar :snippets="customWalkpath.composition"></progress-bar>
@@ -29,7 +29,7 @@
           :class="{ selected: isSnippetSelected(snippet) }"
           @click="showModal(snippet)"
         >
-          <h3>{{ snippet.title }}</h3>
+          <h5 class="snippet-title">{{ snippet.title }}</h5>
         </button>
         <!-- MODAL OPENING -->
         <modal
@@ -158,21 +158,29 @@ export default {
   padding-bottom: 40px;
 }
 .snippet {
-  color: darkgrey;
   border-radius: var(--border-radius);
   border: 1px solid transparent;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 3px;
+  background-color: #ffc700;
+  /* background: rgb(213, 76, 177);
+  background: linear-gradient(
+    90deg,
+    rgba(213, 76, 177, 1) 0%,
+    rgba(184, 217, 190, 0.7717507102272727) 100%
+  ); */
 }
 .snippet.selected {
-  background: #dfe6d6;
+  background: #5552ff;
 }
 .snippet-modal-content {
   padding: 10px;
 }
 .wrap-title {
+  padding-top: 50px;
+  padding-bottom: 50px;
   width: 90%;
   margin: auto;
 }
@@ -184,6 +192,12 @@ export default {
 </style>
 
 <style lang="scss">
+.snippet-title {
+  color: white;
+  font-weight: 600;
+  padding: 20px;
+}
+
 .center {
   text-align: center;
   margin: auto;

@@ -18,10 +18,10 @@
       :adaptive="true"
     >
       <nav>
-        <nuxt-link to="/"><h4>eingeben</h4></nuxt-link>
-        <nuxt-link to="/meditations"><h4>meditationen</h4></nuxt-link>
-        <nuxt-link to="/about"><h4>über</h4></nuxt-link>
-        <nuxt-link to="/more"><h4>mehr</h4></nuxt-link>
+        <nuxt-link to="/"><h4>Heim</h4></nuxt-link>
+        <nuxt-link to="/meditations"><h4>Erstellen</h4></nuxt-link>
+        <nuxt-link to="/about"><h4>Über</h4></nuxt-link>
+        <nuxt-link to="/more"><h4>Mehr</h4></nuxt-link>
       </nav>
     </modal>
   </div>

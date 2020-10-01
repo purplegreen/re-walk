@@ -70,14 +70,15 @@ export default {
   // left: 50%;
   // transform: translate(-50%, -2%);
   pointer-events: none;
+  border-right: 1px solid white;
 }
 .num {
   grid-column: 1;
   grid-row: 1;
-}
-.min {
   font-size: 0.5rem;
   font-weight: bold;
+}
+.min {
   grid-column: 1;
   grid-row: 2;
   pointer-events: none;
@@ -87,7 +88,6 @@ export default {
 .rotate-text {
   pointer-events: none;
   font-size: 0.5rem;
-  font-weight: bold;
   z-index: 1;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
@@ -96,7 +96,8 @@ export default {
   transform: rotate(90deg);
   grid-column: 1;
   grid-row: 3;
-  align-self: center;
+  margin: auto;
+  text-align: left;
 }
 .progress {
   position: relative;
@@ -115,7 +116,7 @@ export default {
 .progress-overlay {
   position: absolute;
   pointer-events: none;
-  background-color: blue;
+  background-color: #0ea958;
   opacity: 0.7;
   top: 0;
   bottom: 0;
@@ -127,11 +128,11 @@ export default {
   display: flex;
   overflow: hidden;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   color: white;
-  text-align: center;
+  // text-align: center;
   white-space: wrap;
-  background-color: #007bff;
+  background-color: #c7b9ff;
   transition: all 0.6s ease;
   &.highlight {
     font-weight: bold;

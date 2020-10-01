@@ -431,7 +431,6 @@ export default {
     width: 120px;
     height: auto;
     align-self: center;
-    --color-i: #53c6e3;
     padding-top: 6em;
     z-index: 3;
   }

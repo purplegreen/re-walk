@@ -9,7 +9,7 @@ export default {
     <router-link class="link" to="select">
       <div class="button-card">
         <div>
-          <h1>Spaziergang Wählen</h1>
+          <h1>Wähle einen Weg</h1>
         </div>
       </div>
     </router-link>
@@ -17,7 +17,7 @@ export default {
     <router-link class="link" to="meditations">
       <div class="button-card">
         <div>
-          <h1>Spaziergang komponieren</h1>
+          <h1>Erstelle einen Weg</h1>
         </div>
       </div>
     </router-link>
@@ -40,6 +40,8 @@ export default {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   padding: 7px;
+  padding-left: 7vw;
   margin-bottom: 20px;
+  text-align: center;
 }
 </style>
