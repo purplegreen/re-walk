@@ -1,7 +1,9 @@
 <template>
   <div class="duration">
-    <template v-if="withRemaining"> {{ passed }}min of </template>
-    {{ total }}min
+    <template v-if="withRemaining"
+      >{{ passed | secondsToMinutes }}min of</template
+    >
+    {{ total | secondsToMinutes }}min
   </div>
 </template>
 

@@ -15,6 +15,7 @@ export default {
    */
   head: {
     title: process.env.npm_package_name || '',
+    // eslint-disable-next-line prettier/prettier
     meta: [{
         charset: 'utf-8',
       },
@@ -28,10 +29,15 @@ export default {
         content: process.env.npm_package_description || '',
       },
     ],
+    // eslint-disable-next-line prettier/prettier
     link: [{
+      // eslint-disable-next-line prettier/prettier
       rel: 'icon',
+      // eslint-disable-next-line prettier/prettier
       type: 'image/x-icon',
+      // eslint-disable-next-line prettier/prettier
       href: '/favicon.ico',
+      // eslint-disable-next-line prettier/prettier
     }, ],
   },
 
@@ -48,8 +54,9 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '~plugins/vue-js-modal.js',
+    '@plugins/vue-js-modal.js',
     '@plugins/global.js',
+    '@plugins/filters.js',
     {
       src: '~/plugins/localStorage.js',
       ssr: false,

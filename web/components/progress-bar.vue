@@ -9,7 +9,7 @@
       @click.self="onClick(snippet, index, $event)"
     >
       <div class="cont-wrap">
-        <span class="num">{{ snippet.duration }}</span>
+        <span class="num">{{ snippet.duration | secondsToMinutes }}</span>
         <span class="min">min</span>
         <span class="rotate-text">{{ snippet.title }}</span>
       </div>

@@ -55,7 +55,7 @@
               </li>
               <li>
                 <h3 class="with-padding-10">
-                  {{ selectedSnippet.duration }} min
+                  {{ selectedSnippet.duration | secondsToMinutes }} min
                 </h3>
               </li>
             </ul>
