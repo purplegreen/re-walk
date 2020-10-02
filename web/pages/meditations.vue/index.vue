@@ -174,7 +174,7 @@ export default {
 }
 
 .snippet:hover {
-  background-color: #c7b9ff;
+  background-color: #0ea958;
 }
 .snippet.selected {
   background: #5552ff;

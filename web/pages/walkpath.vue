@@ -444,17 +444,17 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.6s ease-out;
-  background-color: #53c6e3;
+  background-color: #5552ff;
 }
 
 .fade-leave-to {
   opacity: 0.9;
-  background-color: blue;
+  background-color: #0ea958;
 }
 
 .isaudio > .icon,
 .istext > .icon {
-  --color-i: #808000;
+  --color-i: #ffc700;
 }
 
 .side-el {

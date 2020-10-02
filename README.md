@@ -1,4 +1,8 @@
-# adada
+# Guided Walk
+
+extension of the vueCLI version
+https://github.com/purplegreen/Guided-Walk
+Now: in NuxtJS and Sanity
 
 # Frontend | Nuxt.js Universal Mode
 
