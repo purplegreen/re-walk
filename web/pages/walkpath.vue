@@ -177,7 +177,7 @@ export default {
   },
 
   methods: {
-    ...mapActions([
+    ...mapActions('walkpath', [
       'setWalkpathInProgress',
       'calculateSnippetAudioProgress',
       'highlightSnippetAt',
