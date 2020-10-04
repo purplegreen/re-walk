@@ -33,6 +33,7 @@
         </button>
         <!-- MODAL OPENING -->
         <modal
+          id="snippet-modal"
           name="snippet-modal"
           transition="nice-modal-fade"
           :adaptive="true"
