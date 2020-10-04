@@ -402,29 +402,6 @@ export default {
   padding-bottom: 20px;
   margin: 20px;
 }
-.v--modal {
-  // border: 2px solid var(--border-color);
-  // border-radius: var(--border-radius);
-  // background-color: white;
-  // box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
-  // padding: 0;
-  background-color: khaki;
-}
-
-.v--modal-box {
-  // position: relative;
-  // border-radius: var(--border-radius);
-  // max-width: 414px;
-  // width: 96vw;
-  // height: 96vh;
-  // padding: 20px;
-}
-
-.v--modal-overlay .v--modal-box {
-  // position: relative;
-  // overflow: hidden;
-  // box-sizing: border-box;
-}
 
 .play-open,
 .stop-open {

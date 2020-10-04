@@ -53,10 +53,16 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [
-    '@plugins/vue-js-modal.js',
-    '@plugins/global.js',
-    '@plugins/filters.js',
+  plugins: [{
+      src: '~/plugins/global.js',
+    },
+    {
+      src: '~/plugins/filters.js',
+    },
+    {
+      src: '~/plugins/vue-js-modal.js',
+      // mode: 'client',
+    },
     {
       src: '~/plugins/localStorage.js',
       ssr: false,
