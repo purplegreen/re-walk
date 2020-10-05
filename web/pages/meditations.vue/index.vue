@@ -59,6 +59,9 @@
                   {{ selectedSnippet.duration | secondsToMinutes }} min
                 </h3>
               </li>
+              <li>
+                <SanityContent :blocks="selectedSnippet.shortText" />
+              </li>
             </ul>
             <div class="wrap-buttons">
               <button
@@ -166,12 +169,6 @@ export default {
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 3px;
   background-color: #ffc700;
-  /* background: rgb(213, 76, 177);
-  background: linear-gradient(
-    90deg,
-    rgba(213, 76, 177, 1) 0%,
-    rgba(184, 217, 190, 0.7717507102272727) 100%
-  ); */
 }
 
 .snippet:hover {

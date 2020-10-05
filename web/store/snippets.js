@@ -32,6 +32,7 @@ export const actions = {
       duration,
       mainImage,
       body,
+      shortText,
       location,
       alreadyPlayedInSeconds,
       isHighlighted

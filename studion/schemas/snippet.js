@@ -36,6 +36,11 @@ export default {
             }
         },
         {
+            name: "shortText",
+            title: "Short Text",
+            type: "block-content"
+        },
+        {
             name: "body",
             title: "Body",
             type: "block-content"
