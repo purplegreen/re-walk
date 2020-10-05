@@ -114,7 +114,7 @@
 import { mapState, mapActions } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
 import Duration from '@/components/duration.vue'
-// import MapComponent from '@/components/map.vue'
+import MapComponent from '@/components/map.vue'
 
 const R = 6378137 // Radius of earth in meters
 
@@ -123,7 +123,7 @@ export default {
   components: {
     ProgressBar,
     Duration,
-    // MapComponent
+    MapComponent,
   },
   data() {
     return {
@@ -160,9 +160,10 @@ export default {
           text: this.snippetInProgress.title,
         },
       ]
-      // return this.walkpathInProgress.composition
-      //   .filter(s => !!s.location)
-      //   .map(s => ({ position: s.location, text: s.name }));
+      // eslint-disable-next-line no-unreachable
+      return this.walkpathInProgress.composition
+        .filter((s) => !!s.location)
+        .map((s) => ({ position: s.location, text: s.name }))
     },
   },
   mounted() {

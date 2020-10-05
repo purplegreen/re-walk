@@ -46,10 +46,9 @@ export default {
             type: "block-content"
         },
         {
-            name: "location",
-            title: "Location",
-            description: 'example -> lat: 52.523737, lng: 13.402282',
-            type: 'slug'
+            title: 'Launchpad Location',
+            name: 'location',
+            type: 'geopoint'
         },
         {
             name: "alreadyPlayedInSeconds",

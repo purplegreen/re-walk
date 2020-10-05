@@ -36,7 +36,7 @@ export default {
       // eslint-disable-next-line prettier/prettier
       type: 'image/x-icon',
       // eslint-disable-next-line prettier/prettier
-      href: '/favicon.ico',
+      href: '/favicon.png',
       // eslint-disable-next-line prettier/prettier
     }, ],
   },
@@ -67,6 +67,10 @@ export default {
       src: '~/plugins/localStorage.js',
       ssr: false,
     },
+    {
+      src: '~/plugins/google-maps',
+      ssr: true,
+    },
   ],
   /*
    ** Auto import components
@@ -90,6 +94,6 @@ export default {
    ** See https://nuxtjs.org/api/configuration-build/
    */
   build: {
-    transpile: ['gsap'],
+    transpile: ['gsap', /^vue2-google-maps($|\/)/],
   },
 }
