@@ -29,7 +29,7 @@ export default {
         },
         {
             name: "mainImage",
-            title: "Main image",
+            title: "Main Image",
             type: "image",
             options: {
                 hotspot: true

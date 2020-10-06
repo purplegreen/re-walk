@@ -91,16 +91,20 @@
       </div>
     </div>
     <div class="map">
-      <img
+      <!-- <SanityImage
         v-if="!snippetInProgress.location || !locationAcquired"
-        :src="snippetInProgress.image"
-      />
+        project-id="0hyezyzt"
+        :asset-id="snippetInProgress.mainImage.asset._ref"
+        auto="format"
+      /> -->
+
       <map-component
         v-if="snippetInProgress.location"
         :markers="markers"
         @locationAcquired="onLocationAcquired"
         @locationChanged="onLocationChange"
-      ></map-component>
+        >hello I'm the map</map-component
+      >
     </div>
     <div class="margin">
       <button @click="exit()">
@@ -115,6 +119,7 @@ import { mapState, mapActions } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
 import Duration from '@/components/duration.vue'
 import MapComponent from '@/components/map.vue'
+// import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
 
 const R = 6378137 // Radius of earth in meters
 
@@ -124,6 +129,7 @@ export default {
     ProgressBar,
     Duration,
     MapComponent,
+    // SanityImage,
   },
   data() {
     return {

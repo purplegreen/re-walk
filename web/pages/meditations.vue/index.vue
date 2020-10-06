@@ -62,6 +62,14 @@
               <li>
                 <SanityContent :blocks="selectedSnippet.shortText" />
               </li>
+              <li>
+                <SanityImage
+                  v-if="selectedSnippet.mainImage"
+                  project-id="0hyezyzt"
+                  auto="format"
+                  :asset-id="selectedSnippet.mainImage.asset._ref"
+                />
+              </li>
             </ul>
             <div class="wrap-buttons">
               <button
@@ -87,12 +95,14 @@
 import { mapState } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
 import Duration from '@/components/duration.vue'
+import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
 
 export default {
   name: 'Snippets',
   components: {
     ProgressBar,
     Duration,
+    SanityImage,
   },
   async fetch({ store }) {
     await store.dispatch('snippets/fetchSnippets')

@@ -1,17 +1,15 @@
 export default {
   name: "mainImage",
-  title: "Main image",
+  title: "Main Image",
   type: "image",
-  fields: [
-    {
-      title: "Caption",
-      name: "caption",
-      type: "string",
-      options: {
-        isHighlighted: true,
-      },
+  fields: [{
+    title: "Caption",
+    name: "caption",
+    type: "string",
+    options: {
+      isHighlighted: true,
     },
-  ],
+  }, ],
   preview: {
     select: {
       imageUrl: "asset.url",

@@ -21,6 +21,7 @@
     "@sanity/default-login": "^1.150.1",
     "@sanity/desk-tool": "^1.150.8",
     "@sanity/google-maps-input": "^1.150.1",
+    "@sanity/image-url": "^0.140.19",
     "@sanity/vision": "^1.150.6",
     "prop-types": "^15.6",
     "react": "^16.2",
