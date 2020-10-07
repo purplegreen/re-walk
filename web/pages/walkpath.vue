@@ -22,7 +22,8 @@
             showModal1()
           "
         >
-          <BaseIcon alt="Sound" name="sound" />
+          <p>Ton abspielen</p>
+          <BaseIcon id="sound" alt="Sound" name="sound" />
         </a>
         <!-- audio modal  -->
 
@@ -50,7 +51,8 @@
             showModal2()
           "
         >
-          <BaseIcon alt="Text" name="text" />
+          <p>Text lesen</p>
+          <BaseIcon id="sound" alt="Text" name="text" />
         </a>
         <!-- text modal  -->
         <modal name="textModal" transition="nice-modal-fade" :adaptive="true">
@@ -369,6 +371,12 @@ export default {
   height: 20em;
   display: block;
   position: relative;
+}
+
+#sound,
+#text {
+  height: 110px;
+  width: auto;
 }
 
 .audio-text-btns {
