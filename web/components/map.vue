@@ -209,10 +209,29 @@ export default {
 <style lang="scss" scoped>
 .map {
   height: 400px;
+
+  img {
+    min-height: 350px;
+  }
+}
+
+.vue-map-container .vue-map {
+  left: 0;
+  right: 0;
+  top: -57px;
+  bottom: 67px;
+  position: absolute;
+}
+
+.vue-map-container {
+  position: relative;
+}
+
+.vue-map-hidden {
+  display: none;
 }
 
 .location {
-  margin: 20px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 </style>

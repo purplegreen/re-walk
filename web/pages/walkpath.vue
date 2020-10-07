@@ -13,7 +13,7 @@
     <article class="audio-text-buttons-container">
       <!-- AUDIO  -->
 
-      <p>Ton abspielen</p>
+      <h5 class="t-center">Ton abspielen</h5>
 
       <button v-if="isWalkpathRunning" @click="stop()">
         <BaseIcon class="stop-open" alt="Stop" name="stop" />
@@ -34,7 +34,7 @@
           showModal2()
         "
       >
-        <p>Text lesen</p>
+        <h5 class="t-center">Text lesen</h5>
         <BaseIcon id="sound" alt="Text" name="text" />
       </a>
     </article>
@@ -89,8 +89,8 @@
         :markers="markers"
         @locationAcquired="onLocationAcquired"
         @locationChanged="onLocationChange"
-        >hello I'm the map</map-component
       >
+      </map-component>
     </div>
     <!-- -- -->
 
@@ -353,27 +353,27 @@ export default {
   margin: 20px;
 }
 
+// .audio-btn {
+//   padding-right: 10px;
+
+//   &.icon:active {
+//     --color-i: palegreen;
+//   }
+// }
+
 .audio-text-buttons-container {
   height: 20em;
-  display: block;
   position: relative;
-  border: 1px solid green;
+  display: inline-block;
 }
 
-.audio-btn {
-  padding-right: 10px;
-
-  &.icon:active {
-    --color-i: palegreen;
-  }
-}
 #sound,
 #text,
 .play-open,
 .stop-open {
   &.icon {
-    width: 110px;
-    height: auto;
+    height: 99px;
+    width: auto;
     align-self: center;
     z-index: 3;
   }
@@ -434,13 +434,5 @@ export default {
 .low-btn {
   margin: auto;
   text-align: center;
-}
-
-.map {
-  height: 400px;
-
-  img {
-    min-height: 350px;
-  }
 }
 </style>

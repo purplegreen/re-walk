@@ -1,39 +1,85 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins|Spartan&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap");
+
+
 
 body {
-  font-family: "Spartan";
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  display: flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
 h1 {
-  font-size: 1.2rem;
-  letter-spacing: -0.8px;
-  color: #383b3a;
+  font-size: 26px;
+  line-height: 28px;
+  font-weight: 200;
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 23px;
+  font-weight: 200;
 }
 
 h3 {
-  font-size: 1.1rem;
-  color: dimgrey;
+  font-size: 21px;
+  font-weight: 200;
 }
 
 h4 {
-  font-size: 1rem;
+  font-size: 19px;
+  font-weight: 200;
 }
 
-h5 {}
+h5 {
+  font-size: 16px;
+  font-weight: 500;
+}
 
 h6 {
-  font-family: "Poppins";
-  font-size: 0.8rem;
+  font-size: 12px;
+  font-weight: 500;
+}
 
-  // slots
+b,
+strong {
+  font-weight: bolder;
+}
+
+small {
+  font-size: 80%;
+}
+
+.eyebrow {
+  font-size: 20px;
+}
+
+.-text-primary {
+  color: #ba55d3;
+}
+
+.-text-base {
+  color: #000;
+}
+
+.-text-error {
+  color: #8b008b;
+}
+
+.-text-gray {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 a:link a:visited {
@@ -50,4 +96,9 @@ a:active {
 
 .link {
   text-decoration: none;
+}
+
+.t-center {
+  text-align: center;
+  margin: auto;
 }
