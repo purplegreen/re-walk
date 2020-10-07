@@ -1,105 +1,89 @@
 <template>
-  <div>
+  <section>
     <progress-bar
       :snippets="walkpathInProgress.composition"
       @onBarClicked="onBarClicked"
     ></progress-bar>
-
     <duration
       :total="walkpathInProgress.duration"
       :passed="durationPassed"
       :with-remaining="true"
     ></duration>
 
-    <div class="audio-text-sw">
-      <div class="audio-text-btns">
-        <!-- select audio mode  -->
-        <a
-          class="audio-btn"
-          :class="{ selected: mode === 'audio' }"
-          @click="
-            selectMode('audio')
-            showModal1()
-          "
-        >
-          <p>Ton abspielen</p>
-          <BaseIcon id="sound" alt="Sound" name="sound" />
-        </a>
-        <!-- audio modal  -->
+    <article class="audio-text-buttons-container">
+      <!-- AUDIO  -->
 
-        <modal name="audioModal" transition="nice-modal-fade" :adaptive="true">
-          <div class="side-el">
-            <button @click="$modal.hide('audioModal')">
-              <BaseIcon alt="Close" name="close" />
-            </button>
-          </div>
+      <p>Ton abspielen</p>
 
-          <button v-if="isWalkpathRunning" @click="stop()">
-            <BaseIcon class="stop-open" alt="Stop" name="stop" />
-          </button>
-          <button v-else @click="start()">
-            <BaseIcon class="play-open" alt="Play" name="play" />
-          </button>
-        </modal>
-        <!-- close audio modal  -->
-        <!-- select text mode -->
-        <a
-          class="text-btn"
-          :class="{ selected: mode === 'text' }"
-          @click="
-            selectMode('text')
-            showModal2()
-          "
-        >
-          <p>Text lesen</p>
-          <BaseIcon id="sound" alt="Text" name="text" />
-        </a>
-        <!-- text modal  -->
-        <modal name="textModal" transition="nice-modal-fade" :adaptive="true">
-          <div class="side-el">
-            <button @click="$modal.hide('textModal')">
-              <BaseIcon alt="Close" name="close" />
-            </button>
-          </div>
+      <button v-if="isWalkpathRunning" @click="stop()">
+        <BaseIcon class="stop-open" alt="Stop" name="stop" />
+      </button>
 
-          <div class="text-card">
-            <div class="text-content">
-              {{ snippetInProgress.title }}
-              <SanityContent :blocks="snippetInProgress.body" />
-            </div>
-            <div v-if="walkpathInProgress.composition.length > 1">
-              <div class="low-btn">
-                <button
-                  :disabled="indexOfLastPlayedSnippet == 0"
-                  @click="previousSnippet"
-                >
-                  <BaseIcon alt="Previous" name="prev" />
-                </button>
+      <button v-else :class="{ selected: mode === 'audio' }" @click="start()">
+        <BaseIcon id="sound" alt="Sound" name="sound" />
+      </button>
 
-                <button
-                  :disabled="
-                    indexOfLastPlayedSnippet + 1 ==
-                    walkpathInProgress.composition.length
-                  "
-                  @click="nextSnippet"
-                >
-                  <BaseIcon alt="Next" name="next" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </modal>
-        <!-- close text modal  -->
+      <!-- --  -->
+
+      <!-- TEXT -->
+      <a
+        class="text-btn"
+        :class="{ selected: mode === 'text' }"
+        @click="
+          selectMode('text')
+          showModal2()
+        "
+      >
+        <p>Text lesen</p>
+        <BaseIcon id="sound" alt="Text" name="text" />
+      </a>
+    </article>
+    <!-- text modal  -->
+    <modal name="textModal" transition="nice-modal-fade" :adaptive="true">
+      <div class="side-el">
+        <button @click="$modal.hide('textModal')">
+          <BaseIcon alt="Close" name="close" />
+        </button>
       </div>
-    </div>
+      <article class="text-card">
+        <div class="text-content">
+          {{ snippetInProgress.title }}
+          <SanityContent :blocks="snippetInProgress.body" />
+        </div>
+        <div v-if="walkpathInProgress.composition.length > 1">
+          <div class="low-btn">
+            <button
+              :disabled="indexOfLastPlayedSnippet == 0"
+              @click="previousSnippet"
+            >
+              <BaseIcon alt="Previous" name="prev" />
+            </button>
+            <button
+              :disabled="
+                indexOfLastPlayedSnippet + 1 ==
+                walkpathInProgress.composition.length
+              "
+              @click="nextSnippet"
+            >
+              <BaseIcon alt="Next" name="next" />
+            </button>
+          </div>
+          <!-- close low-btn  -->
+        </div>
+        <!-- close v-if  -->
+      </article>
+      <!-- text-card  -->
+    </modal>
+    <!-- close  -->
+
+    <!-- MAP -->
     <div class="map">
       <!-- <SanityImage
-        v-if="!snippetInProgress.location || !locationAcquired"
-        project-id="0hyezyzt"
-        :asset-id="snippetInProgress.mainImage.asset._ref"
-        auto="format"
-      /> -->
-
+          v-if="!snippetInProgress.location || !locationAcquired"
+          project-id="0hyezyzt"
+          :asset-id="snippetInProgress.mainImage.asset._ref"
+          auto="format"
+        /> -->
       <map-component
         v-if="snippetInProgress.location"
         :markers="markers"
@@ -108,12 +92,14 @@
         >hello I'm the map</map-component
       >
     </div>
+    <!-- -- -->
+
     <div class="margin">
       <button @click="exit()">
         <BaseIcon alt="Exit" name="exit" />
       </button>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -367,25 +353,11 @@ export default {
   margin: 20px;
 }
 
-.audio-text-sw {
+.audio-text-buttons-container {
   height: 20em;
   display: block;
   position: relative;
-}
-
-#sound,
-#text {
-  height: 110px;
-  width: auto;
-}
-
-.audio-text-btns {
-  height: 60px;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  border: 1px solid green;
 }
 
 .audio-btn {
@@ -393,6 +365,17 @@ export default {
 
   &.icon:active {
     --color-i: palegreen;
+  }
+}
+#sound,
+#text,
+.play-open,
+.stop-open {
+  &.icon {
+    width: 110px;
+    height: auto;
+    align-self: center;
+    z-index: 3;
   }
 }
 
@@ -416,17 +399,6 @@ export default {
   text-align: left;
   padding-bottom: 20px;
   margin: 20px;
-}
-
-.play-open,
-.stop-open {
-  &.icon {
-    width: 120px;
-    height: auto;
-    align-self: center;
-    padding-top: 6em;
-    z-index: 3;
-  }
 }
 
 .fade-enter {
