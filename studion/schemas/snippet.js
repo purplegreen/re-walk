@@ -51,6 +51,14 @@ export default {
             type: 'geopoint'
         },
         {
+            name: "locationImage",
+            title: "Location Image",
+            type: "image",
+            options: {
+                hotspot: true
+            }
+        },
+        {
             name: "alreadyPlayedInSeconds",
             title: "Played",
             description: 'should be 0',

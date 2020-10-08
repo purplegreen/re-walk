@@ -4,6 +4,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
 import mainImage from "./mainImage";
+import locationImage from "./locationImage";
 import blockContent from "./blockContent";
 import snippet from "./snippet";
 import post from "./post";
@@ -23,6 +24,7 @@ export default createSchema({
     about,
     more,
     mainImage,
+    locationImage,
     blockContent,
 
   ]),

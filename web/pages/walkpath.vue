@@ -1,89 +1,102 @@
 <template>
   <section>
-    <progress-bar
-      :snippets="walkpathInProgress.composition"
-      @onBarClicked="onBarClicked"
-    ></progress-bar>
-    <duration
-      :total="walkpathInProgress.duration"
-      :passed="durationPassed"
-      :with-remaining="true"
-    ></duration>
+    <article class="upper-wrapper">
+      <SanityImage
+        v-if="snippetInProgress.locationImage"
+        project-id="0hyezyzt"
+        auto="format"
+        :asset-id="snippetInProgress.locationImage.asset._ref"
+        class="back-img"
+      />
 
-    <article class="audio-text-buttons-container">
-      <!-- AUDIO  -->
+      <div class="audio-text-buttons-container">
+        <!-- AUDIO  -->
 
-      <h5 class="t-center">Ton abspielen</h5>
+        <h6 class="caption-1">Ton abspielen</h6>
 
-      <button v-if="isWalkpathRunning" @click="stop()">
-        <BaseIcon class="stop-open" alt="Stop" name="stop" />
-      </button>
-
-      <button v-else :class="{ selected: mode === 'audio' }" @click="start()">
-        <BaseIcon id="sound" alt="Sound" name="sound" />
-      </button>
-
-      <!-- --  -->
-
-      <!-- TEXT -->
-      <a
-        class="text-btn"
-        :class="{ selected: mode === 'text' }"
-        @click="
-          selectMode('text')
-          showModal2()
-        "
-      >
-        <h5 class="t-center">Text lesen</h5>
-        <BaseIcon id="sound" alt="Text" name="text" />
-      </a>
-    </article>
-    <!-- text modal  -->
-    <modal name="textModal" transition="nice-modal-fade" :adaptive="true">
-      <div class="side-el">
-        <button @click="$modal.hide('textModal')">
-          <BaseIcon alt="Close" name="close" />
+        <button v-if="isWalkpathRunning" @click="stop()">
+          <BaseIcon class="stop-open" alt="Stop" name="stop" />
         </button>
+
+        <button v-else :class="{ selected: mode === 'audio' }" @click="start()">
+          <BaseIcon id="sound" alt="Sound" name="sound" />
+        </button>
+
+        <!-- --  -->
+
+        <!-- TEXT -->
+        <a
+          class="text-btn"
+          :class="{ selected: mode === 'text' }"
+          @click="
+            selectMode('text')
+            showModal2()
+          "
+        >
+          <h6 class="caption-txt">Text lesen</h6>
+          <BaseIcon id="sound" alt="Text" name="text" />
+        </a>
       </div>
-      <article class="text-card">
-        <div class="text-content">
-          {{ snippetInProgress.title }}
-          <SanityContent :blocks="snippetInProgress.body" />
+
+      <!-- text modal  -->
+      <modal name="textModal" transition="nice-modal-fade" :adaptive="true">
+        <div class="side-el">
+          <button @click="$modal.hide('textModal')">
+            <BaseIcon alt="Close" name="close" />
+          </button>
         </div>
-        <div v-if="walkpathInProgress.composition.length > 1">
-          <div class="low-btn">
-            <button
-              :disabled="indexOfLastPlayedSnippet == 0"
-              @click="previousSnippet"
-            >
-              <BaseIcon alt="Previous" name="prev" />
-            </button>
-            <button
-              :disabled="
-                indexOfLastPlayedSnippet + 1 ==
-                walkpathInProgress.composition.length
-              "
-              @click="nextSnippet"
-            >
-              <BaseIcon alt="Next" name="next" />
-            </button>
+        <div class="text-card">
+          <div class="text-content">
+            {{ snippetInProgress.title }}
+            <SanityContent :blocks="snippetInProgress.body" />
           </div>
-          <!-- close low-btn  -->
+          <div v-if="walkpathInProgress.composition.length > 1">
+            <div class="low-btn">
+              <button
+                :disabled="indexOfLastPlayedSnippet == 0"
+                @click="previousSnippet"
+              >
+                <BaseIcon alt="Previous" name="prev" />
+              </button>
+              <button
+                :disabled="
+                  indexOfLastPlayedSnippet + 1 ==
+                  walkpathInProgress.composition.length
+                "
+                @click="nextSnippet"
+              >
+                <BaseIcon alt="Next" name="next" />
+              </button>
+            </div>
+            <!-- close low-btn  -->
+          </div>
+          <!-- close v-if  -->
         </div>
-        <!-- close v-if  -->
-      </article>
-      <!-- text-card  -->
-    </modal>
+        <!-- text-card  -->
+      </modal>
+
+      <div class="progress-bar">
+        <progress-bar
+          :snippets="walkpathInProgress.composition"
+          @onBarClicked="onBarClicked"
+        ></progress-bar>
+      </div>
+      <duration
+        :total="walkpathInProgress.duration"
+        :passed="durationPassed"
+        :with-remaining="true"
+      ></duration>
+    </article>
     <!-- close  -->
 
     <!-- MAP -->
     <div class="map">
       <!-- <SanityImage
-          v-if="!snippetInProgress.location || !locationAcquired"
-          project-id="0hyezyzt"
-          :asset-id="snippetInProgress.mainImage.asset._ref"
-          auto="format"
-        /> -->
+        v-if="!snippetInProgress.location || !locationAcquired"
+        project-id="0hyezyzt"
+        :asset-id="snippetInProgress.mainImage.asset._ref"
+        auto="format"
+      /> -->
       <map-component
         v-if="snippetInProgress.location"
         :markers="markers"
@@ -107,7 +120,7 @@ import { mapState, mapActions } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
 import Duration from '@/components/duration.vue'
 import MapComponent from '@/components/map.vue'
-// import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
+import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
 
 const R = 6378137 // Radius of earth in meters
 
@@ -117,7 +130,7 @@ export default {
     ProgressBar,
     Duration,
     MapComponent,
-    // SanityImage,
+    SanityImage,
   },
   data() {
     return {
@@ -329,42 +342,85 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.margin {
+  margin: 20px;
+}
+
 .btn {
   border-radius: var(--border-radius);
   display: inline-block;
   width: 100px;
   cursor: pointer;
-
   &.selected {
     color: var(--fuchsia);
   }
-
   &:first-child {
     border-radius: 8px 0 0 8px;
   }
-
   &:last-child {
     border-radius: 0 8px 8px 0;
     border-left: none;
   }
 }
 
-.margin {
-  margin: 20px;
+.upper-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-// .audio-btn {
-//   padding-right: 10px;
+.back-img {
+  width: 380px;
+  height: auto;
+  margin: auto;
+  margin-top: 30px;
+}
 
-//   &.icon:active {
-//     --color-i: palegreen;
-//   }
+// .audio-text-buttons-container {
+//   border: 1px solid blue;
+//   display: grid;
+//   width: 414px;
+//   grid-template-columns: 30vw 2px 68vw;
+//   grid-template-rows: 80px 80px;
+// }
+
+// #sound,
+// .stop-open {
+//   grid-column-start: 1;
+//   grid-row-start: 1;
+// }
+// .caption-1 {
+//   grid-column-start: 3;
+//   grid-row-start: 1;
+// }
+
+// .text-btn {
+//   grid-column-start: 1;
+//   grid-row-start: 2;
+// }
+
+// .caption-txt {
+//   grid-column-start: 3;
+//   grid-row-start: 2;
 // }
 
 .audio-text-buttons-container {
-  height: 20em;
-  position: relative;
-  display: inline-block;
+  width: 412px;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid red;
+}
+
+#sound,
+.stop-open {
+}
+.caption-1 {
+}
+
+.text-btn {
+}
+
+.caption-txt {
 }
 
 #sound,
@@ -372,12 +428,13 @@ export default {
 .play-open,
 .stop-open {
   &.icon {
-    height: 99px;
-    width: auto;
+    height: 55px;
+    width: 55px;
     align-self: center;
-    z-index: 3;
   }
 }
+
+// in modal
 
 .text-btn {
   padding-left: 1px;

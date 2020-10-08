@@ -31,7 +31,7 @@ export const actions = {
       "audioURL": audio.asset->url,
       duration,
       mainImage,
-      imageId,
+      locationImage,
       body,
       shortText,
       location,

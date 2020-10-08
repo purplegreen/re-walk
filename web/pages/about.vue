@@ -3,13 +3,13 @@
     <div v-if="loading" class="loading">Loading...</div>
     <div v-if="error" class="error">{{ error }}</div>
     <section>
-      <p v-if="loading == false" class="block-content">
+      <p v-if="loading == false" id="block-content">
         <block-content :blocks="about.body" :serializers="{ serializers }" />
 
         <img
           v-if="about.mainImage"
-          class="mainImage"
-          :src="imageUrlFor(about.mainImage).ignoreImageParams()"
+          id="mainImage"
+          :src="imageUrlFor(about.mainImage)"
         />
       </p>
     </section>
@@ -92,23 +92,20 @@ main {
 }
 
 section {
-  width: 70vw;
+  width: 100vw;
+  max-width: 414px;
   margin: auto;
 }
 
-.block-content {
+#block-content {
   margin-top: 15vh;
-  font-size: 2rem;
 }
 
-@media screen and (max-width: 992px) {
-  section {
-    width: 80vw;
-    margin: auto;
-  }
-
-  .block-content {
-    font-size: 1.4rem;
-  }
+#mainImage {
+  max-width: 100%;
+  width: 90vw;
+  height: auto;
+  position: relative;
+  display: block;
 }
 </style>

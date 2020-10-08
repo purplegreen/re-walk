@@ -1,9 +1,7 @@
 <template>
-  <section>
-    <h1>MOre</h1>
-
+  <section id="container">
     <ul v-if="loading == false">
-      <li v-for="post in posts" ref="post" :key="post._id" class="box">
+      <li v-for="post in posts" ref="post" :key="post._id" class="card">
         <h3 class="">{{ post.title }}</h3>
 
         <img
@@ -17,10 +15,6 @@
         </p>
       </li>
     </ul>
-
-    <h2 ref="message">
-      hello hello
-    </h2>
   </section>
 </template>
 
@@ -99,10 +93,10 @@ export default {
           scrollTrigger: {
             trigger: el,
             start: 'top center',
-            end: 'bottom 100px',
+            end: 'bottom 30px',
             scrub: i * 0.1,
           },
-          x: '70px',
+          x: '40px',
           duration: 9,
         })
       })
@@ -117,31 +111,16 @@ export default {
 </script>
 
 <style>
-.container {
+#container {
   margin: 0 auto;
+  width: 300px;
   min-height: 100vh;
-  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+
 .mainImage {
   width: 80vw;
   height: auto;

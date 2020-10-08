@@ -3,22 +3,9 @@
     <div class>
       <div class="wrap-title">
         <h1 class="with-padding">
-          Wähle die Meditationen für den Weg aus
+          Wählen Meditationen für erstellen einer eigenen Weg
         </h1>
       </div>
-      <progress-bar :snippets="customWalkpath.composition"></progress-bar>
-      <duration :total="customWalkpath.duration"></duration>
-
-      <div>
-        <button
-          :disabled="!isWalkpathReady"
-          class="modal-button"
-          @click="start"
-        >
-          <BaseIcon alt="Start Walk" name="next" />
-        </button>
-      </div>
-
       <div class="snippet">
         <button
           v-for="snippet of snippets"
@@ -32,60 +19,77 @@
           <h5 class="snippet-title">{{ snippet.title }}</h5>
         </button>
         <!-- MODAL OPENING -->
-        <modal
-          id="snippet-modal"
-          name="snippet-modal"
-          transition="nice-modal-fade"
-          :adaptive="true"
-          @before-open="beforeOpen"
-        >
-          <div class="snippet-modal-content">
-            <div class="side-el">
-              <button
-                class="modal-button"
-                @click="$modal.hide('snippet-modal')"
-              >
-                <BaseIcon alt="Close snippet" name="close" />
-              </button>
+
+        <transition name="slide-enter">
+          <modal
+            id="snippet-modal"
+            name="snippet-modal"
+            transition="nice-modal-fade"
+            :adaptive="true"
+            @before-open="beforeOpen"
+          >
+            <div class="snippet-modal-content">
+              <div class="side-el">
+                <button
+                  class="modal-button"
+                  @click="$modal.hide('snippet-modal')"
+                >
+                  <BaseIcon alt="Close snippet" name="close" />
+                </button>
+              </div>
+              <ul>
+                <li>
+                  <h3 class="with-padding">
+                    {{ selectedSnippet.title }}
+                  </h3>
+                </li>
+                <li>
+                  <h3 class="with-padding-10">
+                    {{ selectedSnippet.duration | secondsToMinutes }} min
+                  </h3>
+                </li>
+                <li>
+                  <SanityContent :blocks="selectedSnippet.shortText" />
+                </li>
+                <li>
+                  <SanityImage
+                    v-if="selectedSnippet.mainImage"
+                    project-id="0hyezyzt"
+                    auto="format"
+                    :asset-id="selectedSnippet.mainImage.asset._ref"
+                  />
+                </li>
+              </ul>
+
+              <div class="wrap-buttons">
+                <button
+                  v-if="isSnippetSelected(selectedSnippet)"
+                  class="modal-button"
+                  @click="remove"
+                >
+                  <BaseIcon alt="Remove snippet" name="remove" />
+                </button>
+                <button v-else class="modal-button" @click="add">
+                  <BaseIcon alt="Insert snippet" name="insert" />
+                </button>
+              </div>
             </div>
-            <ul>
-              <li>
-                <h3 class="with-padding">
-                  {{ selectedSnippet.title }}
-                </h3>
-              </li>
-              <li>
-                <h3 class="with-padding-10">
-                  {{ selectedSnippet.duration | secondsToMinutes }} min
-                </h3>
-              </li>
-              <li>
-                <SanityContent :blocks="selectedSnippet.shortText" />
-              </li>
-              <li>
-                <SanityImage
-                  v-if="selectedSnippet.mainImage"
-                  project-id="0hyezyzt"
-                  auto="format"
-                  :asset-id="selectedSnippet.mainImage.asset._ref"
-                />
-              </li>
-            </ul>
-            <div class="wrap-buttons">
-              <button
-                v-if="isSnippetSelected(selectedSnippet)"
-                class="modal-button"
-                @click="remove"
-              >
-                <BaseIcon alt="Remove snippet" name="remove" />
-              </button>
-              <button v-else class="modal-button" @click="add">
-                <BaseIcon alt="Insert snippet" name="insert" />
-              </button>
-            </div>
-          </div>
-        </modal>
+          </modal>
+        </transition>
         <!-- MODAL CLOSING -->
+      </div>
+
+      <progress-bar :snippets="customWalkpath.composition"></progress-bar>
+      <duration :total="customWalkpath.duration"></duration>
+
+      <div>
+        <button
+          :disabled="!isWalkpathReady"
+          class="modal-button"
+          @click="start"
+        >
+          <BaseIcon alt="Start Walk" name="next" />
+        </button>
       </div>
     </div>
   </client-only>
@@ -178,11 +182,11 @@ export default {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 3px;
-  background-color: #ffc700;
+  background-color: #ffc701;
 }
 
 .snippet:hover {
-  background-color: #0ea958;
+  background-color: #e0b20e;
 }
 .snippet.selected {
   background: #5552ff;
