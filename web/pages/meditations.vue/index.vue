@@ -1,11 +1,13 @@
 <template>
   <client-only placeholder="Loading...">
     <div class>
+      <!-- TITLE -->
       <div class="wrap-title">
         <h1 class="with-padding">
-          Wählen Meditationen für erstellen einer eigenen Weg
+          Wähle Meditationen für deinen Weg
         </h1>
       </div>
+      <!-- SNIPPETS BOARD -->
       <div class="snippet">
         <button
           v-for="snippet of snippets"

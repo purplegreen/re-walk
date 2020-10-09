@@ -1,6 +1,7 @@
 <template>
   <section>
     <article class="upper-wrapper">
+      <!-- IMAGE  -->
       <SanityImage
         v-if="snippetInProgress.locationImage"
         project-id="0hyezyzt"
@@ -10,34 +11,37 @@
       />
 
       <div class="audio-text-buttons-container">
-        <!-- AUDIO  -->
-
-        <h6 class="caption-1">Ton abspielen</h6>
-
-        <button v-if="isWalkpathRunning" @click="stop()">
-          <BaseIcon class="stop-open" alt="Stop" name="stop" />
-        </button>
-
-        <button v-else :class="{ selected: mode === 'audio' }" @click="start()">
-          <BaseIcon id="sound" alt="Sound" name="sound" />
-        </button>
-
+        <!-- AUDIO BUTTON -->
+        <div class="wrap-button">
+          <h6 class="caption-txt">Ton abspielen</h6>
+          <button v-if="isWalkpathRunning" @click="stop()">
+            <BaseIcon id="go" alt="Stop" name="stop" />
+          </button>
+          <button
+            v-else
+            :class="{ selected: mode === 'audio' }"
+            @click="start()"
+          >
+            <BaseIcon id="go" alt="Sound" name="sound" />
+          </button>
+        </div>
         <!-- --  -->
 
         <!-- TEXT -->
-        <a
-          class="text-btn"
-          :class="{ selected: mode === 'text' }"
-          @click="
-            selectMode('text')
-            showModal2()
-          "
-        >
+        <!-- TEXT BUTTON -->
+        <div class="wrap-button">
           <h6 class="caption-txt">Text lesen</h6>
-          <BaseIcon id="sound" alt="Text" name="text" />
-        </a>
+          <button
+            :class="{ selected: mode === 'text' }"
+            @click="
+              selectMode('text')
+              showModal2()
+            "
+          >
+            <BaseIcon id="go" alt="Text" name="text" />
+          </button>
+        </div>
       </div>
-
       <!-- text modal  -->
       <modal name="textModal" transition="nice-modal-fade" :adaptive="true">
         <div class="side-el">
@@ -346,23 +350,6 @@ export default {
   margin: 20px;
 }
 
-.btn {
-  border-radius: var(--border-radius);
-  display: inline-block;
-  width: 100px;
-  cursor: pointer;
-  &.selected {
-    color: var(--fuchsia);
-  }
-  &:first-child {
-    border-radius: 8px 0 0 8px;
-  }
-  &:last-child {
-    border-radius: 0 8px 8px 0;
-    border-left: none;
-  }
-}
-
 .upper-wrapper {
   position: relative;
   display: flex;
@@ -376,57 +363,21 @@ export default {
   margin-top: 30px;
 }
 
-// .audio-text-buttons-container {
-//   border: 1px solid blue;
-//   display: grid;
-//   width: 414px;
-//   grid-template-columns: 30vw 2px 68vw;
-//   grid-template-rows: 80px 80px;
-// }
-
-// #sound,
-// .stop-open {
-//   grid-column-start: 1;
-//   grid-row-start: 1;
-// }
-// .caption-1 {
-//   grid-column-start: 3;
-//   grid-row-start: 1;
-// }
-
-// .text-btn {
-//   grid-column-start: 1;
-//   grid-row-start: 2;
-// }
-
-// .caption-txt {
-//   grid-column-start: 3;
-//   grid-row-start: 2;
-// }
-
 .audio-text-buttons-container {
   width: 412px;
   display: flex;
   justify-content: space-around;
-  border: 1px solid red;
 }
 
-#sound,
-.stop-open {
-}
-.caption-1 {
-}
-
-.text-btn {
-}
-
-.caption-txt {
+.wrap-button {
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin: 20px 0;
 }
 
-#sound,
-#text,
-.play-open,
-.stop-open {
+#go {
   &.icon {
     height: 55px;
     width: 55px;
@@ -438,6 +389,10 @@ export default {
 
 .text-btn {
   padding-left: 1px;
+}
+
+.caption-txt {
+  padding: 7px;
 }
 
 .text-card {
