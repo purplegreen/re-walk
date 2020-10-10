@@ -364,7 +364,7 @@ export default {
 }
 
 .audio-text-buttons-container {
-  width: 412px;
+  max-width: 412px;
   display: flex;
   justify-content: space-around;
 }

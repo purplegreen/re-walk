@@ -221,6 +221,7 @@ export default {
 
 .snippets {
   margin-bottom: 17px;
+  max-width: 414px;
 }
 
 .snippet {
