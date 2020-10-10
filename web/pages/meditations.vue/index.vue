@@ -21,12 +21,10 @@
           <h5 class="snippet-title">{{ snippet.title }}</h5>
         </button>
         <!-- MODAL OPENING -->
-
-        <transition name="slide-enter">
+        <transition name="slide-fade">
           <modal
             id="snippet-modal"
             name="snippet-modal"
-            transition="nice-modal-fade"
             :adaptive="true"
             @before-open="beforeOpen"
           >
@@ -173,6 +171,18 @@ export default {
 </script>
 
 <style scoped>
+.slide-fade-enter-active {
+  transition: all 0.7s ease;
+}
+.slide-fade-leave-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(50px);
+  opacity: 0;
+}
+
 .snippets {
   padding-top: 12px;
   padding-bottom: 40px;
@@ -246,5 +256,9 @@ export default {
   top: 10px;
   width: 3rem;
   height: auto;
+}
+
+.modalStyle {
+  background-color: blanchedalmond;
 }
 </style>

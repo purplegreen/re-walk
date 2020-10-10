@@ -14,7 +14,8 @@
     <modal
       id="nav-modal"
       name="navModal"
-      transition="nice-modal-fade"
+      :width="300"
+      :height="300"
       :adaptive="true"
     >
       <nav>
