@@ -116,7 +116,7 @@ export default {
 .progress-overlay {
   position: absolute;
   pointer-events: none;
-  background-color: #a09fda;
+  background-color: #4e4e4e;
   opacity: 0.7;
   top: 0;
   bottom: 0;
@@ -132,7 +132,7 @@ export default {
   color: white;
   // text-align: center;
   white-space: wrap;
-  background-color: #5552ff;
+  background-color: #88ab84;
   transition: all 0.6s ease;
   &.highlight {
     font-weight: bold;

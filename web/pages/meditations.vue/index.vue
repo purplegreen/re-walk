@@ -1,6 +1,6 @@
 <template>
   <client-only placeholder="Loading...">
-    <div class>
+    <div class="main-wrap">
       <!-- TITLE -->
       <div class="wrap-title">
         <h1 class="with-padding">
@@ -8,7 +8,7 @@
         </h1>
       </div>
       <!-- SNIPPETS BOARD -->
-      <div class="snippet">
+      <div class="snippets">
         <button
           v-for="snippet of snippets"
           ref="snippet"
@@ -37,18 +37,18 @@
                   <BaseIcon alt="Close snippet" name="close" />
                 </button>
               </div>
-              <ul>
-                <li>
-                  <h3 class="with-padding">
+              <ul class="inModalWrapper">
+                <li class="inModalEl">
+                  <h2 class="with-padding">
                     {{ selectedSnippet.title }}
-                  </h3>
+                  </h2>
                 </li>
-                <li>
+                <li class="inModalEl">
                   <h3 class="with-padding-10">
                     {{ selectedSnippet.duration | secondsToMinutes }} min
                   </h3>
                 </li>
-                <li>
+                <li class="inModalEl shortText">
                   <SanityContent :blocks="selectedSnippet.shortText" />
                 </li>
                 <li>
@@ -171,6 +171,29 @@ export default {
 </script>
 
 <style scoped>
+.main-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wrap-title {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  width: 90%;
+  margin: auto;
+}
+
+.side-el {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  right: 18px;
+  top: 10px;
+  width: 3rem;
+  height: auto;
+}
+
 .slide-fade-enter-active {
   transition: all 0.7s ease;
 }
@@ -183,82 +206,57 @@ export default {
   opacity: 0;
 }
 
-.snippets {
-  padding-top: 12px;
-  padding-bottom: 40px;
-}
+.snippets,
 .snippet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   border-radius: var(--border-radius);
   border: 1px solid transparent;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  margin: 3px;
-  background-color: #ffc701;
+  background-color: #d4c48a;
 }
 
+.snippets {
+  margin-bottom: 17px;
+}
+
+.snippet {
+  margin: 7px 3px;
+}
+
+.snippets:hover,
 .snippet:hover {
-  background-color: #e0b20e;
+  background-color: #b4ae8c;
 }
 .snippet.selected {
-  background: #5552ff;
+  background-color: #88ab84;
 }
 .snippet-modal-content {
   padding: 10px;
-}
-.wrap-title {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  width: 90%;
-  margin: auto;
 }
 
 .modal-button {
   border: 0;
   background-color: transparent;
 }
-</style>
 
-<style lang="scss">
 .snippet-title {
   color: white;
-  font-weight: 600;
-  padding: 20px;
+  padding: 8px 12px;
 }
 
-.center {
-  text-align: center;
-  margin: auto;
-}
-.with-padding {
-  padding-bottom: 20px;
-}
-.with-padding-10 {
-  padding-bottom: 10px;
-}
-.with-margin {
-  margin-bottom: 30px;
-}
-.wrap-buttons {
-  display: flex;
-  justify-content: space-evenly;
-  padding: 10px;
-}
-.t-icon {
-  width: 50px;
-  height: auto;
-}
-.side-el {
-  position: absolute;
-  width: 38px;
-  height: 38px;
-  right: 18px;
-  top: 10px;
-  width: 3rem;
-  height: auto;
+/*In MODAL */
+.inModalWrapper {
+  margin: 50px 7px;
 }
 
-.modalStyle {
-  background-color: blanchedalmond;
+.inModalEl {
+  padding-bottom: 17px;
+}
+.shortText {
+  text-align: left;
 }
 </style>
