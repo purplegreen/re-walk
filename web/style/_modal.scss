@@ -77,11 +77,10 @@
 #snippet-modal .vm--modal {
   max-width: 414px !important;
   width: 96vw !important;
-  min-height: 90vh !important;
-  height: auto !important;
+  min-height: 97vh !important;
   margin: 7px auto !important;
   position: relative;
-  overflow: hidden;
+  overflow-y: scroll;
   top: 0 !important;
   left: 0 !important;
   box-sizing: border-box;

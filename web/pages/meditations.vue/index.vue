@@ -12,17 +12,18 @@
       <div class="snippets">
         <button
           v-for="snippet of snippets"
+          id="root"
           ref="snippet"
           :key="snippet._id"
           :style="isSnippetSelectedColor(snippet)"
           class="snippet"
           :class="{ selected: isSnippetSelected(snippet) }"
-          @click="showModal(snippet)"
+          @click="showModal(snippet), (isShow = false)"
         >
           <h5 class="snippet-title">{{ snippet.title }}</h5>
         </button>
         <!-- MODAL OPENING -->
-        <transition name="slide-fade">
+        <transition name="slide">
           <modal
             id="snippet-modal"
             name="snippet-modal"
@@ -114,6 +115,7 @@ export default {
   data() {
     return {
       selectedSnippet: {},
+      isShow: false,
     }
   },
   computed: {
@@ -184,26 +186,28 @@ export default {
   margin: auto;
 }
 
-.side-el {
-  position: absolute;
-  width: 38px;
-  height: 38px;
-  right: 18px;
-  top: 10px;
-  width: 3rem;
-  height: auto;
+.slide-enter-active {
+  transition: 0.2s opacity ease;
 }
 
-.slide-fade-enter-active {
-  transition: all 0.7s ease;
+.slide-leave-active {
+  transition: 0.2s opacity ease;
+  //   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  //   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  //   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  //   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
-.slide-fade-leave-active {
-  transition: all 0.3s ease;
+
+.slide-enter-to,
+.slide-leave {
+  max-height: 300px;
+  overflow: hidden;
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* .slide-fade-leave-active below version 2.1.8 */ {
-  transform: translateX(50px);
-  opacity: 0;
+
+.slide-enter,
+.slide-leave-to {
+  overflow: hidden;
+  max-height: 0;
 }
 
 .snippets {
@@ -211,7 +215,7 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
   border-radius: var(--border-radius);
-  border: 3px solid white;
+  border: 1px solid white;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
