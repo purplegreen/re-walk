@@ -234,6 +234,7 @@ export default {
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 7px 3px;
   background-color: var(--wmidnight);
+  cursor: pointer;
 }
 
 .selected {

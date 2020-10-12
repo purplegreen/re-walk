@@ -372,16 +372,20 @@ export default {
 .wrap-button {
   display: flex;
   flex-direction: row;
-  border-radius: var(--border-radius);
+  border-radius: var(--border-radius-butt);
   box-shadow: var(--box-shadow);
+  background-color: var(--wmidnight);
   margin: 20px 0;
+  padding: 4px;
 }
 
 #go {
   &.icon {
-    height: 55px;
-    width: 55px;
+    height: 35px;
+    width: 35px;
     align-self: center;
+    --color-i: white;
+    cursor: pointer;
   }
 }
 
@@ -393,6 +397,7 @@ export default {
 
 .caption-txt {
   padding: 7px;
+  color: white;
 }
 
 .text-card {

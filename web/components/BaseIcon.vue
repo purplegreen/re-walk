@@ -20,6 +20,7 @@ export default {
 .icon {
   width: 50px;
   height: 50px;
+  cursor: pointer;
 }
 
 .icon-colors {
@@ -27,6 +28,6 @@ export default {
 }
 
 .icon-colors:hover {
-  --color-i: #949494;
+  --color-i: var(--wyellow);
 }
 </style>
