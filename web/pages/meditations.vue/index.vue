@@ -8,6 +8,7 @@
         </h1>
       </div>
       <!-- SNIPPETS BOARD -->
+
       <div class="snippets">
         <button
           v-for="snippet of snippets"
@@ -77,11 +78,10 @@
           </modal>
         </transition>
         <!-- MODAL CLOSING -->
+
+        <progress-bar :snippets="customWalkpath.composition"></progress-bar>
+        <duration :total="customWalkpath.duration"></duration>
       </div>
-
-      <progress-bar :snippets="customWalkpath.composition"></progress-bar>
-      <duration :total="customWalkpath.duration"></duration>
-
       <div>
         <button
           :disabled="!isWalkpathReady"
@@ -170,7 +170,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .main-wrap {
   display: flex;
   flex-direction: column;
@@ -206,8 +206,7 @@ export default {
   opacity: 0;
 }
 
-.snippets,
-.snippet {
+.snippets {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -216,24 +215,33 @@ export default {
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  background-color: #d4c48a;
-}
-
-.snippets {
   margin-bottom: 17px;
   max-width: 414px;
+  background-color: var(--wyellow);
 }
 
 .snippet {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: var(--border-radius-butt);
+  border: 1px solid transparent;
+  -webkit-box-shadow: 0px 6px 9px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 7px 3px;
+  background-color: var(--wmidnight);
 }
 
-.snippets:hover,
-.snippet:hover {
-  background-color: #b4ae8c;
+.snippets:hover {
 }
+
+.snippet:hover {
+  background-color: var(--wgreen);
+}
+
 .snippet.selected {
-  background-color: #88ab84;
+  background-color: var(--wblue);
 }
 .snippet-modal-content {
   padding: 10px;
@@ -246,7 +254,7 @@ export default {
 
 .snippet-title {
   color: white;
-  padding: 8px 12px;
+  padding: 8px 22px;
 }
 
 /*In MODAL */

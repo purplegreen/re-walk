@@ -22,7 +22,7 @@ export default {
 }
 
 .icon-colors {
-  --color-i: black;
+  --color-i: var(--wpink);
 }
 
 .icon-colors:hover {

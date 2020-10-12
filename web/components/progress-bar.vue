@@ -109,6 +109,7 @@ export default {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   border-radius: var(--border-radius);
+  background-color: var(--wyellow);
   height: 6rem;
   width: 99%;
   margin: auto;
@@ -116,8 +117,8 @@ export default {
 .progress-overlay {
   position: absolute;
   pointer-events: none;
-  background-color: #4e4e4e;
-  opacity: 0.7;
+  background-color: var(--wgreen);
+  // opacity: 0.7;
   top: 0;
   bottom: 0;
   left: 0;
@@ -132,7 +133,7 @@ export default {
   color: white;
   // text-align: center;
   white-space: wrap;
-  background-color: #88ab84;
+  background-color: var(--wblue);
   transition: all 0.6s ease;
   &.highlight {
     font-weight: bold;

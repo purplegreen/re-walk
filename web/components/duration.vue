@@ -33,7 +33,7 @@ export default {
   font-size: 0.8rem;
   display: inline-block;
   position: relative;
-  background-color: #4e4e4e;
+  background-color: var(--wblue);
   background-size: contain;
   padding: 8px;
   margin: 8px 5px 20px 5px;
