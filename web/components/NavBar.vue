@@ -99,7 +99,16 @@ nav a:hover {
 }
 
 .lateral-nav-ico {
-  width: 50px;
-  height: 50px;
+  padding-left: 10px;
+  // top: 10px;
+}
+
+.icon {
+  &.icon {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    padding-right: 14px;
+  }
 }
 </style>

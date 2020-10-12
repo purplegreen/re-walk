@@ -132,14 +132,16 @@
     </symbol>
 
 
-
-    <symbol id="lat-nav" viewBox="0 0 29 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="Mobile-Copy" transform="translate(-210.000000, -322.000000)" stroke="#383B3A" stroke-width="3">
-                <polyline id="nup" transform="translate(228.015055, 331.022986) rotate(-32.000000) translate(-228.015055, -331.022986) " points="216.883061 315.785591 239.14705 329.482332 218.475921 346.26038"></polyline>
+<symbol id="lat-nav" viewBox="0 0 83 83">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile" transform="translate(-292.000000, -269.000000)" stroke="#383B3A" stroke-width="3">
+            <g id="ball" transform="translate(294.000000, 271.000000)">
+                <circle id="Oval" cx="39.5" cy="39.5" r="39.5"></circle>
             </g>
+            <polyline id="nup" transform="translate(348.131994, 298.237395) rotate(-32.000000) translate(-348.131994, -298.237395) " points="337 283 359.263988 296.696741 338.59286 313.47479"></polyline>
         </g>
-    </symbol>
+    </g>
+</svg>
 
 
 
