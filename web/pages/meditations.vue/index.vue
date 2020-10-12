@@ -211,13 +211,16 @@ export default {
   flex-wrap: wrap;
   justify-content: space-around;
   border-radius: var(--border-radius);
-  border: 1px solid transparent;
+  border: 3px solid white;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin-bottom: 17px;
   max-width: 414px;
-  background-color: var(--wyellow);
+  // background-image: linear-gradient(45deg, #df1c8c, #feaa21, #08b4d7);
+  background-color: var(--wmidnight);
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .snippet {
@@ -233,16 +236,17 @@ export default {
   background-color: var(--wmidnight);
 }
 
+.selected {
+  background-color: var(--wblue);
+}
+
 .snippets:hover {
 }
 
 .snippet:hover {
-  background-color: var(--wgreen);
+  background-color: var(--wyellow);
 }
 
-.snippet.selected {
-  background-color: var(--wblue);
-}
 .snippet-modal-content {
   padding: 10px;
 }
@@ -254,7 +258,7 @@ export default {
 
 .snippet-title {
   color: white;
-  padding: 8px 22px;
+  padding: 14px 26px;
 }
 
 /*In MODAL */

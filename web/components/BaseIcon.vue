@@ -15,14 +15,15 @@ export default {
   },
 }
 </script>
-<style scoped>
+
+<style lang="scss" scoped>
 .icon {
   width: 50px;
   height: 50px;
 }
 
 .icon-colors {
-  --color-i: var(--wpink);
+  --color-i: var(--wovermidnight);
 }
 
 .icon-colors:hover {

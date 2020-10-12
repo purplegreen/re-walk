@@ -91,16 +91,15 @@ nav a:hover {
   text-decoration: none;
 }
 .nav .nav-item.router-link-exact-active {
-  color: goldenrod;
-  border-bottom: solid 2px goldenrod;
+  color: var(--wyellow);
+  border-bottom: solid 2px var(--wgreen);
 }
 .nav a {
   display: inline-block;
 }
 
 .lateral-nav-ico {
-  width: 30px;
-  height: auto;
-  margin-right: 20px;
+  width: 50px;
+  height: 50px;
 }
 </style>
