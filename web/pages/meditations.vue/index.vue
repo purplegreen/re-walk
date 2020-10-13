@@ -222,9 +222,9 @@ export default {
   margin-bottom: 17px;
   max-width: 414px;
   // background-image: linear-gradient(45deg, #df1c8c, #feaa21, #08b4d7);
-  background-color: var(--wmidnight);
-  padding-top: 16px;
-  padding-bottom: 16px;
+  background-color: var(--wsandy);
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .snippet {
@@ -236,7 +236,7 @@ export default {
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  margin: 7px 3px;
+  margin: 6px 3px;
   background-color: var(--wmidnight);
   cursor: pointer;
 }
@@ -249,7 +249,7 @@ export default {
 }
 
 .snippet:hover {
-  background-color: var(--wyellow);
+  background-color: white;
 }
 
 .snippet-modal-content {
@@ -263,7 +263,7 @@ export default {
 
 .snippet-title {
   color: white;
-  padding: 14px 26px;
+  padding: 10px 23px;
 }
 
 /*In MODAL */

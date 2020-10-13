@@ -113,6 +113,7 @@ export default {
   height: 6rem;
   width: 99%;
   margin: auto;
+  margin-top: 10px;
 }
 .progress-overlay {
   position: absolute;
