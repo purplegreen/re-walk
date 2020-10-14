@@ -181,7 +181,7 @@ export default {
 
 .wrap-title {
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   width: 90%;
   margin: auto;
 }
@@ -225,6 +225,8 @@ export default {
   background-color: var(--wsandy);
   padding-top: 10px;
   padding-bottom: 10px;
+  background-color: var(--wmidnight);
+  border: 4px solid var(--wpink);
 }
 
 .snippet {
@@ -239,6 +241,7 @@ export default {
   margin: 6px 3px;
   background-color: var(--wmidnight);
   cursor: pointer;
+  border: 3px solid var(--wgreen);
 }
 
 .selected {
@@ -249,7 +252,7 @@ export default {
 }
 
 .snippet:hover {
-  background-color: white;
+  background-color: var(--wgreen);
 }
 
 .snippet-modal-content {

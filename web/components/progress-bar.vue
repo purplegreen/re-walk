@@ -70,7 +70,7 @@ export default {
   // left: 50%;
   // transform: translate(-50%, -2%);
   pointer-events: none;
-  border-right: 1px solid white;
+  border-right: 1px solid var(--wgreen);
 }
 .num {
   grid-column: 1;
@@ -114,6 +114,7 @@ export default {
   width: 99%;
   margin: auto;
   margin-top: 10px;
+  border: 3px solid var(--wgreen);
 }
 .progress-overlay {
   position: absolute;
