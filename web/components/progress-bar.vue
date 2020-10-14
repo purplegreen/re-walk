@@ -70,7 +70,7 @@ export default {
   // left: 50%;
   // transform: translate(-50%, -2%);
   pointer-events: none;
-  border-right: 1px solid var(--wgreen);
+  border-right: 1px solid var(--wyellow);
 }
 .num {
   grid-column: 1;
@@ -109,12 +109,11 @@ export default {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   border-radius: var(--border-radius);
-  // background-color: var(--wyellow);
   height: 6rem;
   width: 99%;
   margin: auto;
   margin-top: 10px;
-  border: 3px solid var(--wgreen);
+  border: 2px solid var(--wyellow);
 }
 .progress-overlay {
   position: absolute;

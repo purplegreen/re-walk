@@ -225,8 +225,8 @@ export default {
   background-color: var(--wsandy);
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: var(--wmidnight);
-  border: 4px solid var(--wpink);
+  background-color: var(--wbeige);
+  border: 3px solid var(--wpink);
 }
 
 .snippet {
@@ -239,9 +239,9 @@ export default {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 6px 3px;
-  background-color: var(--wmidnight);
+  background-color: var(--wyellow);
   cursor: pointer;
-  border: 3px solid var(--wgreen);
+  border: 2px solid var(--wbeige);
 }
 
 .selected {

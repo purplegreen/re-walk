@@ -28,6 +28,6 @@ export default {
 }
 
 .icon-colors:hover {
-  --color-i: var(--wyellow);
+  --color-i: var(--wmidnight);
 }
 </style>
