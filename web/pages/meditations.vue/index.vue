@@ -31,13 +31,31 @@
             @before-open="beforeOpen"
           >
             <div class="snippet-modal-content">
+              <!-- Close -->
               <div class="side-el">
                 <button
                   class="modal-button"
                   @click="$modal.hide('snippet-modal')"
                 >
-                  <BaseIcon alt="Close snippet" name="close" />
+                  <BaseIcon alt="Close snippet" class="close" name="close" />
                 </button>
+              </div>
+
+              <!-- ADD and Remove -->
+              <div class="wrap-button">
+                <button
+                  v-if="isSnippetSelected(selectedSnippet)"
+                  class="modal-button"
+                  @click="remove"
+                >
+                  <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
+                  <h3 class="caption-txt">Löschen</h3>
+                </button>
+                <button v-else class="modal-button insert" @click="add">
+                  <BaseIcon id="add" alt="Insert snippet" name="insert" />
+                  <h3 class="caption-txt">In den Guided-Walk</h3>
+                </button>
+                <!-- ----  -->
               </div>
               <ul class="inModalWrapper">
                 <li class="inModalEl">
@@ -62,19 +80,6 @@
                   />
                 </li>
               </ul>
-
-              <div class="wrap-buttons">
-                <button
-                  v-if="isSnippetSelected(selectedSnippet)"
-                  class="modal-button"
-                  @click="remove"
-                >
-                  <BaseIcon alt="Remove snippet" name="remove" />
-                </button>
-                <button v-else class="modal-button" @click="add">
-                  <BaseIcon alt="Insert snippet" name="insert" />
-                </button>
-              </div>
             </div>
           </modal>
         </transition>
@@ -221,10 +226,9 @@ export default {
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin-bottom: 17px;
   max-width: 414px;
-  // background-image: linear-gradient(45deg, #df1c8c, #feaa21, #08b4d7);
-  background-color: var(--wsandy);
   padding-top: 10px;
   padding-bottom: 10px;
+  background-image: url('../../static/back.svg');
   background-color: var(--wbeige);
   border: 3px solid var(--wpink);
 }
@@ -256,7 +260,7 @@ export default {
 }
 
 .snippet-modal-content {
-  padding: 10px;
+  padding: 10px 16px 30px 16px;
 }
 
 .modal-button {
@@ -270,6 +274,30 @@ export default {
 }
 
 /*In MODAL */
+
+.side-el {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close {
+  display: flex;
+}
+
+.wrap-button {
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--border-radius-butt);
+  box-shadow: var(--box-shadow);
+  background-color: var(--wmidnight);
+
+  justify-content: space-around;
+  align-items: stretch;
+  margin: 3px 0;
+  padding: 4px;
+  cursor: pointer;
+}
+
 .inModalWrapper {
   margin: 50px 7px;
 }
@@ -279,5 +307,17 @@ export default {
 }
 .shortText {
   text-align: left;
+}
+
+#add.icon,
+#remove.icon {
+  --color-i: white;
+}
+
+.caption-txt {
+  display: flex;
+  padding: 3px 2vw;
+  color: white;
+  align-self: center;
 }
 </style>

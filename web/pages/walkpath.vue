@@ -433,11 +433,6 @@ export default {
   background-color: #0ea958;
 }
 
-.isaudio > .icon,
-.istext > .icon {
-  --color-i: #ffc700;
-}
-
 .side-el {
   position: absolute;
   width: 18px;
