@@ -65,10 +65,6 @@ export default {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 15% 15% 70%;
-  // position: absolute;
-  // top: 2%;
-  // left: 50%;
-  // transform: translate(-50%, -2%);
   pointer-events: none;
   border-right: 1px solid var(--wyellow);
 }
@@ -113,8 +109,8 @@ export default {
   width: 99%;
   margin: auto;
   margin-top: 10px;
-  border: 2px solid var(--wyellow);
 }
+
 .progress-overlay {
   position: absolute;
   pointer-events: none;

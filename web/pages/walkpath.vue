@@ -13,9 +13,9 @@
       <div class="audio-text-buttons-container">
         <!-- AUDIO BUTTON -->
         <div class="wrap-button">
-          <h6 class="caption-txt">Ton abspielen</h6>
           <button v-if="isWalkpathRunning" @click="stop()">
             <BaseIcon id="go" alt="Stop" name="stop" />
+            <h3 class="caption-txt">Ton anhalten</h3>
           </button>
           <button
             v-else
@@ -23,6 +23,7 @@
             @click="start()"
           >
             <BaseIcon id="go" alt="Sound" name="sound" />
+            <h3 class="caption-txt">Ton abspielen</h3>
           </button>
         </div>
         <!-- --  -->
@@ -30,7 +31,6 @@
         <!-- TEXT -->
         <!-- TEXT BUTTON -->
         <div class="wrap-button">
-          <h6 class="caption-txt">Text lesen</h6>
           <button
             :class="{ selected: mode === 'text' }"
             @click="
@@ -39,6 +39,7 @@
             "
           >
             <BaseIcon id="go" alt="Text" name="text" />
+            <h3 class="caption-txt">Text lesen</h3>
           </button>
         </div>
       </div>
@@ -364,25 +365,26 @@ export default {
 }
 
 .audio-text-buttons-container {
-  max-width: 412px;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
 }
 
-.wrap-button {
-  display: flex;
-  flex-direction: row;
-  border-radius: var(--border-radius-butt);
-  box-shadow: var(--box-shadow);
-  background-color: var(--wmidnight);
-  margin: 20px 0;
-  padding: 4px;
-}
+// .wrap-button {
+//   flex-direction: row;
+//   border-radius: var(--border-radius-butt);
+//   box-shadow: var(--box-shadow);
+//   background-color: var(--wmidnight);
+//   justify-content: space-around;
+//   align-items: stretch;
+//   margin: 3px 0;
+//   padding: 4px;
+//   cursor: pointer;
+// }
 
 #go {
   &.icon {
-    height: 35px;
-    width: 35px;
+    // height: 35px;
+    // width: 35px;
     align-self: center;
     --color-i: white;
     cursor: pointer;
@@ -395,10 +397,10 @@ export default {
   padding-left: 1px;
 }
 
-.caption-txt {
-  padding: 7px;
-  color: white;
-}
+// .caption-txt {
+//   padding: 7px;
+//   color: white;
+// }
 
 .text-card {
   position: absolute;

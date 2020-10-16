@@ -31,14 +31,20 @@ export default {
     ],
     // eslint-disable-next-line prettier/prettier
     link: [{
-      // eslint-disable-next-line prettier/prettier
+        // eslint-disable-next-line prettier/prettier
       rel: 'icon',
-      // eslint-disable-next-line prettier/prettier
+        // eslint-disable-next-line prettier/prettier
       type: 'image/x-icon',
-      // eslint-disable-next-line prettier/prettier
+        // eslint-disable-next-line prettier/prettier
       href: '/favicon.png',
-      // eslint-disable-next-line prettier/prettier
-    }, ],
+        // eslint-disable-next-line prettier/prettier
+    }, 
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Open+Sans:wght@400&display=swap',
+      },
+    ],
   },
 
   sanity: {
@@ -53,7 +59,8 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: [{
+  plugins: [
+    {
       src: '~/plugins/global.js',
     },
     {
@@ -80,11 +87,26 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
+
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/sanity',
+    '@nuxtjs/google-fonts',
+
+    // With options
+    [
+      '@nuxtjs/google-fonts',
+      {
+        /* module options */
+        families: {
+          Barlow: true,
+        },
+        /* module options */
+      },
+    ],
   ],
+
   /*
    ** Nuxt.js modules
    */

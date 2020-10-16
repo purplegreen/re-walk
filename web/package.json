@@ -13,10 +13,11 @@
     "lint": "npm run lint:js"
   },
   "dependencies": {
-    "@nuxt/webpack": "^2.14.3",
+    "@nuxt/webpack": "^2.14.7",
+    "@nuxtjs/google-fonts": "^1.1.0",
     "@nuxtjs/sanity": "^0.2.2",
     "@sanity/block-content-to-html": "^1.3.8",
-    "@sanity/client": "^1.149.18",
+    "@sanity/client": "^1.150.7",
     "@sanity/image-url": "^0.140.19",
     "block-content-to-vue": "^0.1.0",
     "eslint-plugin-vue": "^6.2.2",
@@ -25,7 +26,7 @@
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.14.1",
+    "nuxt": "^2.14.7",
     "nuxt-babel": "^1.0.1",
     "sanity-blocks-vue-component": "^0.1.0",
     "vue-js-modal": "^2.0.0-rc.6",
@@ -37,13 +38,13 @@
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.6.0",
-    "eslint-config-prettier": "^6.11.0",
+    "eslint": "^7.11.0",
+    "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5",
-    "sass": "^1.26.10",
+    "prettier": "^2.1.2",
+    "sass": "^1.27.0",
     "sass-loader": "^9.0.3",
-    "webpack": "^4.44.1"
+    "webpack": "^4.44.2"
   }
 }

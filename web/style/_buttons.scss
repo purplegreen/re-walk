@@ -8,3 +8,24 @@ button {
   border: none;
   background-color: white;
 }
+
+
+.wrap-button {
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--border-radius-butt);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
+  background-color: var(--wmidnight);
+  justify-content: space-around;
+  margin: 3px 0;
+  padding: 2px 6vw;
+  cursor: pointer;
+}
+
+
+.caption-txt {
+  display: flex;
+  padding: 3px 2vw;
+  color: white;
+  align-self: center;
+}

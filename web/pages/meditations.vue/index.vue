@@ -3,9 +3,7 @@
     <div class="main-wrap">
       <!-- TITLE -->
       <div class="wrap-title">
-        <h1 class="with-padding">
-          Wähle Meditationen für deinen Weg
-        </h1>
+        <h1 class="with-padding">Wähle Meditationen für deinen Weg</h1>
       </div>
       <!-- SNIPPETS BOARD -->
 
@@ -49,7 +47,7 @@
                   @click="remove"
                 >
                   <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
-                  <h3 class="caption-txt">Löschen</h3>
+                  <h3 class="caption-txt">Entfernen</h3>
                 </button>
                 <button v-else class="modal-button insert" @click="add">
                   <BaseIcon id="add" alt="Insert snippet" name="insert" />
@@ -88,13 +86,14 @@
         <progress-bar :snippets="customWalkpath.composition"></progress-bar>
         <duration :total="customWalkpath.duration"></duration>
       </div>
-      <div>
+      <div class="wrap-button">
         <button
           :disabled="!isWalkpathReady"
           class="modal-button"
           @click="start"
         >
-          <BaseIcon alt="Start Walk" name="next" />
+          <BaseIcon id="start" alt="Start Walk" name="next" />
+          <h3 class="caption-txt">Guided Walk starten</h3>
         </button>
       </div>
     </div>
@@ -230,7 +229,7 @@ export default {
   padding-bottom: 10px;
   background-image: url('../../static/back.svg');
   background-color: var(--wbeige);
-  border: 3px solid var(--wpink);
+  border: 3px solid white;
 }
 
 .snippet {
@@ -284,20 +283,6 @@ export default {
   display: flex;
 }
 
-.wrap-button {
-  display: flex;
-  flex-direction: row;
-  border-radius: var(--border-radius-butt);
-  box-shadow: var(--box-shadow);
-  background-color: var(--wmidnight);
-
-  justify-content: space-around;
-  align-items: stretch;
-  margin: 3px 0;
-  padding: 4px;
-  cursor: pointer;
-}
-
 .inModalWrapper {
   margin: 50px 7px;
 }
@@ -310,14 +295,8 @@ export default {
 }
 
 #add.icon,
-#remove.icon {
+#remove.icon,
+#start.icon {
   --color-i: white;
-}
-
-.caption-txt {
-  display: flex;
-  padding: 3px 2vw;
-  color: white;
-  align-self: center;
 }
 </style>
