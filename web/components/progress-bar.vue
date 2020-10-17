@@ -11,7 +11,9 @@
       <div class="cont-wrap">
         <span class="num">{{ snippet.duration | secondsToMinutes }}</span>
         <span class="min">min</span>
-        <span class="rotate-text">{{ snippet.title }}</span>
+        <span class="rotate-text"
+          ><h4>{{ snippet.title }}</h4></span
+        >
       </div>
       <span
         class="progress-overlay"
