@@ -14,13 +14,13 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.0.1",
-    "@sanity/components": "^2.0.1",
+    "@sanity/base": "^2.0.4",
+    "@sanity/components": "^2.0.4",
     "@sanity/core": "^2.0.1",
-    "@sanity/default-layout": "^2.0.1",
+    "@sanity/default-layout": "^2.0.4",
     "@sanity/default-login": "^2.0.1",
-    "@sanity/desk-tool": "^2.0.1",
-    "@sanity/google-maps-input": "^2.0.1",
+    "@sanity/desk-tool": "^2.0.4",
+    "@sanity/google-maps-input": "^2.0.4",
     "@sanity/image-url": "^0.140.19",
     "@sanity/vision": "^2.0.1",
     "prop-types": "^15.6",

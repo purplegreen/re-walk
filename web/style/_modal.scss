@@ -75,18 +75,18 @@
 // }
 
 #snippet-modal .vm--modal {
-  max-width: 414px !important;
-  width: 96vw !important;
-  min-height: 97vh !important;
-  margin: 7px auto !important;
-  position: relative;
-  overflow-y: scroll;
-  top: 0 !important;
-  left: 0 !important;
-  box-sizing: border-box;
-  background-color: white;
-  border-radius: var(--border-radius);
-  -box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);
+    max-width: 390px !important;
+    width: 90vw !important;
+    min-height: 70vh !important;
+    margin: 7px auto !important;
+    position: relative;
+    overflow-y: scroll;
+    top: 50px !important;
+    left: 0 !important;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 8px;
+    border-radius: var(--border-radius);
 }
 
 

@@ -2,24 +2,27 @@
   <client-only placeholder="Loading...">
     <div class="main-wrap">
       <!-- TITLE -->
-      <div class="wrap-title">
-        <h1 class="with-padding">Wähle Meditationen für deinen Weg</h1>
-      </div>
+
       <!-- SNIPPETS BOARD -->
 
       <div class="snippets">
-        <button
-          v-for="snippet of snippets"
-          id="root"
-          ref="snippet"
-          :key="snippet._id"
-          :style="isSnippetSelectedColor(snippet)"
-          class="snippet"
-          :class="{ selected: isSnippetSelected(snippet) }"
-          @click="showModal(snippet), (isShow = false)"
-        >
-          <h5 class="snippet-title">{{ snippet.title }}</h5>
-        </button>
+        <div class="wrap-title">
+          <h3 class="list-title">Wähle Meditationen für deinen Weg</h3>
+        </div>
+        <div class="snippets-list">
+          <button
+            v-for="snippet of snippets"
+            id="root"
+            ref="snippet"
+            :key="snippet._id"
+            :style="isSnippetSelectedColor(snippet)"
+            class="snippet"
+            :class="{ selected: isSnippetSelected(snippet) }"
+            @click="showModal(snippet), (isShow = false)"
+          >
+            <div class="snippet-title">{{ snippet.title }}</div>
+          </button>
+        </div>
         <!-- MODAL OPENING -->
         <transition name="slide">
           <modal
@@ -85,16 +88,16 @@
 
         <progress-bar :snippets="customWalkpath.composition"></progress-bar>
         <duration :total="customWalkpath.duration"></duration>
-      </div>
-      <div class="wrap-button">
-        <button
-          :disabled="!isWalkpathReady"
-          class="modal-button"
-          @click="start"
-        >
-          <BaseIcon id="start" alt="Start Walk" name="next" />
-          <h3 class="caption-txt">Guided Walk starten</h3>
-        </button>
+        <div class="wrap-button">
+          <button
+            :disabled="!isWalkpathReady"
+            class="modal-button"
+            @click="start"
+          >
+            <BaseIcon id="start" alt="Start Walk" name="next" />
+            <h3 class="caption-txt">Guided Walk starten</h3>
+          </button>
+        </div>
       </div>
     </div>
   </client-only>
@@ -184,10 +187,18 @@ export default {
 }
 
 .wrap-title {
-  padding-top: 50px;
-  padding-bottom: 20px;
-  width: 90%;
+  position: relative;
+  width: 90vw;
   margin: auto;
+}
+
+.list-title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: var(--border-radius);
+  border: 3px solid white;
+  background-color: var(--wbeige);
 }
 
 .slide-enter-active {
@@ -218,6 +229,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: self-start;
   border-radius: var(--border-radius);
   border: 1px solid white;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
@@ -225,6 +237,7 @@ export default {
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin-bottom: 17px;
   max-width: 414px;
+  height: 90vh;
   padding-top: 10px;
   padding-bottom: 10px;
   background-image: url('../../static/back.svg');
@@ -232,16 +245,40 @@ export default {
   border: 3px solid white;
 }
 
-.snippet {
+.snippets-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  border-radius: var(--border-radius);
+  background-color: var(--wbeige);
+  border: 3px solid white;
+  height: 16vh;
+  &::-webkit-scrollbar {
+    width: 6px; /* width of the entire scrollbar */
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--wgreen); /* color of the tracking area */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--wblue); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid white; /* creates padding around scroll thumb */
+  }
+}
+
+.snippet {
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: nowrap;
+  // justify-content: space-around;
+  align-items: stretch;
   border-radius: var(--border-radius-butt);
   border: 1px solid transparent;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  margin: 6px 3px;
+  margin: 16px 3px;
   background-color: var(--wyellow);
   cursor: pointer;
   border: 2px solid var(--wbeige);
@@ -269,7 +306,8 @@ export default {
 
 .snippet-title {
   color: white;
-  padding: 10px 23px;
+  padding: 0px 23px;
+  align-self: center;
 }
 
 /*In MODAL */
