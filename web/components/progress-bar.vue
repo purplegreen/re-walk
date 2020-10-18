@@ -107,7 +107,9 @@ export default {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   border-radius: var(--border-radius);
-  height: 14rem;
+  background-color: var(--wblue);
+  opacity: 0.7;
+  height: 19vh;
   width: 99%;
   margin: auto;
   margin-top: 10px;

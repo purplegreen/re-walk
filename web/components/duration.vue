@@ -35,8 +35,8 @@ export default {
   position: relative;
   background-color: var(--wblue);
   background-size: contain;
-  padding: 8px;
-  margin: 8px 5px 20px 5px;
+  padding: 6px;
+  margin: 7px 2px;
   border-radius: var(--border-radius);
 }
 </style>
