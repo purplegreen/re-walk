@@ -6,7 +6,8 @@
       :class="buttonClass"
       v-on="$listeners"
     >
-      <slot />
+      <slot> </slot>
+      <slot name="icon"> </slot>
     </button>
   </div>
 </template>
@@ -21,7 +22,7 @@ export default {
 }
 </script>
 <style scoped>
-.button {
+/* .button {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
@@ -84,5 +85,5 @@ export default {
 }
 .button.-icon-center {
   padding: 0 20px;
-}
+} */
 </style>

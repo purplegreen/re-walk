@@ -12,7 +12,7 @@
           <h3 class="list-title">Wähle Meditationen für deinen Weg</h3>
         </div>
         <div class="snippets-list">
-          <button
+          <BaseButton
             v-for="snippet of snippets"
             id="root"
             ref="snippet"
@@ -22,11 +22,17 @@
             :class="{ selected: isSnippetSelected(snippet) }"
             @click="showModal(snippet), (isShow = false)"
           >
+            <span v-if="isSnippetSelected(snippet)" slot="icon">
+              <BaseIcon id="check-small" alt="check" name="check"
+            /></span>
+
+            <span v-else slot="icon">
+              <BaseIcon id="add-small" alt="add" name="add"
+            /></span>
             <div class="snippet-title">
-              <BaseIcon id="add-small" alt="add" name="add" />
               {{ snippet.title }}
             </div>
-          </button>
+          </BaseButton>
         </div>
 
         <!-- MODAL OPENING -->
@@ -271,6 +277,28 @@ export default {
   }
 }
 
+#add.icon,
+#add-small.icon,
+#check-small.icon,
+#remove.icon,
+#start.icon {
+  --color-i: white;
+}
+
+#add-small.icon,
+#check-small.icon {
+  width: 30px;
+  height: 30px;
+}
+
+#add-small.icon {
+  padding-right: 6px;
+}
+
+#check-small.icon {
+  padding-left: 6px;
+}
+
 .snippet {
   // display: flex;
   // flex-direction: row;
@@ -283,16 +311,26 @@ export default {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 16px 3px;
-  background-color: var(--wyellow);
+  background-color: var(--wblue);
+  opacity: 0.6;
+  transition: 0.3s;
   cursor: pointer;
   border: 2px solid var(--wbeige);
 }
 
 .selected {
   background-color: var(--wblue);
+  opacity: 1;
+  &.check-small-small.icon {
+    opacity: 0.1;
+    transition: 0.3s;
+    --color-i: red;
+    width: 200px;
+  }
 }
 
 .snippet:hover {
+  opacity: 1;
   transform: scale(1.02);
   box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -322,6 +360,14 @@ export default {
   justify-content: center;
 }
 
+// #start.icon {
+//   --color-i: var(--wnightlila);
+// }
+
+// .start-button {
+//   color: var(--wnightlila);
+// }
+
 /*In MODAL */
 
 .side-el {
@@ -343,25 +389,4 @@ export default {
 .shortText {
   text-align: left;
 }
-
-#add.icon,
-#add-small.icon,
-#remove.icon,
-#start.icon {
-  --color-i: white;
-}
-
-#add-small.icon {
-  width: 30px;
-  height: 30px;
-  padding-right: 6px;
-}
-
-// #start.icon {
-//   --color-i: var(--wnightlila);
-// }
-
-// .start-button {
-//   color: var(--wnightlila);
-// }
 </style>
