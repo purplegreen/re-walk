@@ -22,9 +22,13 @@
             :class="{ selected: isSnippetSelected(snippet) }"
             @click="showModal(snippet), (isShow = false)"
           >
-            <div class="snippet-title">{{ snippet.title }}</div>
+            <div class="snippet-title">
+              <BaseIcon id="add-small" alt="add" name="add" />
+              {{ snippet.title }}
+            </div>
           </button>
         </div>
+
         <!-- MODAL OPENING -->
         <transition name="slide">
           <modal
@@ -55,7 +59,7 @@
                   <h3 class="caption-txt">Entfernen</h3>
                 </button>
                 <button v-else class="modal-button insert" @click="add">
-                  <BaseIcon id="add" alt="Insert snippet" name="insert" />
+                  <BaseIcon id="add" alt="Add snippet" name="add" />
                   <h3 class="caption-txt">In den Guided-Walk</h3>
                 </button>
                 <!-- ----  -->
@@ -95,7 +99,7 @@
             @click="start"
           >
             <BaseIcon id="start" alt="Start Walk" name="next" />
-            <h3 class="caption-txt">Guided Walk starten</h3>
+            <h3 class="caption-txt start-button">Guided Walk starten</h3>
           </button>
         </div>
       </div>
@@ -288,11 +292,16 @@ export default {
   background-color: var(--wblue);
 }
 
-.snippets:hover {
-}
-
 .snippet:hover {
-  background-color: var(--wmidnight);
+  transform: scale(1.02);
+  box-shadow: 0 7px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.snippet:active {
+  transform: scale(1);
+  box-shadow: none;
+}
+.snippet:focus {
+  outline: 0;
 }
 
 .snippet-modal-content {
@@ -305,9 +314,12 @@ export default {
 }
 
 .snippet-title {
+  display: flex;
   color: white;
   padding: 0px 23px;
   align-self: center;
+  align-items: center;
+  justify-content: center;
 }
 
 /*In MODAL */
@@ -333,8 +345,23 @@ export default {
 }
 
 #add.icon,
+#add-small.icon,
 #remove.icon,
 #start.icon {
   --color-i: white;
 }
+
+#add-small.icon {
+  width: 30px;
+  height: 30px;
+  padding-right: 6px;
+}
+
+// #start.icon {
+//   --color-i: var(--wnightlila);
+// }
+
+// .start-button {
+//   color: var(--wnightlila);
+// }
 </style>
