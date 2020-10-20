@@ -22,14 +22,15 @@
             :class="{ selected: isSnippetSelected(snippet) }"
             @click="showModal(snippet), (isShow = false)"
           >
-            <span v-if="isSnippetSelected(snippet)" slot="icon">
-              <BaseIcon id="check-small" alt="check" name="check"
-            /></span>
-
-            <span v-else slot="icon">
-              <BaseIcon id="add-small" alt="add" name="add"
-            /></span>
             <div class="snippet-title">
+              <span v-if="isSnippetSelected(snippet)" slot="icon">
+                <BaseIcon id="check-small" alt="check" name="check"
+              /></span>
+
+              <span v-else slot="icon">
+                <BaseIcon id="add-small" alt="add" name="add"
+              /></span>
+
               {{ snippet.title }}
             </div>
           </BaseButton>
@@ -263,7 +264,6 @@ export default {
   border-radius: var(--border-radius);
   background-color: var(--wbeige);
   border: 3px solid white;
-  height: 16vh;
   &::-webkit-scrollbar {
     width: 6px; /* width of the entire scrollbar */
   }
@@ -278,8 +278,6 @@ export default {
 }
 
 #add.icon,
-#add-small.icon,
-#check-small.icon,
 #remove.icon,
 #start.icon {
   --color-i: white;
@@ -287,16 +285,14 @@ export default {
 
 #add-small.icon,
 #check-small.icon {
+  color: var(--wnightlila);
+}
+
+#add-small.icon,
+#check-small.icon {
   width: 30px;
   height: 30px;
-}
-
-#add-small.icon {
   padding-right: 6px;
-}
-
-#check-small.icon {
-  padding-left: 6px;
 }
 
 .snippet {
@@ -311,11 +307,12 @@ export default {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 16px 3px;
-  background-color: var(--wblue);
+  background-color: var(--wverdefluoa);
+
   opacity: 0.6;
   transition: 0.3s;
   cursor: pointer;
-  border: 2px solid var(--wbeige);
+  border: 2px solid var(--wverdefluo);
 }
 
 .selected {
@@ -326,6 +323,7 @@ export default {
     transition: 0.3s;
     --color-i: red;
     width: 200px;
+    border: 2px solid var(--wverdefluoa);
   }
 }
 
@@ -353,8 +351,8 @@ export default {
 
 .snippet-title {
   display: flex;
-  color: white;
-  padding: 0px 23px;
+  color: var(--wnightlila);
+  padding: 6px 13px;
   align-self: center;
   align-items: center;
   justify-content: center;

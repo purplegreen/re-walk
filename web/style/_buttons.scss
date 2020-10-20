@@ -16,7 +16,8 @@ button {
   flex-direction: column;
   border-radius: var(--border-radius-butt);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
-  background-color: var(--wmidnight);
+  background-color: var(--wblue);
+  border: 2px solid var(--wverdefluo);
   justify-content: space-around;
   margin: 3px 12px;
   padding: 2px 6vw;

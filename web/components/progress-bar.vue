@@ -109,7 +109,7 @@ export default {
   border-radius: var(--border-radius);
   background-color: var(--wblue);
   opacity: 0.7;
-  height: 19vh;
+  height: 27vh;
   width: 99%;
   margin: auto;
   margin-top: 10px;

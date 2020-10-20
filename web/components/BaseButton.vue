@@ -17,6 +17,7 @@ export default {
   props: {
     buttonClass: {
       type: String,
+      required: true,
     },
   },
 }

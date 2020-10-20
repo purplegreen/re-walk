@@ -72,20 +72,18 @@
     </symbol>
 
 
-    <symbol id="add" viewBox="0 0 102 102">
-        <path d="M59,27 L59,41 L59,41 L73,41 C74.6568542,41 76,42.3431458 76,44 L76,53 C76,54.6568542 74.6568542,56 73,56 L59,56 L59,56 L59,71 C59,72.6568542 57.6568542,74 56,74 L44,74 C42.3431458,74 41,72.6568542 41,71 L41,56 L41,56 L26,56 C24.3431458,56 23,54.6568542 23,53 L23,44 C23,42.3431458 24.3431458,41 26,41 L41,41 L41,41 L41,27 C41,25.3431458 42.3431458,24 44,24 L56,24 C57.6568542,24 59,25.3431458 59,27 Z" stroke="var(--color-i)" stroke-width="3" fill="none" id="path-1"></path>
-        <g id="Page-1" stroke="var(--color-i)" stroke-width="1" fill="none" fill-rule="evenodd">
-            <g id="iPhone-SE" transform="translate(-37.000000, -206.000000)">
-                <g id="Add" transform="translate(39.000000, 208.000000)">
-                    <circle id="Oval-&gt;" stroke="var(--color-i)" stroke-width="3" cx="49" cy="49" r="49"></circle>
-                    <mask id="mask-2" fill="white">
-                        <use xlink:href="#path-1"></use>
-                    </mask>
-                    <use id="Add" stroke="var(--color-i)" stroke-width="3" fill="#ffffff" xlink:href="#path-1"></use>
-                </g>
-            </g>
+
+
+
+ <symbol id="add" viewBox="0 0 102 102">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SE" transform="translate(-183.000000, -206.000000)" stroke="var(--color-i)" stroke-width="3">
+            <circle id="Oval-&gt;" cx="234" cy="257" r="49"></circle>
+            <path d="M208.5,257.5 L259.5,257.5" id="Line-2" stroke-linecap="square"></path>
+            <path d="M234.5,232.5 L234.5,282.5" id="Line-3" stroke-linecap="square"></path>
         </g>
-    </symbol>
+    </g>
+  </symbol>
 
 
     <symbol id="exit" viewBox="0 0 103 103" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
