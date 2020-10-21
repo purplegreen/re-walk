@@ -1,11 +1,6 @@
 <template>
   <div>
-    <button
-      v-bind="$attrs"
-      class="button"
-      :class="buttonClass"
-      v-on="$listeners"
-    >
+    <button v-bind="$attrs" class="button" v-on="$listeners">
       <slot> </slot>
       <slot name="icon"> </slot>
     </button>
@@ -14,12 +9,6 @@
 <script>
 export default {
   inheritAttrs: false,
-  props: {
-    buttonClass: {
-      type: String,
-      required: true,
-    },
-  },
 }
 </script>
 <style scoped>

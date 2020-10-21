@@ -318,12 +318,10 @@ export default {
 .selected {
   background-color: var(--wblue);
   opacity: 1;
-  &.check-small-small.icon {
-    opacity: 0.1;
-    transition: 0.3s;
-    --color-i: red;
-    width: 200px;
-    border: 2px solid var(--wverdefluoa);
+
+  &#add-small.icon,
+  &#check-small.icon {
+    color: var(--wnightlila);
   }
 }
 
