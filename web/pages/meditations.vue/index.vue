@@ -54,23 +54,33 @@
                   <BaseIcon alt="Close snippet" class="close" name="close" />
                 </button>
               </div>
-
               <!-- ADD and Remove -->
               <div class="wrap-button">
-                <button
-                  v-if="isSnippetSelected(selectedSnippet)"
-                  class="modal-button"
-                  @click="remove"
-                >
-                  <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
-                  <h3 class="caption-txt">Entfernen</h3>
-                </button>
-                <button v-else class="modal-button insert" @click="add">
-                  <BaseIcon id="add" alt="Add snippet" name="add" />
-                  <h3 class="caption-txt">In den Guided-Walk</h3>
-                </button>
+                <div class="around-image caption-txt">
+                  <SanityImage
+                    v-if="selectedSnippet.mainImage"
+                    project-id="0hyezyzt"
+                    auto="format"
+                    :asset-id="selectedSnippet.mainImage.asset._ref"
+                    class="modal-image"
+                  />
+                  <button
+                    v-if="isSnippetSelected(selectedSnippet)"
+                    class="modal-button"
+                    @click="remove"
+                  >
+                    <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
+                    <h3 class="caption-txt">Entfernen</h3>
+                  </button>
+                  <button v-else class="modal-button insert" @click="add">
+                    <BaseIcon id="add" alt="Add snippet" name="add" />
+                    <h3 class="caption-txt">Einfügen</h3>
+                  </button>
+                </div>
+
                 <!-- ----  -->
               </div>
+
               <ul class="inModalWrapper">
                 <li class="inModalEl">
                   <h2 class="with-padding">
@@ -84,14 +94,6 @@
                 </li>
                 <li class="inModalEl shortText">
                   <SanityContent :blocks="selectedSnippet.shortText" />
-                </li>
-                <li>
-                  <SanityImage
-                    v-if="selectedSnippet.mainImage"
-                    project-id="0hyezyzt"
-                    auto="format"
-                    :asset-id="selectedSnippet.mainImage.asset._ref"
-                  />
                 </li>
               </ul>
             </div>
@@ -371,6 +373,14 @@ export default {
   justify-content: flex-end;
 }
 
+.wrap-modal-button {
+  position: absolute;
+  top: 90px;
+  left: 90px;
+  border: 1px solid blue;
+  background-color: blanchedalmond;
+}
+
 .close {
   display: flex;
 }
@@ -384,5 +394,9 @@ export default {
 }
 .shortText {
   text-align: left;
+}
+.modal-image {
+  width: 280px;
+  height: auto;
 }
 </style>
