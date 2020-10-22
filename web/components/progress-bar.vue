@@ -62,13 +62,13 @@ export default {
 <style lang="scss" scoped>
 .cont-wrap {
   height: 90%;
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 15% 15% 70%;
   pointer-events: none;
-  border-right: 1px solid var(--wyellow);
+  border-right: 1px solid var(--wverdefluoa);
 }
 .num {
   grid-column: 1;

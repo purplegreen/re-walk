@@ -16,8 +16,8 @@ button {
   flex-direction: column;
   border-radius: var(--border-radius-butt);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
-  background-color: var(--wblue);
-  border: 2px solid var(--wverdefluo);
+  background-color: var(--wdarkpink);
+  border: 2px solid white;
   justify-content: space-around;
   margin: 3px 12px;
   padding: 2px 6vw;
@@ -26,8 +26,26 @@ button {
 
 
 .caption-txt {
-  // display: flex;
+  display: flex;
   padding: 3px 2vw;
   color: white;
   align-self: center;
+}
+
+#add.icon,
+#remove.icon,
+#start.icon {
+  --color-i: white;
+}
+
+#add-small.icon,
+#check-small.icon {
+  color: var(--wnightlila);
+}
+
+#add-small.icon,
+#check-small.icon {
+  width: 30px;
+  height: 30px;
+  padding-right: 6px;
 }

@@ -55,31 +55,31 @@
                 </button>
               </div>
               <!-- ADD and Remove -->
-              <div class="wrap-button">
-                <div class="around-image caption-txt">
-                  <SanityImage
-                    v-if="selectedSnippet.mainImage"
-                    project-id="0hyezyzt"
-                    auto="format"
-                    :asset-id="selectedSnippet.mainImage.asset._ref"
-                    class="modal-image"
-                  />
-                  <button
-                    v-if="isSnippetSelected(selectedSnippet)"
-                    class="modal-button"
-                    @click="remove"
-                  >
-                    <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
-                    <h3 class="caption-txt">Entfernen</h3>
-                  </button>
-                  <button v-else class="modal-button insert" @click="add">
-                    <BaseIcon id="add" alt="Add snippet" name="add" />
-                    <h3 class="caption-txt">Einfügen</h3>
-                  </button>
-                </div>
 
-                <!-- ----  -->
-              </div>
+              <BaseButton class="wrap-modal-button">
+                <SanityImage
+                  v-if="selectedSnippet.mainImage"
+                  project-id="0hyezyzt"
+                  auto="format"
+                  :asset-id="selectedSnippet.mainImage.asset._ref"
+                  class="modal-image"
+                />
+                <span
+                  v-if="isSnippetSelected(selectedSnippet)"
+                  slot="icon"
+                  class="modal-button-ar"
+                  @click="remove"
+                >
+                  <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
+                  <h3 class="caption-txt">Entfernen</h3>
+                </span>
+                <span v-else class="modal-button-ar insert" @click="add">
+                  <BaseIcon id="add" alt="Add snippet" name="add" />
+                  <h3 class="caption-txt">Einfügen</h3>
+                </span>
+              </BaseButton>
+
+              <!-- ----  -->
 
               <ul class="inModalWrapper">
                 <li class="inModalEl">
@@ -108,7 +108,7 @@
             @click="start"
           >
             <BaseIcon id="start" alt="Start Walk" name="next" />
-            <h3 class="caption-txt start-button">Guided Walk starten</h3>
+            <h3 class="caption-txt start-button">Starten</h3>
           </button>
         </div>
       </div>
@@ -220,10 +220,10 @@ export default {
 
 .slide-leave-active {
   transition: 0.2s opacity ease;
-  //   -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  //   -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  //   -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  //   transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
 }
 
 .slide-enter-to,
@@ -266,35 +266,17 @@ export default {
   border-radius: var(--border-radius);
   background-color: var(--wbeige);
   border: 3px solid white;
-  &::-webkit-scrollbar {
-    width: 6px; /* width of the entire scrollbar */
-  }
-  &::-webkit-scrollbar-track {
-    background: var(--wgreen); /* color of the tracking area */
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--wblue); /* color of the scroll thumb */
-    border-radius: 20px; /* roundness of the scroll thumb */
-    border: 3px solid white; /* creates padding around scroll thumb */
-  }
-}
-
-#add.icon,
-#remove.icon,
-#start.icon {
-  --color-i: white;
-}
-
-#add-small.icon,
-#check-small.icon {
-  color: var(--wnightlila);
-}
-
-#add-small.icon,
-#check-small.icon {
-  width: 30px;
-  height: 30px;
-  padding-right: 6px;
+  // &::-webkit-scrollbar {
+  //   width: 6px; /* width of the entire scrollbar */
+  // }
+  // &::-webkit-scrollbar-track {
+  //   background: var(--wgreen); /* color of the tracking area */
+  // }
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: var(--wblue); /* color of the scroll thumb */
+  //   border-radius: 20px; /* roundness of the scroll thumb */
+  //   border: 3px solid white; /* creates padding around scroll thumb */
+  // }
 }
 
 .snippet {
@@ -304,13 +286,11 @@ export default {
   // justify-content: space-around;
   align-items: stretch;
   border-radius: var(--border-radius-butt);
-  border: 1px solid transparent;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 16px 3px;
   background-color: var(--wverdefluoa);
-
   opacity: 0.6;
   transition: 0.3s;
   cursor: pointer;
@@ -319,6 +299,7 @@ export default {
 
 .selected {
   background-color: var(--wblue);
+  border: 2px solid whitesmoke;
   opacity: 1;
 
   &#add-small.icon,
@@ -342,11 +323,6 @@ export default {
 
 .snippet-modal-content {
   padding: 10px 16px 30px 16px;
-}
-
-.modal-button {
-  border: 0;
-  background-color: transparent;
 }
 
 .snippet-title {
@@ -374,11 +350,34 @@ export default {
 }
 
 .wrap-modal-button {
-  position: absolute;
-  top: 90px;
-  left: 90px;
-  border: 1px solid blue;
-  background-color: blanchedalmond;
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--border-radius-butt);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
+  background-color: var(--wblue);
+  border: 2px solid var(--wverdefluo);
+  justify-content: space-around;
+  align-content: flex-start;
+  padding: 6px;
+  cursor: pointer;
+}
+
+.modal-image {
+  display: flex;
+  flex-direction: row;
+  width: 230px;
+  height: auto;
+}
+
+.modal-button-ar {
+  display: flex;
+  justify-content: center;
+  border: 0;
+}
+.modal-button {
+  display: flex;
+  background-color: transparent;
+  border: 0;
 }
 
 .close {
@@ -394,9 +393,5 @@ export default {
 }
 .shortText {
   text-align: left;
-}
-.modal-image {
-  width: 280px;
-  height: auto;
 }
 </style>

@@ -12,36 +12,44 @@
 
       <div class="audio-text-buttons-container">
         <!-- AUDIO BUTTON -->
-        <div class="wrap-button">
-          <button v-if="isWalkpathRunning" @click="stop()">
+
+        <BaseButton class="the-button">
+          <span
+            v-if="isWalkpathRunning"
+            id="the-button"
+            slot="icon"
+            @click="stop()"
+          >
             <BaseIcon id="go" alt="Stop" name="stop" />
-            <h3 class="caption-txt">Ton anhalten</h3>
-          </button>
-          <button
+            <h3 class="caption-btn">Ton anhalten</h3>
+          </span>
+
+          <span
             v-else
+            slot="icon"
             :class="{ selected: mode === 'audio' }"
             @click="start()"
           >
             <BaseIcon id="go" alt="Sound" name="sound" />
-            <h3 class="caption-txt">Ton abspielen</h3>
-          </button>
-        </div>
+            <h3 class="caption-btn">Ton abspielen</h3>
+          </span>
+        </BaseButton>
         <!-- --  -->
 
         <!-- TEXT -->
         <!-- TEXT BUTTON -->
-        <div class="wrap-button">
-          <button
-            :class="{ selected: mode === 'text' }"
-            @click="
-              selectMode('text')
-              showModal2()
-            "
-          >
-            <BaseIcon id="go" alt="Text" name="text" />
-            <h3 class="caption-txt">Text lesen</h3>
-          </button>
-        </div>
+
+        <BaseButton
+          class="the-button"
+          :class="{ selected: mode === 'text' }"
+          @click="
+            selectMode('text')
+            showModal2()
+          "
+        >
+          <BaseIcon id="go" alt="Text" name="text" />
+          <h3 class="caption-btn">Text lesen</h3>
+        </BaseButton>
       </div>
       <!-- text modal  -->
       <modal name="textModal" transition="nice-modal-fade" :adaptive="true">
@@ -142,7 +150,7 @@ export default {
       mode: 'audio',
       isWalkpathRunning: false,
       indexOfLastPlayedSnippet: 0,
-      audio: new Audio(''),
+      // audio: new Audio(''),
       locationAcquired: false,
     }
   },
@@ -179,6 +187,8 @@ export default {
     },
   },
   mounted() {
+    this.audio = new Audio('')
+
     if (!this.walkpathInProgress.composition.length) {
       this.$router.replace('/')
       return
@@ -365,21 +375,30 @@ export default {
 }
 
 .audio-text-buttons-container {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
 
-// .wrap-button {
-//   flex-direction: row;
-//   border-radius: var(--border-radius-butt);
-//   box-shadow: var(--box-shadow);
-//   background-color: var(--wmidnight);
-//   justify-content: space-around;
-//   align-items: stretch;
-//   margin: 3px 0;
-//   padding: 4px;
-//   cursor: pointer;
-// }
+.the-button {
+  display: flex;
+  border-radius: 22px;
+  border-radius: var(--border-radius-butt);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
+  background-color: #94839e;
+  background-color: var(--wdarkpink);
+  border: 2px solid white;
+  justify-content: space-around;
+  margin: 3px 12px;
+  padding: 2px 6vw;
+  cursor: pointer;
+}
+
+.caption-btn {
+  display: flex;
+  padding: 3px 2vw;
+  color: white;
+}
 
 #go {
   &.icon {
@@ -396,11 +415,6 @@ export default {
 .text-btn {
   padding-left: 1px;
 }
-
-// .caption-txt {
-//   padding: 7px;
-//   color: white;
-// }
 
 .text-card {
   position: absolute;

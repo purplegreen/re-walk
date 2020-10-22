@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-  inheritAttrs: false,
+  inheritAttrs: true,
 }
 </script>
 <style scoped>
