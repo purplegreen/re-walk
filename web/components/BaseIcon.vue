@@ -1,5 +1,3 @@
-/* eslint-disable vue/require-default-prop */ /* eslint-disable
-vue/require-default-prop */
 <template>
   <svg class="icon icon-colors">
     <use v-bind="{ 'xlink:href': 'icons-collection.svg#' + name }" />
@@ -10,8 +8,10 @@ vue/require-default-prop */
 export default {
   name: 'Icon',
   props: {
-    // eslint-disable-next-line vue/require-default-prop
-    name: String,
+    name: {
+      type: String,
+      required: true,
+    },
   },
 }
 </script>
