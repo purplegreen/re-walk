@@ -175,7 +175,7 @@ export default {
         'walkpath/setWalkpathInProgress',
         this.customWalkpath
       )
-      this.$router.push('walkpath')
+      this.$router.push('walkpath/')
     },
     isSnippetSelected(snippet) {
       const index = this.customWalkpath.composition.findIndex(
