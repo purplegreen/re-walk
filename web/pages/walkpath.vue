@@ -194,7 +194,7 @@ export default {
       return
     }
     this.$store.dispatch(
-      'walkpath/setSnippetInProgress',
+      '/walkpath/setSnippetInProgress/',
       this.walkpathInProgress.composition[0]
     )
   },
@@ -249,7 +249,7 @@ export default {
       if (!this.walkpathInProgress.composition[index]) {
         // we came to a point where there is no next snippet -> finish the walkpath
         this.isWalkpathRunning = false
-        this.$router.push('about')
+        this.$router.push('/about')
         return
       }
 
@@ -280,9 +280,9 @@ export default {
       this.resetWalkpath()
       if (this.walkpathInProgress._id) {
         // meaing that the user selected premade walkpath
-        this.$router.push('select')
+        this.$router.push('/select')
       } else {
-        this.$router.push('about')
+        this.$router.push('/about')
       }
       this.setWalkpathInProgress({
         composition: [],

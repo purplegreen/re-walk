@@ -9,7 +9,7 @@
         <progress-bar :snippets="customWalkpath.composition"></progress-bar>
         <duration :total="customWalkpath.duration"></duration>
         <div class="wrap-title">
-          <h3 class="list-title">Wähle Meditationen für deinen Weg</h3>
+          <h3 class="list-title">Wähle merere Meditationen für deinen Weg</h3>
         </div>
         <div class="snippets-list">
           <BaseButton
@@ -175,7 +175,7 @@ export default {
         'walkpath/setWalkpathInProgress',
         this.customWalkpath
       )
-      this.$router.push('walkpath/')
+      this.$router.push('/walkpath')
     },
     isSnippetSelected(snippet) {
       const index = this.customWalkpath.composition.findIndex(

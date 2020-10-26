@@ -85,7 +85,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 main {
   display: flex;
   font-size: 1rem;
@@ -99,6 +99,10 @@ section {
 
 #block-content {
   margin-top: 15vh;
+  width: 90%;
+  margin-left: 17px;
+  margin-right: 17px;
+  text-align: left;
 }
 
 #mainImage {
