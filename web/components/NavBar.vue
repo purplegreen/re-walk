@@ -74,10 +74,6 @@ nav a:hover {
 }
 
 .nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -113,6 +109,15 @@ nav a:hover {
     height: 60px;
     cursor: pointer;
     padding-right: 14px;
+  }
+}
+
+@media screen and (min-device-width: 300px) and (max-device-width: 540px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
   }
 }
 </style>
