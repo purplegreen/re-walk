@@ -21,7 +21,6 @@
             @click="stop()"
           >
             <BaseIcon id="go" alt="Stop" name="stop" />
-            <h3 class="caption-btn">Ton anhalten</h3>
           </span>
 
           <span
@@ -31,7 +30,6 @@
             @click="start()"
           >
             <BaseIcon id="go" alt="Sound" name="sound" />
-            <h3 class="caption-btn">Ton abspielen</h3>
           </span>
         </BaseButton>
         <!-- --  -->
@@ -48,7 +46,6 @@
           "
         >
           <BaseIcon id="go" alt="Text" name="text" />
-          <h3 class="caption-btn">Text lesen</h3>
         </BaseButton>
       </div>
       <!-- text modal  -->

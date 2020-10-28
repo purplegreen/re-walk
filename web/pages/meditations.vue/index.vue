@@ -102,13 +102,8 @@
         <!-- MODAL CLOSING -->
 
         <div class="wrap-button">
-          <button
-            :disabled="!isWalkpathReady"
-            class="modal-button"
-            @click="start"
-          >
+          <button :disabled="!isWalkpathReady" class="" @click="start">
             <BaseIcon id="start" alt="Start Walk" name="next" />
-            <h3 class="caption-txt start-button">Starten</h3>
           </button>
         </div>
       </div>
