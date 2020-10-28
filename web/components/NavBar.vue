@@ -74,6 +74,10 @@ nav a:hover {
 }
 
 .nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,6 +85,7 @@ nav a:hover {
   border: 1px solid var(--border-color);
   background-color: whitesmoke;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  z-index: 900;
 }
 
 .nav .nav-item {
