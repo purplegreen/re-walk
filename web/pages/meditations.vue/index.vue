@@ -245,7 +245,7 @@ export default {
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin-bottom: 17px;
   max-width: 414px;
-  height: 76vh;
+  // height: 76vh;
   padding-top: 10px;
   padding-bottom: 10px;
   background-image: url('../../static/back.svg');
