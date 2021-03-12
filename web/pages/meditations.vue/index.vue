@@ -11,6 +11,9 @@
         <div class="wrap-title">
           <h3 class="list-title">Wähle merere Meditationen für deinen Weg</h3>
         </div>
+
+        <!-- SNIPPET -->
+
         <div class="snippets-list">
           <BaseButton
             v-for="snippet of snippets"
@@ -20,92 +23,60 @@
             :style="isSnippetSelectedColor(snippet)"
             class="snippet"
             :class="{ selected: isSnippetSelected(snippet) }"
-            @click="showModal(snippet), (isShow = false)"
           >
+            <div>
+              <span
+                v-if="isSnippetSelected(snippet)"
+                slot="icon"
+                class="modal-button-ar"
+                @click="remove(snippet)"
+              >
+                <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
+              </span>
+              <span v-else class="modal-button-ar insert" @click="add(snippet)">
+                <BaseIcon id="add" alt="Add snippet" name="add" />
+              </span>
+            </div>
             <div class="snippet-title">
-              <span v-if="isSnippetSelected(snippet)" slot="icon">
-                <BaseIcon id="check-small" alt="check" name="check"
-              /></span>
-
-              <span v-else slot="icon">
-                <BaseIcon id="add-small" alt="add" name="add"
-              /></span>
-
               {{ snippet.title }}
             </div>
           </BaseButton>
+
+          <!-- ADD and Remove -->
+
+          <SanityImage
+            v-if="selectedSnippet.mainImage"
+            project-id="0hyezyzt"
+            auto="format"
+            :asset-id="selectedSnippet.mainImage.asset._ref"
+            class="modal-image"
+          />
+
+          <!-- ----  -->
+
+          <ul class="inModalWrapper">
+            <li class="inModalEl">
+              <h2 class="with-padding">
+                {{ selectedSnippet.title }}
+              </h2>
+            </li>
+            <li class="inModalEl">
+              <h3 class="with-padding-10">
+                {{ selectedSnippet.duration | secondsToMinutes }} min
+              </h3>
+            </li>
+            <li class="inModalEl shortText">
+              <SanityContent :blocks="selectedSnippet.shortText" />
+            </li>
+          </ul>
         </div>
 
-        <!-- MODAL OPENING -->
-        <transition name="slide">
-          <modal
-            id="snippet-modal"
-            name="snippet-modal"
-            :adaptive="true"
-            @before-open="beforeOpen"
-          >
-            <div class="snippet-modal-content">
-              <!-- Close -->
-              <div class="side-el">
-                <button
-                  class="modal-button"
-                  @click="$modal.hide('snippet-modal')"
-                >
-                  <BaseIcon alt="Close snippet" class="close" name="close" />
-                </button>
-              </div>
-              <!-- ADD and Remove -->
-
-              <BaseButton class="wrap-modal-button">
-                <SanityImage
-                  v-if="selectedSnippet.mainImage"
-                  project-id="0hyezyzt"
-                  auto="format"
-                  :asset-id="selectedSnippet.mainImage.asset._ref"
-                  class="modal-image"
-                />
-                <span
-                  v-if="isSnippetSelected(selectedSnippet)"
-                  slot="icon"
-                  class="modal-button-ar"
-                  @click="remove"
-                >
-                  <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
-                  <h3 class="caption-txt">Entfernen</h3>
-                </span>
-                <span v-else class="modal-button-ar insert" @click="add">
-                  <BaseIcon id="add" alt="Add snippet" name="add" />
-                  <h3 class="caption-txt">Einfügen</h3>
-                </span>
-              </BaseButton>
-
-              <!-- ----  -->
-
-              <ul class="inModalWrapper">
-                <li class="inModalEl">
-                  <h2 class="with-padding">
-                    {{ selectedSnippet.title }}
-                  </h2>
-                </li>
-                <li class="inModalEl">
-                  <h3 class="with-padding-10">
-                    {{ selectedSnippet.duration | secondsToMinutes }} min
-                  </h3>
-                </li>
-                <li class="inModalEl shortText">
-                  <SanityContent :blocks="selectedSnippet.shortText" />
-                </li>
-              </ul>
-            </div>
-          </modal>
-        </transition>
-        <!-- MODAL CLOSING -->
-
-        <div class="wrap-button">
-          <button :disabled="!isWalkpathReady" class="" @click="start">
-            <BaseIcon id="start" alt="Start Walk" name="next" />
-          </button>
-        </div>
+        <!-- CLOSING -->
+      </div>
+      <div class="wrap-button">
+        <button :disabled="!isWalkpathReady" class="" @click="start">
+          <BaseIcon id="start" alt="Start Walk" name="next" />
+        </button>
       </div>
     </div>
   </client-only>
@@ -130,7 +101,6 @@ export default {
   data() {
     return {
       selectedSnippet: {},
-      isShow: false,
     }
   },
   computed: {
@@ -153,17 +123,23 @@ export default {
       // this.$store.dispatch('walkpath/setSelectedSnippet', snippet)
       this.$modal.show('snippet-modal', { snippet })
     },
+    setSelected(snippet) {
+      this.$store.dispatch(
+        'snippets/setSelectedSnippet',
+        this.setSelectedSnippet
+      )
+    },
     beforeOpen({ params }) {
       this.selectedSnippet = params.snippet
     },
-    add() {
+    add(snippet) {
       // this.addToWalkpath(this.selectedSnippet)
-      this.$store.dispatch('walkpath/addToWalkpath', this.selectedSnippet)
-      this.$modal.hide('snippet-modal')
+      this.$store.dispatch('walkpath/addToWalkpath', snippet)
+      // this.$modal.hide('snippet-modal')
     },
-    remove() {
-      this.$store.dispatch('walkpath/removeFromWalkpath', this.selectedSnippet)
-      this.$modal.hide('snippet-modal')
+    remove(snippet) {
+      this.$store.dispatch('walkpath/removeFromWalkpath', snippet)
+      // this.$modal.hide('snippet-modal')
     },
     start() {
       this.$store.dispatch(
