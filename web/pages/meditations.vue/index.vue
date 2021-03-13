@@ -40,43 +40,25 @@
             <div class="snippet-title">
               {{ snippet.title }}
             </div>
+            <SanityImage
+              v-if="snippet.mainImage"
+              project-id="0hyezyzt"
+              auto="format"
+              :asset-id="snippet.mainImage.asset._ref"
+              class="modal-image"
+            />
+            <p class="shortText">
+              <SanityContent :blocks="snippet.shortText" />
+            </p>
           </BaseButton>
 
-          <!-- ADD and Remove -->
-
-          <SanityImage
-            v-if="selectedSnippet.mainImage"
-            project-id="0hyezyzt"
-            auto="format"
-            :asset-id="selectedSnippet.mainImage.asset._ref"
-            class="modal-image"
-          />
-
-          <!-- ----  -->
-
-          <ul class="inModalWrapper">
-            <li class="inModalEl">
-              <h2 class="with-padding">
-                {{ selectedSnippet.title }}
-              </h2>
-            </li>
-            <li class="inModalEl">
-              <h3 class="with-padding-10">
-                {{ selectedSnippet.duration | secondsToMinutes }} min
-              </h3>
-            </li>
-            <li class="inModalEl shortText">
-              <SanityContent :blocks="selectedSnippet.shortText" />
-            </li>
-          </ul>
+          <!-- SNIPPET CLOSING -->
         </div>
-
-        <!-- CLOSING -->
-      </div>
-      <div class="wrap-button">
-        <button :disabled="!isWalkpathReady" class="" @click="start">
-          <BaseIcon id="start" alt="Start Walk" name="next" />
-        </button>
+        <div class="wrap-button">
+          <button :disabled="!isWalkpathReady" class="" @click="start">
+            <BaseIcon id="start" alt="Start Walk" name="next" />
+          </button>
+        </div>
       </div>
     </div>
   </client-only>
@@ -261,11 +243,12 @@ export default {
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin: 16px 3px;
-  background-color: var(--wverdefluoa);
+  padding: 16px;
+  background-color: white;
   opacity: 0.6;
   transition: 0.3s;
   cursor: pointer;
-  border: 2px solid var(--wverdefluo);
+  border: px solid var(--wverdefluo);
 }
 
 .selected {
@@ -273,7 +256,10 @@ export default {
   border: 2px solid whitesmoke;
   opacity: 1;
 
-  &#add-small.icon,
+  &#add-small.icon {
+    color: var(--hello);
+  }
+
   &#check-small.icon {
     color: var(--wnightlila);
   }

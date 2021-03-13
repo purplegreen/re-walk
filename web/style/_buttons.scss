@@ -32,7 +32,9 @@ button {
   align-self: center;
 }
 
-#add.icon,
+#add.icon {
+  --color-i: var(--wnightlila);
+}
 #remove.icon,
 #start.icon {
   --color-i: white;
