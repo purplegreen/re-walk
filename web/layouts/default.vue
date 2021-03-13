@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
-    <nav-bar />
-    <nuxt />
+  <div id="back">
+    <div id="app">
+      <nav-bar />
+      <nuxt />
+    </div>
   </div>
 </template>
 <script>

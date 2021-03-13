@@ -38,7 +38,9 @@
               </span>
             </div>
             <div class="snippet-title">
-              {{ snippet.title }}
+              <h2>
+                {{ snippet.title }}
+              </h2>
             </div>
             <SanityImage
               v-if="snippet.mainImage"
@@ -47,7 +49,7 @@
               :asset-id="snippet.mainImage.asset._ref"
               class="modal-image"
             />
-            <p class="shortText">
+            <p class="text-content">
               <SanityContent :blocks="snippet.shortText" />
             </p>
           </BaseButton>
@@ -242,8 +244,8 @@ export default {
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  margin: 16px 3px;
-  padding: 16px;
+  margin: 16px 6px;
+  padding: 22px;
   background-color: white;
   opacity: 0.6;
   transition: 0.3s;

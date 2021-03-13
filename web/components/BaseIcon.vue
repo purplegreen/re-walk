@@ -24,7 +24,7 @@ export default {
 }
 
 .icon-colors {
-  --color-i: var(--wovermidnight);
+  --color-i: var(--wblue);
 }
 
 .icon-colors:hover {

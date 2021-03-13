@@ -7,7 +7,7 @@
         src="..//assets/guidedWalklogo.svg"
     /></nuxt-link>
 
-    <button class="lateral-nav-ico" @click="showModal">
+    <button class="lateral-nav-ico nav-ico" @click="showModal">
       <BaseIcon alt="lateral nav" name="lat-nav" />
     </button>
 
