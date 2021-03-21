@@ -4,12 +4,12 @@
       <!-- TITLE -->
 
       <!-- SNIPPETS BOARD -->
-      <modal name="infoModal">
+      <!-- <modal name="infoModal">
         <div slot="top-right">
           <button @click="$modal.hide('infoModal')">❌</button>
         </div>
         Hello, ☀️!
-      </modal>
+      </modal> -->
 
       <div class="snippets">
         <progress-bar :snippets="customWalkpath.composition"></progress-bar>
@@ -117,9 +117,9 @@ export default {
       return this.customWalkpath.composition.length > 0
     },
   },
-  mounted() {
-    this.showModal()
-  },
+  // mounted() {
+  //   this.showModal()
+  // },
   methods: {
     // ...mapActions([
     //   'addToWalkpath',
@@ -161,12 +161,12 @@ export default {
         backgroundColor: snippet.color,
       }
     },
-    showModal(infoModal) {
-      this.$modal.show('infoModal')
-    },
-    hide() {
-      this.$modal.hide('infoModal')
-    },
+    // showModal(infoModal) {
+    //   this.$modal.show('infoModal')
+    // },
+    // hide() {
+    //   this.$modal.hide('infoModal')
+    // },
   },
 }
 </script>
