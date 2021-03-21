@@ -35,9 +35,30 @@ button {
 #add.icon {
   --color-i: var(--wblue);
 }
-#remove.icon,
+
+#remove.icon {
+  --color-i: var(--wblue);
+}
+
 #start.icon {
   --color-i: white;
+}
+
+
+#check.icon{
+cursor: auto;
+--color-i: var(--wverdefluoa);
+}
+
+#remove.icon {
+  width: 35px;
+  height: 35px;
+  margin-top: 16px;
+}
+
+
+#remove.icon:hover {
+  --color-i: #0485a0
 }
 
 #add-small.icon,

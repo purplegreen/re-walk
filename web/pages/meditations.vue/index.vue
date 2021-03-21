@@ -4,6 +4,12 @@
       <!-- TITLE -->
 
       <!-- SNIPPETS BOARD -->
+      <modal name="infoModal">
+        <div slot="top-right">
+          <button @click="$modal.hide('infoModal')">❌</button>
+        </div>
+        Hello, ☀️!
+      </modal>
 
       <div class="snippets">
         <progress-bar :snippets="customWalkpath.composition"></progress-bar>
@@ -25,17 +31,18 @@
             :class="{ selected: isSnippetSelected(snippet) }"
           >
             <div>
+              <!-- ADD -->
               <span
                 v-if="isSnippetSelected(snippet)"
                 slot="icon"
                 class="modal-button-ar"
-                @click="remove(snippet)"
               >
-                <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
+                <BaseIcon id="check" alt="Check  snippet" name="check" />
               </span>
               <span v-else class="modal-button-ar insert" @click="add(snippet)">
                 <BaseIcon id="add" alt="Add snippet" name="add" />
               </span>
+              <!-- ADD CLOSE-->
             </div>
             <div class="snippet-title">
               <h2>
@@ -52,6 +59,17 @@
             <p class="text-content">
               <SanityContent :blocks="snippet.shortText" />
             </p>
+
+            <!-- REMOVE -->
+            <span
+              v-if="isSnippetSelected(snippet)"
+              slot="icon"
+              class="modal-button-ar"
+              @click="remove(snippet)"
+            >
+              <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
+            </span>
+            <!-- REMOVE END-->
           </BaseButton>
 
           <!-- SNIPPET CLOSING -->
@@ -70,6 +88,7 @@
 import { mapState } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
 import Duration from '@/components/duration.vue'
+
 import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
 
 export default {
@@ -79,6 +98,7 @@ export default {
     Duration,
     SanityImage,
   },
+
   async fetch({ store }) {
     await store.dispatch('snippets/fetchSnippets')
   },
@@ -97,16 +117,16 @@ export default {
       return this.customWalkpath.composition.length > 0
     },
   },
+  mounted() {
+    this.showModal()
+  },
   methods: {
     // ...mapActions([
     //   'addToWalkpath',
     //   'removeFromWalkpath',
     //   'setWalkpathInProgress',
     // ]),
-    showModal(snippet) {
-      // this.$store.dispatch('walkpath/setSelectedSnippet', snippet)
-      this.$modal.show('snippet-modal', { snippet })
-    },
+
     setSelected(snippet) {
       this.$store.dispatch(
         'snippets/setSelectedSnippet',
@@ -119,11 +139,9 @@ export default {
     add(snippet) {
       // this.addToWalkpath(this.selectedSnippet)
       this.$store.dispatch('walkpath/addToWalkpath', snippet)
-      // this.$modal.hide('snippet-modal')
     },
     remove(snippet) {
       this.$store.dispatch('walkpath/removeFromWalkpath', snippet)
-      // this.$modal.hide('snippet-modal')
     },
     start() {
       this.$store.dispatch(
@@ -142,6 +160,12 @@ export default {
       return {
         backgroundColor: snippet.color,
       }
+    },
+    showModal(infoModal) {
+      this.$modal.show('infoModal')
+    },
+    hide() {
+      this.$modal.hide('infoModal')
     },
   },
 }
@@ -250,12 +274,11 @@ export default {
   opacity: 0.6;
   transition: 0.3s;
   cursor: pointer;
-  border: px solid var(--wverdefluo);
+  // border: 1px solid var(--wblue);
 }
 
 .selected {
-  background-color: var(--wblue);
-  border: 2px solid whitesmoke;
+  border: 1px solid var(--wverdefluoa);
   opacity: 1;
 
   &#add-small.icon {
