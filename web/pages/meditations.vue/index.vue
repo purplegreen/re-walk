@@ -117,7 +117,7 @@ export default {
     },
   },
   mounted() {
-    this.showModal()
+    setTimeout(() => this.showModal(), 100)
   },
   methods: {
     // ...mapActions([
@@ -163,6 +163,7 @@ export default {
     showModal(infoModal) {
       this.$modal.show('infoModal')
     },
+
     hide() {
       this.$modal.hide('infoModal')
     },
