@@ -8,6 +8,7 @@ import locationImage from "./locationImage";
 import blockContent from "./blockContent";
 import snippet from "./snippet";
 import post from "./post";
+import info from "./info";
 import about from "./about";
 import more from "./more";
 
@@ -21,11 +22,11 @@ export default createSchema({
     /* Your types here! */
     snippet,
     post,
+    info,
     about,
     more,
     mainImage,
     locationImage,
     blockContent,
-
   ]),
 });

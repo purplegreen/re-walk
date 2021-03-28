@@ -4,11 +4,27 @@
       <!-- TITLE -->
 
       <!-- SNIPPETS BOARD -->
-      <modal v-show="showModal" name="infoModal">
-        <div slot="top-right">
-          <button @click="$modal.hide('infoModal')">❌</button>
+      <modal
+        v-show="showModal"
+        :class="infoModal"
+        :adaptive="true"
+        name="infoModal"
+        :click-to-close="false"
+        :scrollable="false"
+      >
+        <div class="infoModalBackground">
+          <div class="topInfoBox">
+            <button class="infoModalClose" @click="$modal.hide('infoModal')">
+              <BaseIcon class="closeInfo" name="close" />
+            </button>
+          </div>
+          <div class="infoContent">
+            <div class="infoBody">
+              <Info :key="info._id">hello</Info>
+              xxxxxxxxx
+            </div>
+          </div>
         </div>
-        Hello, ☀️!
       </modal>
 
       <div class="snippets">
@@ -87,7 +103,9 @@
 <script>
 import { mapState } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
+import Info from '@/components/info.vue'
 import Duration from '@/components/duration.vue'
+
 import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
 
 export default {
@@ -96,14 +114,20 @@ export default {
     ProgressBar,
     Duration,
     SanityImage,
+    Info,
   },
 
   async fetch({ store }) {
     await store.dispatch('snippets/fetchSnippets')
   },
+
   data() {
     return {
+      loading: true,
       selectedSnippet: {},
+      infoModal: {},
+      info: {},
+      blocks: [],
     }
   },
   computed: {
@@ -125,7 +149,6 @@ export default {
     //   'removeFromWalkpath',
     //   'setWalkpathInProgress',
     // ]),
-
     setSelected(snippet) {
       this.$store.dispatch(
         'snippets/setSelectedSnippet',
@@ -375,5 +398,34 @@ export default {
 }
 .shortText {
   text-align: left;
+}
+
+.infoModalBckground {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.topInfoBox {
+  display: flex;
+  justify-content: flex-end;
+  height: 20%;
+  width: 100%;
+}
+
+.closeInfo {
+  align-self: flex-end;
+  display: flex;
+}
+
+.infoContent {
+  position: relative;
+  width: 100%;
+  height: 80%;
+}
+
+.infoBody {
+  position: relative;
+  display: flex;
 }
 </style>
