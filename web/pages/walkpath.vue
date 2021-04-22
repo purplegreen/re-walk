@@ -49,16 +49,28 @@
         </BaseButton>
       </div>
       <!-- text modal  -->
-      <modal name="textModal" transition="nice-modal-fade" :adaptive="true">
-        <div class="side-el">
-          <button @click="$modal.hide('textModal')">
-            <BaseIcon alt="Close" name="close" />
-          </button>
-        </div>
+      <modal
+        name="textModal"
+        :min-height="570"
+        transition="nice-modal-fade"
+        :adaptive="true"
+      >
         <div class="text-card">
+          <div class="side-el">
+            <button @click="$modal.hide('textModal')">
+              <BaseIcon alt="Close" name="close" />
+            </button>
+          </div>
+
           <div class="text-content">
-            {{ snippetInProgress.title }}
-            <SanityContent :blocks="snippetInProgress.body" />
+            <h2>
+              {{ snippetInProgress.title }}
+            </h2>
+            <div class="body-wrapper">
+              <h4>
+                <SanityContent :blocks="snippetInProgress.body" />
+              </h4>
+            </div>
           </div>
           <div v-if="walkpathInProgress.composition.length > 1">
             <div class="low-btn">
@@ -413,50 +425,32 @@ export default {
 }
 
 .text-card {
-  position: absolute;
-  top: 40px;
-  bottom: 3px;
-  left: 3px;
-  right: 3px;
-}
-
-.text-content {
-  height: 160px;
-  grid-row-end: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
   overflow: scroll;
-  columns: 100vw 6;
-  text-align: left;
-  padding-bottom: 20px;
-  margin: 20px;
-}
-
-.fade-enter {
-  opacity: 0;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.6s ease-out;
-  background-color: #5552ff;
-}
-
-.fade-leave-to {
-  opacity: 0.9;
-  background-color: #0ea958;
 }
 
 .side-el {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  right: 18px;
-  top: 10px;
-  width: 3rem;
-  height: auto;
+  align-self: flex-end;
+}
+
+.text-content {
+  height: 80%;
+  overflow: scroll;
+  padding-left: 1.4rem;
+  padding-right: 1.4rem;
+}
+
+.body-wrapper {
+  height: 100%;
+  text-align: left;
+  padding: 3px;
 }
 
 .low-btn {
   margin: auto;
-  text-align: center;
+  align-self: baseline;
 }
 </style>

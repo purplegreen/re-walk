@@ -2,7 +2,9 @@
   <div>
     <ul v-if="loading == false">
       <li v-for="info in infos" ref="info" :key="info._id">
-        <SanityContent :blocks="info.body" />
+        <h4>
+          <SanityContent :blocks="info.body" />
+        </h4>
       </li>
     </ul>
   </div>
