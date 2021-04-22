@@ -107,6 +107,7 @@
         :total="walkpathInProgress.duration"
         :passed="durationPassed"
         :with-remaining="true"
+        :class="duration"
       ></duration>
     </article>
     <!-- close  -->
@@ -140,7 +141,6 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
-import Duration from '@/components/duration.vue'
 import MapComponent from '@/components/map.vue'
 import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
 
@@ -150,7 +150,6 @@ export default {
   name: 'Walkpath',
   components: {
     ProgressBar,
-    Duration,
     MapComponent,
     SanityImage,
   },
@@ -416,6 +415,10 @@ export default {
     --color-i: var(--wdarkpink);
     cursor: pointer;
   }
+}
+
+.duration {
+  display: none;
 }
 
 // in modal

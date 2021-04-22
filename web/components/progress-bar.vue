@@ -9,8 +9,6 @@
       @click.self="onClick(snippet, index, $event)"
     >
       <div class="cont-wrap">
-        <span class="num">{{ snippet.duration | secondsToMinutes }}</span>
-        <span class="min">min</span>
         <span class="rotate-text"
           ><h4>{{ snippet.title }}</h4></span
         >
@@ -64,25 +62,11 @@ export default {
   height: 90%;
   width: 100%;
   margin: auto;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-rows: 15% 15% 70%;
+  display: flex;
   pointer-events: none;
   border-right: 1px solid var(--wverdefluoa);
 }
-.num {
-  grid-column: 1;
-  grid-row: 1;
-  font-size: 0.5rem;
-  font-weight: bold;
-}
-.min {
-  grid-column: 1;
-  grid-row: 2;
-  pointer-events: none;
-  font-size: 0.5rem;
-  z-index: 1;
-}
+
 .rotate-text {
   pointer-events: none;
   font-size: 0.5rem;
@@ -92,10 +76,7 @@ export default {
   -o-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
-  grid-column: 1;
-  grid-row: 3;
   margin: auto;
-  text-align: left;
 }
 .progress {
   position: relative;
@@ -109,7 +90,7 @@ export default {
   border-radius: var(--border-radius);
   background-color: whitesmoke;
   opacity: 0.7;
-  height: 27vh;
+  height: 16vh;
   width: 99%;
   margin: auto;
   margin-top: 10px;

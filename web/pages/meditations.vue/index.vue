@@ -12,24 +12,23 @@
         :click-to-close="false"
       >
         <div class="infoModalBackground">
-          <div class="topInfoBox">
+          <div class="infoBody">
+            <Info :key="info._id"></Info>
+          </div>
+
+          <div class="close-box">
             <button class="infoModalClose" @click="$modal.hide('infoModal')">
               <BaseIcon class="closeInfo" name="close" />
             </button>
-          </div>
-          <div class="infoContent">
-            <div class="infoBody">
-              <Info :key="info._id"></Info>
-            </div>
           </div>
         </div>
       </modal>
 
       <div class="snippets">
         <progress-bar :snippets="customWalkpath.composition"></progress-bar>
-        <duration :total="customWalkpath.duration"></duration>
+        <duration :total="customWalkpath.duration" class="duration"></duration>
         <div class="wrap-title">
-          <h3 class="list-title">Wähle merere Teile für deinen Weg</h3>
+          <h4 class="list-title">Wähle merere Teile für deinen Weg</h4>
         </div>
 
         <!-- SNIPPET -->
@@ -199,6 +198,10 @@ export default {
   justify-content: center;
 }
 
+.duration {
+  display: none;
+}
+
 .wrap-title {
   position: relative;
   width: 90vw;
@@ -210,8 +213,8 @@ export default {
   justify-content: center;
   width: 100%;
   border-radius: var(--border-radius);
-  border: 3px solid white;
   background-color: var(--wbeige);
+  margin: 7px 0 4px 0;
 }
 
 .slide-enter-active {
@@ -250,7 +253,6 @@ export default {
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   margin-bottom: 17px;
   max-width: 414px;
-  // height: 76vh;
   padding-top: 10px;
   padding-bottom: 10px;
   background-image: url('../../static/back.svg');
@@ -408,31 +410,22 @@ export default {
   padding: 2rem;
 }
 
-.topInfoBox {
-  position: relative;
+.infoBody {
   display: flex;
+  text-align: left;
+}
 
-  justify-content: flex-end;
-  height: 50px;
+.close-box {
+  display: flex;
+  flex-direction: row-reverse;
+  align-self: baseline;
   width: 100%;
 }
 
 .closeInfo {
-  position: relative;
   align-self: flex-end;
-  display: flex;
-}
-
-.infoContent {
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.infoBody {
-  position: relative;
-  display: flex;
-  text-align: left;
-  margin-bottom: 20px;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
 }
 </style>
