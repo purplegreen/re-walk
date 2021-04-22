@@ -7,33 +7,14 @@
         src="..//assets/guidedWalklogo.svg"
     /></nuxt-link>
 
-    <button class="lateral-nav-ico nav-ico" @click="showModal">
-      <BaseIcon alt="lateral nav" name="lat-nav" />
-    </button>
-
-    <modal
-      id="nav-modal"
-      name="navModal"
-      :width="300"
-      :height="300"
-      :adaptive="true"
-    >
-      <nav>
-        <nuxt-link to="/"><h4>Heim</h4></nuxt-link>
-        <nuxt-link to="/about"><h4>Über</h4></nuxt-link>
-        <nuxt-link to="/more"><h4>Mehr</h4></nuxt-link>
-      </nav>
-    </modal>
+    <NuxtLink class="lateral-nav-ico nav-ico" nuxt-link to="/about">
+      <BaseIcon id="lat-nav" alt="lateral nav" name="lat-nav" />
+    </NuxtLink>
   </div>
 </template>
 <script>
 export default {
   name: 'NavModal',
-  methods: {
-    showModal(navModal) {
-      this.$modal.show('navModal')
-    },
-  },
 }
 </script>
 
@@ -100,7 +81,10 @@ nav a:hover {
 
 .lateral-nav-ico {
   padding-left: 10px;
-  // top: 10px;
+}
+
+#lat-nav.icon {
+  --color-i: var(--wdarkpink);
 }
 
 .icon {
@@ -109,6 +93,7 @@ nav a:hover {
     height: 60px;
     cursor: pointer;
     padding-right: 14px;
+    --color-i: var(--wdarkpink);
   }
 }
 

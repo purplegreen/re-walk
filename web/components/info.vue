@@ -5,7 +5,6 @@
         <SanityContent :blocks="info.body" />
       </li>
     </ul>
-    component working but Sanity Block is not
   </div>
 </template>
 

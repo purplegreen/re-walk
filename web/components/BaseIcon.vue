@@ -24,7 +24,7 @@ export default {
 }
 
 .icon-colors {
-  --color-i: var(--wblue);
+  --color-i: var(--wdarkpink);
 }
 
 .icon-colors:hover {

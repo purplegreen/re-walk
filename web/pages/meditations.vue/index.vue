@@ -10,7 +10,6 @@
         :adaptive="true"
         name="infoModal"
         :click-to-close="false"
-        :scrollable="false"
       >
         <div class="infoModalBackground">
           <div class="topInfoBox">
@@ -20,8 +19,7 @@
           </div>
           <div class="infoContent">
             <div class="infoBody">
-              <Info :key="info._id">hello</Info>
-              xxxxxxxxx
+              <Info :key="info._id"></Info>
             </div>
           </div>
         </div>
@@ -31,7 +29,7 @@
         <progress-bar :snippets="customWalkpath.composition"></progress-bar>
         <duration :total="customWalkpath.duration"></duration>
         <div class="wrap-title">
-          <h3 class="list-title">Wähle merere Meditationen für deinen Weg</h3>
+          <h3 class="list-title">Wähle merere Teile für deinen Weg</h3>
         </div>
 
         <!-- SNIPPET -->
@@ -339,13 +337,13 @@ export default {
   justify-content: center;
 }
 
-// #start.icon {
-//   --color-i: var(--wnightlila);
-// }
+#start.icon {
+  --color-i: var(--wdarkpink);
+}
 
-// .start-button {
-//   color: var(--wnightlila);
-// }
+.start-button {
+  color: var(--wdarkpink);
+}
 
 /*In MODAL */
 
@@ -400,20 +398,27 @@ export default {
   text-align: left;
 }
 
-.infoModalBckground {
+.infoModalBackground {
+  position: relative;
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
+  overflow: scroll;
+  padding: 2rem;
 }
 
 .topInfoBox {
+  position: relative;
   display: flex;
+
   justify-content: flex-end;
-  height: 20%;
+  height: 50px;
   width: 100%;
 }
 
 .closeInfo {
+  position: relative;
   align-self: flex-end;
   display: flex;
 }
@@ -421,11 +426,13 @@ export default {
 .infoContent {
   position: relative;
   width: 100%;
-  height: 80%;
+  height: auto;
 }
 
 .infoBody {
   position: relative;
   display: flex;
+  text-align: left;
+  margin-bottom: 20px;
 }
 </style>

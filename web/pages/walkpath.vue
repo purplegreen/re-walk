@@ -382,9 +382,8 @@ export default {
   border-radius: 22px;
   border-radius: var(--border-radius-butt);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
-  background-color: #94839e;
-  background-color: var(--wdarkpink);
-  border: 2px solid white;
+  background-color: white;
+  border: 2px solid var(--wdarkpink);
   justify-content: space-around;
   margin: 3px 12px;
   padding: 2px 6vw;
@@ -402,7 +401,7 @@ export default {
     // height: 35px;
     // width: 35px;
     align-self: center;
-    --color-i: white;
+    --color-i: var(--wdarkpink);
     cursor: pointer;
   }
 }
