@@ -10,6 +10,7 @@
         :adaptive="true"
         name="infoModal"
         :click-to-close="false"
+        :min-height="530"
       >
         <div class="infoModalBackground">
           <div class="infoBody">
@@ -18,7 +19,7 @@
 
           <div class="close-box">
             <button class="infoModalClose" @click="$modal.hide('infoModal')">
-              <BaseIcon class="closeInfo" name="close" />
+              <BaseIcon class="closeInfo" name="next" />
             </button>
           </div>
         </div>
@@ -26,7 +27,6 @@
 
       <div class="snippets">
         <progress-bar :snippets="customWalkpath.composition"></progress-bar>
-        <duration :total="customWalkpath.duration" class="duration"></duration>
         <div class="wrap-title">
           <h4 class="list-title">Wähle merere Teile für deinen Weg</h4>
         </div>
@@ -101,15 +101,12 @@
 import { mapState } from 'vuex'
 import ProgressBar from '@/components/progress-bar.vue'
 import Info from '@/components/info.vue'
-import Duration from '@/components/duration.vue'
-
 import { SanityImage } from '@nuxtjs/sanity/dist/sanity-image'
 
 export default {
   name: 'Snippets',
   components: {
     ProgressBar,
-    Duration,
     SanityImage,
     Info,
   },
@@ -413,6 +410,7 @@ export default {
 .infoBody {
   display: flex;
   text-align: left;
+  height: 90%;
 }
 
 .close-box {
@@ -426,6 +424,7 @@ export default {
   align-self: flex-end;
   width: 50px;
   height: 50px;
+  padding-top: 5px;
   margin-bottom: 10px;
 }
 </style>

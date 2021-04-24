@@ -53,6 +53,12 @@ h6 {
   font-weight: 600;
 }
 
+
+  p {
+     margin-bottom: 1.5rem;
+    }
+
+
 b,
 strong {
   font-weight: bolder;
@@ -83,15 +89,15 @@ small {
 }
 
 a:link a:visited {
-  color: black;
+  color: #5324ff;
 }
 
 a:hover {
-  color: #404040;
+  color: #ba24ff;
 }
 
 a:active {
-  color: #808080;
+  color: #2a06ad;
 }
 
 .link {

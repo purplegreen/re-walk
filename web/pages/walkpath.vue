@@ -1,14 +1,12 @@
 <template>
   <section>
     <article class="upper-wrapper">
-      <!-- IMAGE  -->
-      <SanityImage
-        v-if="snippetInProgress.locationImage"
-        project-id="0hyezyzt"
-        auto="format"
-        :asset-id="snippetInProgress.locationImage.asset._ref"
-        class="back-img"
-      />
+      <div class="progress-bar">
+        <progress-bar
+          :snippets="walkpathInProgress.composition"
+          @onBarClicked="onBarClicked"
+        ></progress-bar>
+      </div>
 
       <div class="audio-text-buttons-container">
         <!-- AUDIO BUTTON -->
@@ -33,10 +31,16 @@
           </span>
         </BaseButton>
         <!-- --  -->
+        <!-- IMAGE  -->
+        <SanityImage
+          v-if="snippetInProgress.locationImage"
+          project-id="0hyezyzt"
+          auto="format"
+          :asset-id="snippetInProgress.locationImage.asset._ref"
+          class="back-img"
+        />
 
-        <!-- TEXT -->
         <!-- TEXT BUTTON -->
-
         <BaseButton
           class="the-button"
           :class="{ selected: mode === 'text' }"
@@ -48,6 +52,7 @@
           <BaseIcon id="go" alt="Text" name="text" />
         </BaseButton>
       </div>
+
       <!-- text modal  -->
       <modal
         name="textModal"
@@ -96,19 +101,6 @@
         </div>
         <!-- text-card  -->
       </modal>
-
-      <div class="progress-bar">
-        <progress-bar
-          :snippets="walkpathInProgress.composition"
-          @onBarClicked="onBarClicked"
-        ></progress-bar>
-      </div>
-      <duration
-        :total="walkpathInProgress.duration"
-        :passed="durationPassed"
-        :with-remaining="true"
-        :class="duration"
-      ></duration>
     </article>
     <!-- close  -->
 
@@ -382,6 +374,10 @@ export default {
   margin-top: 30px;
 }
 
+.progress {
+  margin-bottom: 10px;
+}
+
 .audio-text-buttons-container {
   position: relative;
   display: flex;
@@ -394,7 +390,6 @@ export default {
   border-radius: var(--border-radius-butt);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
   background-color: white;
-  border: 2px solid var(--wdarkpink);
   justify-content: space-around;
   margin: 3px 12px;
   padding: 2px 6vw;
