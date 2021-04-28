@@ -123,9 +123,9 @@
     <!-- -- -->
 
     <div class="margin">
-      <button @click="exit()">
-        <BaseIcon alt="Exit" name="exit" />
-      </button>
+      <NuxtLink nuxt-link to="/meditations">
+        <BaseIcon id="prev" alt="zurück" name="prev" />
+      </NuxtLink>
     </div>
   </section>
 </template>
@@ -406,6 +406,14 @@ export default {
   &.icon {
     // height: 35px;
     // width: 35px;
+    align-self: center;
+    --color-i: var(--wdarkpink);
+    cursor: pointer;
+  }
+}
+
+.icon {
+  &.icon {
     align-self: center;
     --color-i: var(--wdarkpink);
     cursor: pointer;
