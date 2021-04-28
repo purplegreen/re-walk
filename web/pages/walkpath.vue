@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="all-wrapper">
     <article class="upper-wrapper">
       <div class="progress-bar">
         <progress-bar
@@ -122,11 +122,9 @@
     </div>
     <!-- -- -->
 
-    <div class="margin">
-      <NuxtLink nuxt-link to="/meditations">
-        <BaseIcon id="prev" alt="zurück" name="prev" />
-      </NuxtLink>
-    </div>
+    <NuxtLink nuxt-link to="/meditations">
+      <BaseIcon id="prev" class="baseline" alt="zurück" name="prev" />
+    </NuxtLink>
   </section>
 </template>
 
@@ -357,6 +355,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.all-wrapper {
+  height: 98vh;
+  position: relative;
+}
+.baseline {
+  position: absolute;
+  bottom: 0.3rem;
+}
 .margin {
   margin: 20px;
 }
@@ -412,7 +418,7 @@ export default {
   }
 }
 
-.icon {
+#prev {
   &.icon {
     align-self: center;
     --color-i: var(--wdarkpink);

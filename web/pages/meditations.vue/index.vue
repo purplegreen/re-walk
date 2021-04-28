@@ -69,9 +69,9 @@
               :asset-id="snippet.mainImage.asset._ref"
               class="modal-image"
             />
-            <p class="text-content">
+            <h6 class="text-content">
               <SanityContent :blocks="snippet.shortText" />
-            </p>
+            </h6>
 
             <!-- REMOVE -->
             <span
@@ -195,10 +195,6 @@ export default {
   justify-content: center;
 }
 
-.duration {
-  display: none;
-}
-
 .wrap-title {
   position: relative;
   width: 90vw;
@@ -214,44 +210,19 @@ export default {
   margin: 7px 0 4px 0;
 }
 
-.slide-enter-active {
-  transition: 0.2s opacity ease;
-}
-
-.slide-leave-active {
-  transition: 0.2s opacity ease;
-  -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
-.slide-enter-to,
-.slide-leave {
-  max-height: 300px;
-  overflow: hidden;
-}
-
-.slide-enter,
-.slide-leave-to {
-  overflow: hidden;
-  max-height: 0;
-}
-
 .snippets {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: self-start;
+  justify-content: space-evenly;
+  align-items: center;
   border-radius: var(--border-radius);
   border: 1px solid white;
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  margin-bottom: 17px;
   max-width: 414px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  height: 98vh;
+  max-height: 800px;
   background-image: url('../../static/back.svg');
   background-color: var(--wbeige);
   border: 3px solid white;
@@ -288,8 +259,8 @@ export default {
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  margin: 16px 6px;
-  padding: 22px;
+  margin: 0.3rem;
+  padding: 0.5rem;
   background-color: white;
   opacity: 0.6;
   transition: 0.3s;
@@ -399,32 +370,26 @@ export default {
 
 .infoModalBackground {
   position: relative;
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 100%;
   overflow: scroll;
-  padding: 2rem;
+  height: 100%;
 }
 
 .infoBody {
-  display: flex;
+  position: relative;
   text-align: left;
-  height: 90%;
+  padding: 1.3rem;
 }
 
 .close-box {
-  display: flex;
-  flex-direction: row-reverse;
-  align-self: baseline;
+  position: relative;
   width: 100%;
+  padding-top: 5px;
+  bottom: 0px;
 }
 
 .closeInfo {
-  align-self: flex-end;
   width: 50px;
   height: 50px;
-  padding-top: 5px;
-  margin-bottom: 10px;
 }
 </style>

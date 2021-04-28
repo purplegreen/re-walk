@@ -3,6 +3,11 @@
     <div v-if="loading" class="loading">Loading...</div>
     <div v-if="error" class="error">{{ error }}</div>
     <section>
+      <a
+        href="https://www.urbanekuensteruhr.de/de#/detail/kuenstler/deborah-ligorio"
+        class="credits"
+        ><h2>Urbane Künste Ruhr</h2></a
+      >
       <p v-if="loading == false" id="block-content">
         <block-content :blocks="about.body" :serializers="{ serializers }" />
 
@@ -91,6 +96,12 @@ main {
   font-size: 1rem;
 }
 
+.credits h2 {
+  margin-top: 65px;
+  text-align: left;
+  margin-left: 1rem;
+}
+
 section {
   width: 100vw;
   max-width: 414px;
@@ -98,10 +109,9 @@ section {
 }
 
 #block-content {
-  margin-top: 15vh;
+  margin: 2rem 1.2rem;
   width: 90%;
-  margin-left: 17px;
-  margin-right: 17px;
+
   text-align: left;
 }
 
