@@ -41,7 +41,7 @@
         />
 
         <!-- TEXT BUTTON -->
-        <BaseButton
+        <!-- <BaseButton
           class="the-button"
           :class="{ selected: mode === 'text' }"
           @click="
@@ -50,7 +50,7 @@
           "
         >
           <BaseIcon id="go" alt="Text" name="text" />
-        </BaseButton>
+        </BaseButton> -->
       </div>
 
       <!-- text modal  -->
