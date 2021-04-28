@@ -19,41 +19,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.logo {
-  padding-left: 20px;
-  padding-top: 40px;
-  width: 70px;
-  height: auto;
-}
-
-.brand {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  font-size: 1.5em;
-  text-decoration: none;
-}
-
-nav {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  width: 260px;
-  border-radius: var(--border-radius);
-  border: 2px solid black;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-nav a:hover {
-  color: black;
-  text-decoration: underline;
-  text-decoration-thickness: from-font;
-  cursor: pointer;
-}
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -64,31 +29,21 @@ nav a:hover {
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   z-index: 900;
 }
-
-.nav .nav-item {
-  box-sizing: border-box;
-  margin: 0 5px;
-  color: rgba(0, 0, 0, 0.5);
-  text-decoration: none;
-}
-.nav .nav-item.router-link-exact-active {
-  color: var(--wyellow);
-  border-bottom: solid 2px var(--wgreen);
-}
-.nav a {
-  display: inline-block;
+.logo {
+  margin-top: 5px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  padding-left: 14px;
 }
 
-.lateral-nav-ico {
-  padding-left: 10px;
-}
-
-#lat-nav.icon {
-  --color-i: var(--wdarkpink);
-}
+// #lat-nav.icon {
+//   --color-i: var(--wdarkpink);
+// }
 
 .icon {
   &.icon {
+    margin-top: 5px;
     width: 60px;
     height: 60px;
     cursor: pointer;

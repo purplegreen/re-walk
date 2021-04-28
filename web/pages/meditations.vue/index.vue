@@ -28,7 +28,7 @@
       <div class="snippets">
         <progress-bar :snippets="customWalkpath.composition"></progress-bar>
         <div class="wrap-title">
-          <h4 class="list-title">Wähle merere Teile für deinen Weg</h4>
+          <h4 class="list-title">Wähle die Etappen (+) und gehe los (>)</h4>
         </div>
 
         <!-- SNIPPET -->
