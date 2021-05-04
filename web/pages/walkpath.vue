@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="all-wrapper">
     <article class="upper-wrapper">
       <div class="progress-bar">
         <progress-bar
@@ -41,7 +41,7 @@
         />
 
         <!-- TEXT BUTTON -->
-        <BaseButton
+        <!-- <BaseButton
           class="the-button"
           :class="{ selected: mode === 'text' }"
           @click="
@@ -50,7 +50,7 @@
           "
         >
           <BaseIcon id="go" alt="Text" name="text" />
-        </BaseButton>
+        </BaseButton> -->
       </div>
 
       <!-- text modal  -->
@@ -122,11 +122,9 @@
     </div>
     <!-- -- -->
 
-    <div class="margin">
-      <button @click="exit()">
-        <BaseIcon alt="Exit" name="exit" />
-      </button>
-    </div>
+    <NuxtLink nuxt-link to="/meditations">
+      <BaseIcon id="prev" class="baseline" alt="zurück" name="prev" />
+    </NuxtLink>
   </section>
 </template>
 
@@ -357,6 +355,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.all-wrapper {
+  height: 86vh;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+}
+.baseline {
+  margin-top: 2vh;
+}
 .margin {
   margin: 20px;
 }
@@ -391,7 +399,7 @@ export default {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
   background-color: white;
   justify-content: space-around;
-  margin: 3px 12px;
+  margin: 2vh 3vw 0.1vh;
   padding: 2px 6vw;
   cursor: pointer;
 }
@@ -406,6 +414,14 @@ export default {
   &.icon {
     // height: 35px;
     // width: 35px;
+    align-self: center;
+    --color-i: var(--wdarkpink);
+    cursor: pointer;
+  }
+}
+
+#prev {
+  &.icon {
     align-self: center;
     --color-i: var(--wdarkpink);
     cursor: pointer;

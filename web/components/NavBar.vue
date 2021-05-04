@@ -23,6 +23,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 414px;
   height: 50px;
   border: 1px solid var(--border-color);
   background-color: whitesmoke;

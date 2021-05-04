@@ -25,72 +25,82 @@
         </div>
       </modal>
 
-      <div class="snippets">
-        <progress-bar :snippets="customWalkpath.composition"></progress-bar>
-        <div class="wrap-title">
-          <h4 class="list-title">Wähle die Etappen (+) und gehe los (>)</h4>
-        </div>
+      <div class="wrap-snippets">
+        <div class="snippets">
+          <progress-bar :snippets="customWalkpath.composition"></progress-bar>
+          <div class="wrap-title">
+            <h4 class="list-title">
+              Stelle deine meditationsreise zusammen und und gehe los
+            </h4>
+          </div>
 
-        <!-- SNIPPET -->
+          <!-- SNIPPET -->
 
-        <div class="snippets-list">
-          <BaseButton
-            v-for="snippet of snippets"
-            id="root"
-            ref="snippet"
-            :key="snippet._id"
-            :style="isSnippetSelectedColor(snippet)"
-            class="snippet"
-            :class="{ selected: isSnippetSelected(snippet) }"
-          >
-            <div>
-              <!-- ADD -->
+          <div class="snippets-list">
+            <BaseButton
+              v-for="snippet of snippets"
+              id="root"
+              ref="snippet"
+              :key="snippet._id"
+              :style="isSnippetSelectedColor(snippet)"
+              class="snippet"
+              :class="{ selected: isSnippetSelected(snippet) }"
+            >
+              <div>
+                <!-- ADD -->
+                <span
+                  v-if="isSnippetSelected(snippet)"
+                  slot="icon"
+                  class="modal-button-ar"
+                >
+                  <BaseIcon id="check" alt="Check  snippet" name="check" />
+                </span>
+                <span
+                  v-else
+                  class="modal-button-ar insert"
+                  @click="add(snippet)"
+                >
+                  <BaseIcon id="add" alt="Add snippet" name="add" />
+                </span>
+                <!-- ADD CLOSE-->
+              </div>
+              <div class="snippet-title">
+                <h2>
+                  {{ snippet.title }}
+                </h2>
+              </div>
+              <SanityImage
+                v-if="snippet.mainImage"
+                project-id="0hyezyzt"
+                auto="format"
+                :asset-id="snippet.mainImage.asset._ref"
+                class="modal-image"
+              />
+              <div class="text-content">
+                <h6>
+                  <SanityContent :blocks="snippet.shortText" />
+                </h6>
+              </div>
+
+              <!-- REMOVE -->
               <span
                 v-if="isSnippetSelected(snippet)"
                 slot="icon"
                 class="modal-button-ar"
+                @click="remove(snippet)"
               >
-                <BaseIcon id="check" alt="Check  snippet" name="check" />
+                <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
               </span>
-              <span v-else class="modal-button-ar insert" @click="add(snippet)">
-                <BaseIcon id="add" alt="Add snippet" name="add" />
-              </span>
-              <!-- ADD CLOSE-->
-            </div>
-            <div class="snippet-title">
-              <h2>
-                {{ snippet.title }}
-              </h2>
-            </div>
-            <SanityImage
-              v-if="snippet.mainImage"
-              project-id="0hyezyzt"
-              auto="format"
-              :asset-id="snippet.mainImage.asset._ref"
-              class="modal-image"
-            />
-            <p class="text-content">
-              <SanityContent :blocks="snippet.shortText" />
-            </p>
+              <!-- REMOVE END-->
+            </BaseButton>
 
-            <!-- REMOVE -->
-            <span
-              v-if="isSnippetSelected(snippet)"
-              slot="icon"
-              class="modal-button-ar"
-              @click="remove(snippet)"
-            >
-              <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
-            </span>
-            <!-- REMOVE END-->
-          </BaseButton>
-
-          <!-- SNIPPET CLOSING -->
-        </div>
-        <div class="wrap-button">
-          <button :disabled="!isWalkpathReady" class="" @click="start">
-            <BaseIcon id="start" alt="Start Walk" name="next" />
-          </button>
+            <!-- SNIPPET CLOSING -->
+          </div>
+          <div class="wrap-button">
+            <button :disabled="!isWalkpathReady" class="" @click="start">
+              <BaseIcon id="start" alt="Start Walk" name="next" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -195,10 +205,6 @@ export default {
   justify-content: center;
 }
 
-.duration {
-  display: none;
-}
-
 .wrap-title {
   position: relative;
   width: 90vw;
@@ -211,50 +217,37 @@ export default {
   width: 100%;
   border-radius: var(--border-radius);
   background-color: var(--wbeige);
+  padding: 1.2rem 0.8rem;
   margin: 7px 0 4px 0;
 }
 
-.slide-enter-active {
-  transition: 0.2s opacity ease;
+h4.list-title {
+  line-height: 1.3rem;
+  font-size: 1rem;
+  text-align: left;
 }
 
-.slide-leave-active {
-  transition: 0.2s opacity ease;
-  -moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  -webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  -o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-}
-
-.slide-enter-to,
-.slide-leave {
-  max-height: 300px;
-  overflow: hidden;
-}
-
-.slide-enter,
-.slide-leave-to {
-  overflow: hidden;
-  max-height: 0;
+.wrap-snippets {
+  max-width: 414px;
+  height: 100vh;
+  max-height: 800px;
+  border-radius: var(--border-radius);
+  -webkit-box-shadow: 0px 6px 9px -7px #000000,
+    5px 5px 15px 5px rgba(0, 0, 0, 0);
+  box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  background-image: url('../../static/back.svg');
+  background-color: var(--wbeige);
+  border: 3px solid white;
 }
 
 .snippets {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: self-start;
-  border-radius: var(--border-radius);
-  border: 1px solid white;
-  -webkit-box-shadow: 0px 6px 9px -7px #000000,
-    5px 5px 15px 5px rgba(0, 0, 0, 0);
-  box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  margin-bottom: 17px;
+  justify-content: space-evenly;
+  align-items: flex-start;
   max-width: 414px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-image: url('../../static/back.svg');
-  background-color: var(--wbeige);
-  border: 3px solid white;
+  height: 86vh;
+  max-height: 800px;
 }
 
 .snippets-list {
@@ -262,7 +255,7 @@ export default {
   flex-direction: row;
   flex-wrap: nowrap;
   overflow-x: scroll;
-  border-radius: var(--border-radius);
+  border-radius: 16px;
   background-color: var(--wbeige);
   border: 3px solid white;
   // &::-webkit-scrollbar {
@@ -288,8 +281,8 @@ export default {
   -webkit-box-shadow: 0px 6px 9px -7px #000000,
     5px 5px 15px 5px rgba(0, 0, 0, 0);
   box-shadow: 0px 6px 9px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-  margin: 16px 6px;
-  padding: 22px;
+  margin: 0.3rem;
+  padding: 0.5rem;
   background-color: white;
   opacity: 0.6;
   transition: 0.3s;
@@ -321,10 +314,6 @@ export default {
 }
 .snippet:focus {
   outline: 0;
-}
-
-.snippet-modal-content {
-  padding: 10px 16px 30px 16px;
 }
 
 .snippet-title {
@@ -397,34 +386,32 @@ export default {
   text-align: left;
 }
 
+.text-content {
+  border-bottom: 0.3rem;
+}
+
 .infoModalBackground {
   position: relative;
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 100%;
   overflow: scroll;
-  padding: 2rem;
+  height: 100%;
 }
 
 .infoBody {
-  display: flex;
+  position: relative;
   text-align: left;
-  height: 90%;
+  padding: 1.3rem;
 }
 
 .close-box {
-  display: flex;
-  flex-direction: row-reverse;
-  align-self: baseline;
+  position: relative;
   width: 100%;
+  padding-top: 5px;
+  bottom: 0px;
 }
 
 .closeInfo {
-  align-self: flex-end;
   width: 50px;
   height: 50px;
-  padding-top: 5px;
-  margin-bottom: 10px;
 }
 </style>

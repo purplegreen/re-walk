@@ -91,6 +91,12 @@ main {
   font-size: 1rem;
 }
 
+.credits h2 {
+  margin-top: 65px;
+  text-align: left;
+  margin-left: 1rem;
+}
+
 section {
   width: 100vw;
   max-width: 414px;
@@ -98,10 +104,9 @@ section {
 }
 
 #block-content {
-  margin-top: 15vh;
+  margin: 3rem 1.2rem;
   width: 90%;
-  margin-left: 17px;
-  margin-right: 17px;
+
   text-align: left;
 }
 
