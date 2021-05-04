@@ -52,8 +52,9 @@
                   v-if="isSnippetSelected(snippet)"
                   slot="icon"
                   class="modal-button-ar"
+                  @click="remove(snippet)"
                 >
-                  <BaseIcon id="check" alt="Check  snippet" name="check" />
+                  <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
                 </span>
                 <span
                   v-else
@@ -87,13 +88,15 @@
                 v-if="isSnippetSelected(snippet)"
                 slot="icon"
                 class="modal-button-ar"
-                @click="remove(snippet)"
               >
-                <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
+                <BaseIcon id="check" alt="Check  snippet" name="check" />
               </span>
               <!-- REMOVE END-->
-            </BaseButton>
 
+              <span v-else>
+                <BaseIcon id="check-off" alt="Check  snippet" name="check" />
+              </span>
+            </BaseButton>
             <!-- SNIPPET CLOSING -->
           </div>
           <div class="wrap-button">
@@ -291,7 +294,6 @@ h4.list-title {
 }
 
 .selected {
-  border: 1px solid var(--wverdefluoa);
   opacity: 1;
 
   &#add-small.icon {
