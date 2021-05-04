@@ -52,8 +52,9 @@
                   v-if="isSnippetSelected(snippet)"
                   slot="icon"
                   class="modal-button-ar"
+                  @click="remove(snippet)"
                 >
-                  <BaseIcon id="check" alt="Check  snippet" name="check" />
+                  <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
                 </span>
                 <span
                   v-else
@@ -87,9 +88,8 @@
                 v-if="isSnippetSelected(snippet)"
                 slot="icon"
                 class="modal-button-ar"
-                @click="remove(snippet)"
               >
-                <BaseIcon id="remove" alt="Remove  snippet" name="remove" />
+                <BaseIcon id="check" alt="Check  snippet" name="check" />
               </span>
               <!-- REMOVE END-->
             </BaseButton>
