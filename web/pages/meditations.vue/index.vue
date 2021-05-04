@@ -19,7 +19,7 @@
 
           <div class="close-box">
             <button class="infoModalClose" @click="$modal.hide('infoModal')">
-              <BaseIcon class="closeInfo" name="next" />
+              <BaseIcon class="closeInfo" name="close" />
             </button>
           </div>
         </div>
@@ -432,10 +432,9 @@ h4.list-title {
 }
 
 .close-box {
-  position: relative;
-  width: 100%;
-  padding-top: 5px;
-  bottom: 0px;
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.7rem;
 }
 
 .closeInfo {

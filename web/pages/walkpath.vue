@@ -122,9 +122,9 @@
     </div>
     <!-- -- -->
 
-    <NuxtLink nuxt-link to="/meditations">
+    <!-- <NuxtLink nuxt-link to="/meditations">
       <BaseIcon id="prev" class="baseline" alt="zurück" name="prev" />
-    </NuxtLink>
+    </NuxtLink> -->
   </section>
 </template>
 
