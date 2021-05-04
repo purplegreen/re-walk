@@ -92,8 +92,11 @@
                 <BaseIcon id="check" alt="Check  snippet" name="check" />
               </span>
               <!-- REMOVE END-->
-            </BaseButton>
 
+              <span v-else>
+                <BaseIcon id="check-off" alt="Check  snippet" name="check" />
+              </span>
+            </BaseButton>
             <!-- SNIPPET CLOSING -->
           </div>
           <div class="wrap-button">
@@ -291,7 +294,6 @@ h4.list-title {
 }
 
 .selected {
-  border: 1px solid var(--wverdefluoa);
   opacity: 1;
 
   &#add-small.icon {
