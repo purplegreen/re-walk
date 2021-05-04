@@ -31,6 +31,8 @@ button {
   align-self: center;
 }
 
+
+
 #add.icon, 
 #remove.icon {
     width: 1.9rem;
@@ -39,13 +41,16 @@ button {
 }
 
 
+
 #remove.icon:hover {
   --color-i: #0485a0
 }
 
-#remove.icon {
-  --color-i: var(--wblue);
+#add.icon:hover {
+  --color-i: var(--wverdefluoa); 
 }
+  
+
 
 #start.icon {
   --color-i: white;
@@ -53,17 +58,20 @@ button {
 
 
 #check.icon { 
-  cursor: auto; --color-i: var(--wverdefluoa); 
-  width: 3rem; 
-  height: 3rem; 
+  cursor: auto;
+   --color-i: var(--wverdefluoa); 
+  width: 2.5rem; 
+  height: 2.5rem; 
   padding: 0.3rem;
 }
+
+
 
 #check-off.icon {
   cursor: auto;
 --color-i: white;
-width: 3rem;
-height: 3rem;
+width: 2.5rem; 
+height: 2.5rem; 
 padding: 0.3rem;
 }
 

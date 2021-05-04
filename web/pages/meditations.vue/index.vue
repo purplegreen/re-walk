@@ -100,6 +100,7 @@
             <!-- SNIPPET CLOSING -->
           </div>
           <div class="wrap-button">
+            <h6 id="button-caption">gehe los</h6>
             <button :disabled="!isWalkpathReady" class="" @click="start">
               <BaseIcon id="start" alt="Start Walk" name="next" />
             </button>
@@ -295,14 +296,6 @@ h4.list-title {
 
 .selected {
   opacity: 1;
-
-  &#add-small.icon {
-    color: var(--hello);
-  }
-
-  &#check-small.icon {
-    color: var(--wnightlila);
-  }
 }
 
 .snippet:hover {
@@ -327,12 +320,45 @@ h4.list-title {
   justify-content: center;
 }
 
+.wrap-button {
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--border-radius-butt);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 13%);
+  background-color: white;
+  justify-content: space-around;
+  padding: 0.2rem 1rem 0;
+  cursor: pointer;
+  align-items: center;
+  align-content: center;
+}
+
+.wrap-button:hover #button-caption {
+  color: white;
+}
+.wrap-button:hover #start.icon {
+  --color-i: white;
+}
+
+.wrap-button:hover {
+  background-color: var(--wblue);
+}
+
 #start.icon {
-  --color-i: var(--wdarkpink);
+  --color-i: var(--wblue);
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .start-button {
-  color: var(--wdarkpink);
+  --color-i: var(--wblue);
+}
+
+#button-caption {
+  color: var(--wblue);
+}
+#button-caption:hover {
+  color: white;
 }
 
 /*In MODAL */
