@@ -356,12 +356,14 @@ export default {
 
 <style lang="scss" scoped>
 .all-wrapper {
-  height: 98vh;
+  height: 86vh;
   position: relative;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
 }
 .baseline {
-  position: absolute;
-  bottom: 0.3rem;
+  margin-top: 2vh;
 }
 .margin {
   margin: 20px;
@@ -397,7 +399,7 @@ export default {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
   background-color: white;
   justify-content: space-around;
-  margin: 3px 12px;
+  margin: 2vh 3vw 0.1vh;
   padding: 2px 6vw;
   cursor: pointer;
 }

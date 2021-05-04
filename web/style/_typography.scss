@@ -19,10 +19,11 @@ h3,
 h4,
 h5,
 h6 {
-  display: flex;
-  align-items: center;
   font-family: 'Barlow', sans-serif;
 }
+
+
+
 
 h1 {
   font-size: 32px;
@@ -36,10 +37,13 @@ h2 {
 
 h3 {
   font-size: 1.4rem;
+  p {
+    line-height: 1.4rem;
+   }
 }
 
 h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 h5 {
@@ -51,12 +55,13 @@ h5 {
 h6 {
   font-size: 0.7rem;
   font-weight: 600;
+  line-height: 0.9rem;
+  p {
+    line-height: 0.9rem;
+   }
 }
 
 
-  p {
-     margin-bottom: 1.5rem;
-    }
 
 
 b,
