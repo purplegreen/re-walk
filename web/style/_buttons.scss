@@ -33,17 +33,21 @@ button {
 
 
 
-#add.icon, 
 #remove.icon {
     width: 1.9rem;
     height: 1.9rem;
-  --color-i: var(--wblue);
+  --color-i: var(--wgray);
+}
+
+#add.icon {
+    width: 1.9rem;
+    height: 1.9rem;
+  --color-i: var(--wverdefluo);
 }
 
 
-
 #remove.icon:hover {
-  --color-i: #0485a0
+  --color-i: var(--wdgray); 
 }
 
 #add.icon:hover {

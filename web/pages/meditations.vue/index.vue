@@ -29,9 +29,9 @@
         <div class="snippets">
           <progress-bar :snippets="customWalkpath.composition"></progress-bar>
           <div class="wrap-title">
-            <h4 class="list-title">
+            <h6 class="list-title">
               Stelle deine meditationsreise zusammen und und gehe los
-            </h4>
+            </h6>
           </div>
 
           <!-- SNIPPET -->
@@ -220,15 +220,15 @@ export default {
   justify-content: center;
   width: 100%;
   border-radius: var(--border-radius);
-  background-color: var(--wbeige);
-  padding: 1.2rem 0.8rem;
-  margin: 7px 0 4px 0;
+  background-color: white;
+  padding: 2vw 1vh;
+  margin: 3px 0 3px 0;
 }
 
-h4.list-title {
-  line-height: 1.3rem;
-  font-size: 1rem;
+h6.list-title {
   text-align: left;
+  font-weight: bold;
+  color: #705b7c;
 }
 
 .wrap-snippets {
@@ -250,7 +250,7 @@ h4.list-title {
   justify-content: space-evenly;
   align-items: flex-start;
   max-width: 414px;
-  height: 86vh;
+  // height: 86vh;
   max-height: 800px;
 }
 
@@ -341,21 +341,21 @@ h4.list-title {
 }
 
 .wrap-button:hover {
-  background-color: var(--wblue);
+  background-color: var(--wdarkpink);
 }
 
 #start.icon {
-  --color-i: var(--wblue);
+  --color-i: var(--wdarkpink);
   width: 2.5rem;
   height: 2.5rem;
 }
 
 .start-button {
-  --color-i: var(--wblue);
+  --color-i: var(--wdarkpink);
 }
 
 #button-caption {
-  color: var(--wblue);
+  color: var(--wdarkpink);
 }
 #button-caption:hover {
   color: white;
