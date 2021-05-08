@@ -90,10 +90,10 @@ export default {
   border-radius: var(--border-radius);
   background-color: whitesmoke;
   opacity: 0.7;
-  height: 14vh;
+  height: 10vh;
   width: 99%;
   margin: auto;
-  margin-top: 3.5rem;
+  margin-top: 3.7rem;
 }
 
 .progress-overlay {

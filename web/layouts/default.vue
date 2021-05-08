@@ -17,9 +17,10 @@ export default {
     titleTemplate: '%s - Guided Walk', // <-- title template
     meta: [
       {
-        hid: 'description',
-        name: 'description', // <-- moved this over from index.vue
-        content: 'customize your walk meditation',
+        hid: 'Guided Walk',
+        name: 'meditationsreise', // <-- moved this over from index.vue
+        content:
+          'Take your Time. A multi-path walk for observations on ecology and vulnerability',
       },
     ],
   },

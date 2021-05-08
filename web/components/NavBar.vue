@@ -27,6 +27,7 @@ export default {
   height: 50px;
   border: 1px solid var(--border-color);
   background-color: whitesmoke;
+  opacity: 0.9;
   box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
   z-index: 900;
 }

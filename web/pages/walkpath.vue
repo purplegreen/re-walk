@@ -7,102 +7,37 @@
           @onBarClicked="onBarClicked"
         ></progress-bar>
       </div>
-
-      <div class="audio-text-buttons-container">
-        <!-- AUDIO BUTTON -->
-
-        <BaseButton class="the-button">
-          <span
-            v-if="isWalkpathRunning"
-            id="the-button"
-            slot="icon"
-            @click="stop()"
-          >
-            <BaseIcon id="go" alt="Stop" name="stop" />
-          </span>
-
-          <span
-            v-else
-            slot="icon"
-            :class="{ selected: mode === 'audio' }"
-            @click="start()"
-          >
-            <BaseIcon id="go" alt="Sound" name="sound" />
-          </span>
-        </BaseButton>
-        <!-- --  -->
-        <!-- IMAGE  -->
-        <SanityImage
-          v-if="snippetInProgress.locationImage"
-          project-id="0hyezyzt"
-          auto="format"
-          :asset-id="snippetInProgress.locationImage.asset._ref"
-          class="back-img"
-        />
-
-        <!-- TEXT BUTTON -->
-        <!-- <BaseButton
-          class="the-button"
-          :class="{ selected: mode === 'text' }"
-          @click="
-            selectMode('text')
-            showModal2()
-          "
+      <!-- AUDIO BUTTON -->
+      <button class="all-button">
+        <span
+          v-if="isWalkpathRunning"
+          id="button-icon"
+          slot="icon"
+          @click="stop()"
         >
-          <BaseIcon id="go" alt="Text" name="text" />
-        </BaseButton> -->
-      </div>
-
-      <!-- text modal  -->
-      <modal
-        name="textModal"
-        :min-height="570"
-        transition="nice-modal-fade"
-        :adaptive="true"
-      >
-        <div class="text-card">
-          <div class="side-el">
-            <button @click="$modal.hide('textModal')">
-              <BaseIcon alt="Close" name="close" />
-            </button>
-          </div>
-
-          <div class="text-content">
-            <h2>
-              {{ snippetInProgress.title }}
-            </h2>
-            <div class="body-wrapper">
-              <h4>
-                <SanityContent :blocks="snippetInProgress.body" />
-              </h4>
-            </div>
-          </div>
-          <div v-if="walkpathInProgress.composition.length > 1">
-            <div class="low-btn">
-              <button
-                :disabled="indexOfLastPlayedSnippet == 0"
-                @click="previousSnippet"
-              >
-                <BaseIcon alt="Previous" name="prev" />
-              </button>
-              <button
-                :disabled="
-                  indexOfLastPlayedSnippet + 1 ==
-                  walkpathInProgress.composition.length
-                "
-                @click="nextSnippet"
-              >
-                <BaseIcon alt="Next" name="next" />
-              </button>
-            </div>
-            <!-- close low-btn  -->
-          </div>
-          <!-- close v-if  -->
-        </div>
-        <!-- text-card  -->
-      </modal>
+          <h6 id="button-caption">Pause</h6>
+          <BaseIcon id="pause" alt="Stop" name="stop" />
+        </span>
+        <span
+          v-else
+          slot="icon"
+          :class="{ selected: mode === 'audio' }"
+          @click="start()"
+        >
+          <h6 id="button-caption">Audio Starten</h6>
+          <BaseIcon id="go" alt="Sound" name="sound" />
+        </span>
+      </button>
+      <!-- --  -->
+      <!-- IMAGE  -->
+      <SanityImage
+        v-if="snippetInProgress.locationImage"
+        project-id="0hyezyzt"
+        auto="format"
+        :asset-id="snippetInProgress.locationImage.asset._ref"
+        class="back-img"
+      />
     </article>
-    <!-- close  -->
 
     <!-- MAP -->
     <div class="map">
@@ -120,11 +55,6 @@
       >
       </map-component>
     </div>
-    <!-- -- -->
-
-    <!-- <NuxtLink nuxt-link to="/meditations">
-      <BaseIcon id="prev" class="baseline" alt="zurück" name="prev" />
-    </NuxtLink> -->
   </section>
 </template>
 
@@ -355,6 +285,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.upper-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
 .all-wrapper {
   height: 86vh;
   position: relative;
@@ -362,109 +298,64 @@ export default {
   display: flex;
   justify-content: space-between;
 }
-.baseline {
-  margin-top: 2vh;
-}
-.margin {
-  margin: 20px;
-}
 
-.upper-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.back-img {
-  width: 380px;
-  height: auto;
-  margin: auto;
-  margin-top: 30px;
-}
-
-.progress {
-  margin-bottom: 10px;
-}
-
-.audio-text-buttons-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.the-button {
-  display: flex;
-  border-radius: 22px;
-  border-radius: var(--border-radius-butt);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
+.all-button {
+  width: 160px;
+  height: 80px;
+  align-self: center;
+  margin: 1rem;
   background-color: white;
-  justify-content: space-around;
-  margin: 2vh 3vw 0.1vh;
-  padding: 2px 6vw;
-  cursor: pointer;
+  border-radius: 18px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.13);
+}
+.all-button:hover {
+  background-color: var(--wdarkpink);
 }
 
-.caption-btn {
-  display: flex;
-  padding: 3px 2vw;
-  color: white;
+#go.icon-colors {
+  --color-i: var(--wdarkpink);
 }
 
-#go {
-  &.icon {
-    // height: 35px;
-    // width: 35px;
-    align-self: center;
-    --color-i: var(--wdarkpink);
-    cursor: pointer;
+#button-icon {
+  #go {
+    &.icon {
+      align-self: center;
+      --color-i: var(--wdarkpink);
+      cursor: pointer;
+    }
+  }
+  #pause {
+    &.icon {
+      align-self: center;
+      --color-i: var(--wdarkpink);
+      cursor: pointer;
+    }
+  }
+  #pause {
+    &.icon-colors:hover {
+      --color-i: white;
+    }
   }
 }
 
-#prev {
-  &.icon {
-    align-self: center;
-    --color-i: var(--wdarkpink);
-    cursor: pointer;
+h6#button-caption {
+  align-self: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.3rem;
+  width: auto;
+  color: var(--wdarkpink);
+}
+
+.all-button:hover {
+  &.all-button:hover #button-caption {
+    color: white;
   }
-}
-
-.duration {
-  display: none;
-}
-
-// in modal
-
-.text-btn {
-  padding-left: 1px;
-}
-
-.text-card {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  height: 100%;
-  overflow: scroll;
-}
-
-.side-el {
-  align-self: flex-end;
-}
-
-.text-content {
-  height: 80%;
-  overflow: scroll;
-  padding-left: 1.4rem;
-  padding-right: 1.4rem;
-}
-
-.body-wrapper {
-  height: 100%;
-  text-align: left;
-  padding: 3px;
-}
-
-.low-btn {
-  margin: auto;
-  align-self: baseline;
+  &.all-button:hover #go.icon {
+    --color-i: white;
+  }
+  &.all-button:hover #pause.icon {
+    --color-i: white;
+  }
 }
 </style>

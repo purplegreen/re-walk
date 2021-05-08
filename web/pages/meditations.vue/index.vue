@@ -10,14 +10,12 @@
         :adaptive="true"
         name="infoModal"
         :click-to-close="false"
-        :min-height="530"
+        :min-height="490"
       >
         <div class="infoModalBackground">
           <div class="infoBody">
             <Info :key="info._id"></Info>
-          </div>
 
-          <div class="close-box">
             <button class="infoModalClose" @click="$modal.hide('infoModal')">
               <BaseIcon class="closeInfo" name="close" />
             </button>
@@ -29,9 +27,9 @@
         <div class="snippets">
           <progress-bar :snippets="customWalkpath.composition"></progress-bar>
           <div class="wrap-title">
-            <h6 class="list-title">
-              Stelle deine meditationsreise zusammen und und gehe los
-            </h6>
+            <h2 class="list-title">
+              Stelle deine Meditationsreise zusammen und gehe los
+            </h2>
           </div>
 
           <!-- SNIPPET -->
@@ -65,11 +63,7 @@
                 </span>
                 <!-- ADD CLOSE-->
               </div>
-              <div class="snippet-title">
-                <h2>
-                  {{ snippet.title }}
-                </h2>
-              </div>
+
               <SanityImage
                 v-if="snippet.mainImage"
                 project-id="0hyezyzt"
@@ -77,6 +71,11 @@
                 :asset-id="snippet.mainImage.asset._ref"
                 class="modal-image"
               />
+              <div class="snippet-title">
+                <h2>
+                  {{ snippet.title }}
+                </h2>
+              </div>
               <div class="text-content">
                 <h6>
                   <SanityContent :blocks="snippet.shortText" />
@@ -100,7 +99,7 @@
             <!-- SNIPPET CLOSING -->
           </div>
           <div class="wrap-button">
-            <h6 id="button-caption">gehe los</h6>
+            <h6 id="button-caption">Gehe los</h6>
             <button :disabled="!isWalkpathReady" class="" @click="start">
               <BaseIcon id="start" alt="Start Walk" name="next" />
             </button>
@@ -219,16 +218,14 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
-  border-radius: var(--border-radius);
-  background-color: white;
-  padding: 2vw 1vh;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 1.6vh 2vw;
   margin: 3px 0 3px 0;
 }
 
-h6.list-title {
+.list-title {
   text-align: left;
-  font-weight: bold;
-  color: #705b7c;
+  color: var(--wnightlila);
 }
 
 .wrap-snippets {
@@ -288,7 +285,7 @@ h6.list-title {
   margin: 0.3rem;
   padding: 0.5rem;
   background-color: white;
-  opacity: 0.6;
+  opacity: 0.9;
   transition: 0.3s;
   cursor: pointer;
   // border: 1px solid var(--wblue);
@@ -421,8 +418,8 @@ h6.list-title {
 .infoModalBackground {
   position: relative;
   width: 100%;
-  overflow: scroll;
   height: 100%;
+  overflow: scroll;
 }
 
 .infoBody {
@@ -431,14 +428,16 @@ h6.list-title {
   padding: 1.3rem;
 }
 
-.close-box {
-  position: absolute;
-  right: 0.7rem;
-  bottom: 0.7rem;
+.infoModalClose {
+  float: right;
+  position: relative;
+  width: 100%;
+  bottom: 0;
 }
 
 .closeInfo {
   width: 50px;
   height: 50px;
+  float: right;
 }
 </style>
